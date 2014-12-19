@@ -1,0 +1,29 @@
+body{
+    background: url("/img/124080.jpeg") no-repeat black;
+    color:white;
+    font-size:11px;
+}
+
+#connectWrapper{
+    margin-top:20%;
+    color:white;
+    background:rgba(13, 13, 13, 0.62);
+    border:1px solid #1C1C1C;
+    text-align: center;
+}
+
+.blackelement{
+    background:rgba(13, 13, 13, 0.62);
+        border:1px solid #1C1C1C;
+    border-radius: 1px;
+    padding:15px;
+}
+
+#mismaNav .navbar-inner{
+    border-bottom:1px solid #964516;
+}
+
+
+.table-striped tbody tr:nth-child(2n+1) td, .table-striped tbody tr:nth-child(2n+1) th {
+    background-color: rgba(249, 249, 249, 0.18);
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:panel>
+    <div id="mismaNav" class="navbar navbar-static-top navbar-inverse" style="margin-bottom:15px;">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="row-fluid">
+                    <div class="span2 logo">
+                        <a class="brand" href="/"><img src="img/logo.png" alt="Retour à l'accueil" width="110">
+
+                        </a>
+                    </div>
+                    <div class="span8">
+                        <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav row-fluid">
+                                <li class="nav-holder nav-plot prodPlan" >
+                                    <a href="/prodplan">
+                                        <wicket:message key="prodPlan"/>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <div class="nav-holder">
+                            <div>
+                                <!--<wicket:label wicket:id="name"/>-->
+                                <br/>
+                                <a href="/logout">
+                                    <wicket:message key="logout"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</wicket:panel>
+</body>
+</html>

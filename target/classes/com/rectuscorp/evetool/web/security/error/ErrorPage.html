@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:wicket="http://wicket.apache.org">
+<wicket:head>
+    <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/js/swfobject.js"></script>
+</wicket:head>
+<wicket:extend>
+    <div class="tabpanel">
+        <div class="content">
+            Oups, une erreur est survenue ... Veuillez nous excuser pour le désagrément<br/>
+            Nous avons enregistré le problème et nous allons faire de notre mieux pour résoudre le désagrément.<br />
+            <br />Vous pouvez continuer à utiliser le Wok en <a href="/">cliquant ici</a>
+            <h1>Aidez nous à améliorer le Wok</h1>
+            Nous apprécirions que vous nous fournissiez des informations relatives à ce problème. C'est bien évidemment optionnel <br />
+            <br />
+            <div wicket:id="feedback"></div>
+            <form wicket:id="errorForm">
+                <input type="text" wicket:id="name" /><br />
+                <input type="text" wicket:id="email" /><br />
+                N° d'incident : <span wicket:id="issuenumber"></span><br />
+                <textarea wicket:id="issuefeedback" cols="100" rows="15"></textarea><br />
+                <input type="submit" wicket:id="submit" />
+            </form>
+
+        </div>
+    </div>
+</wicket:extend>
+</html>

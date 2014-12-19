@@ -1,0 +1,68 @@
+package com.rectuscorp.evetool.dao.impl;
+
+import com.rectuscorp.evetool.dao.IdaoRole;
+import com.rectuscorp.evetool.entities.*;
+import org.apache.log4j.Logger;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/*-----------------------------------------------------*/
+/*           _/_/    _/      _/  _/_/_/    _/_/_/  _/  */
+/*        _/    _/  _/_/    _/  _/    _/    _/    _/   */
+/*      _/_/_/_/  _/  _/  _/  _/    _/    _/    _/     */
+/*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
+/*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
+/*                                                     */
+/* User: Rectus for Andil         Date: 21/12/12 11:22 */
+/*                                                     */
+/*                 All right reserved                  */
+/*-----------------------------------------------------*/
+
+@Repository("daoRole")
+public class DaoRole extends GenericDaoHibernate<Role, Long> implements IdaoRole {
+
+    private static final Logger log = Logger.getLogger(DaoRole.class);
+
+    public DaoRole() {
+        super(Role.class);
+    }
+
+
+    public Role getRoleByName(String roleName) {
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Role.class);
+        detachedCriteria.add(Restrictions.eq("name", roleName));
+        List result = getHibernateTemplate().findByCriteria(detachedCriteria);
+        if (result.size() == 0)
+            return null;
+        return (Role) result.get(0);
+
+    }
+
+    public Role getRoleByDesc(String desc) {
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Role.class);
+        detachedCriteria.add(Restrictions.eq("description", desc));
+        List result = getHibernateTemplate().findByCriteria(detachedCriteria);
+        if (result.size() == 0)
+            return null;
+        return (Role) result.get(0);
+
+    }
+
+    public List<Role> getAuthorizedRole(User u) {
+        Role ref = u.getRole();
+        List<Role> out = new ArrayList<Role>();
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Role.class);
+        detachedCriteria.add(Restrictions.ge("weight", ref.getWeight()));
+        List result = getHibernateTemplate().findByCriteria(detachedCriteria);
+        if (result.size() > 0)
+            out.addAll(result);
+        return out;
+
+    }
+
+}
