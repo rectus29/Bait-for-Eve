@@ -14,27 +14,16 @@ package com.rectuscorp.evetool.web.panel.toppanel;
 /*-----------------------------------------------------*/
 
 
-import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceUser;
-import org.apache.wicket.behavior.AttributeAppender;
-import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
+import com.rectuscorp.evetool.web.page.crest.CrestPage;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-
-import java.util.HashMap;
-import java.util.List;
 
 public class TopPanel extends Panel {
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;
 
-
-    private IModel<Integer> bookmarknumber, creditnumber, friendnumber, mailNumber;
-    private WebMarkupContainer bookmark, wallet, friend, store, event, account, mailbox;
 
     public TopPanel(String id) {
         super(id);
@@ -44,10 +33,7 @@ public class TopPanel extends Panel {
     protected void onInitialize() {
         super.onInitialize();
 
-
-
-
-
+        add(new BookmarkablePageLink("crest", CrestPage.class));
 
 //        mailNumber = new LoadableDetachableModel<Integer>() {
 //            @Override
