@@ -106,9 +106,9 @@
     <!-- Mail configuration -->
 
     <!--<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">-->
-        <!--<property name="host" value="smtp.mismacard.com"/>-->
-        <!--<property name="username" value="sender@mismacard.com"/>-->
-        <!--<property name="password" value="pass4sender-misma"/>-->
+        <!--<property name="host" value="smtp.server.com"/>-->
+        <!--<property name="username" value="sender@server.com"/>-->
+        <!--<property name="password" value="pass4sender"/>-->
         <!--<property name="port" value="25"/>-->
         <!--<property name="defaultEncoding" value="UTF-8"/>-->
     <!--</bean>-->
