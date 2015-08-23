@@ -9,9 +9,9 @@ package com.rectuscorp.evetool.entities;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "invtypematerials")
-@IdClass(TypesMaterials_PK.class)
+//@Entity
+//@Table(name = "invtypematerials")
+//@IdClass(TypesMaterials_PK.class)
 public class TypesMaterials  {
 
     @Id

@@ -7,11 +7,14 @@ package com.rectuscorp.evetool.entities;
 /*-----------------------------------------------------*/
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
-@Table(name = "invtypematerials")
-@IdClass(TypesMaterials_PK.class)
+//@Entity
+//@Table(name = "invtypematerials")
+//@IdClass(TypesMaterials_PK.class)
 public class TypesMaterials  {
 
     @Id

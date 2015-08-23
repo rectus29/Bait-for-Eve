@@ -1,7 +1,6 @@
 package com.rectuscorp.evetool.entities;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
@@ -11,7 +10,7 @@ import javax.persistence.Id;
  * Time: 15:01
  * To change this template use File | Settings | File Templates.
  */
-@Entity
+//@Entity
 public class Invcategories {
 
     @Column(name = "categoryID")

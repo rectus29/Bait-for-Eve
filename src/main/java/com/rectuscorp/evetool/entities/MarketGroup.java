@@ -10,8 +10,8 @@ import java.util.List;
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-@Entity
-@Table(name = "Invmarketgroups")
+//@Entity
+//@Table(name = "Invmarketgroups")
 public class MarketGroup {
 
     @Column(name = "marketGroupID")

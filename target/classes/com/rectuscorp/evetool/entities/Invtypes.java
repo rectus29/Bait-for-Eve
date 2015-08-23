@@ -10,7 +10,7 @@ import java.util.List;
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-@Entity
+//@Entity
 public class Invtypes {
 
     @Id

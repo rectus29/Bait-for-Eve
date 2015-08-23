@@ -2,7 +2,6 @@ package com.rectuscorp.evetool.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
@@ -11,7 +10,7 @@ import javax.persistence.Id;
  * Date: 20/04/13
  * Time: 15:01
  */
-@Entity
+//@Entity
 public class Chrraces {
     private int raceId;
 

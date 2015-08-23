@@ -7,7 +7,7 @@ import javax.persistence.*;
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-@Entity
+//@Entity
 public class InvBlueprintTypes {
 
     @Id

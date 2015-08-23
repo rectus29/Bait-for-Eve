@@ -4,17 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-    <!-- =========================================================
-   Shiro Components
-   ========================================================= -->
-
     <bean id="ShiroFilter"
           class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
     </bean>
-
-
     <bean id="securityManager"
           class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realms">
@@ -35,12 +28,10 @@
             </bean>
         </property>
     </bean>
-
     <bean id="myRememberMeManager"
           class="org.apache.shiro.web.mgt.CookieRememberMeManager">
         <property name="cipherKey" ref="cipherKeyBytes"/>
     </bean>
-
     <bean id="cipherKeyBytes"
           class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetClass" value="org.apache.shiro.codec.Base64"/>
@@ -51,16 +42,9 @@
             </list>
         </property>
     </bean>
-
-
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
     </bean>
-
     <bean id="EveToolRealms" class="com.rectuscorp.evetool.realms.EveToolRealms"/>
-
-    <bean id="simpleDirContext" class="org.springframework.ldap.core.support.SimpleDirContextAuthenticationStrategy" />
-
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
-
 </beans>

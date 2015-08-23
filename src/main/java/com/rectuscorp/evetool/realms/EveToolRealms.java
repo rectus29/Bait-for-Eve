@@ -9,8 +9,6 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.codec.Base64;
-import org.apache.shiro.crypto.RandomNumberGenerator;
-import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -32,7 +30,7 @@ public class EveToolRealms extends AuthorizingRealm {
     protected IserviceUser serviceUser;
 
     public EveToolRealms() {
-        setName("MismaCoreRealms"); //This name must match the name in the User class's getPrincipals() method
+        setName("EveToolRealms"); //This name must match the name in the User class's getPrincipals() method
 
         //Sha256CredentialsMatcher matcher = new Sha256CredentialsMatcher();
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();

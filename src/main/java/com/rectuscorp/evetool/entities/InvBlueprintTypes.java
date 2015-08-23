@@ -1,13 +1,16 @@
 package com.rectuscorp.evetool.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /*-----------------------------------------------------*/
 /* User: Rectus_29                 Date: 21/04/13 16:22 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-@Entity
+//@Entity
 public class InvBlueprintTypes {
 
     @Id

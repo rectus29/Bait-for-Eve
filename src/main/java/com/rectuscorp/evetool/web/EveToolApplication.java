@@ -1,7 +1,5 @@
 package com.rectuscorp.evetool.web;
 
-
-
 import com.rectuscorp.evetool.event.DispatchOnEventMethod;
 import com.rectuscorp.evetool.realms.EveToolRealms;
 import com.rectuscorp.evetool.session.EveToolSession;
@@ -44,59 +42,39 @@ import java.util.List;
 /*-----------------------------------------------------*/
 
 public class EveToolApplication extends WebApplication {
-
     private static final Logger log = Logger.getLogger(EveToolApplication.class);
-
-
     private Config config;
-
     List<Subject> subjectList = new ArrayList<Subject>();
 
     public void init() {
         super.init();
-
-
         getDebugSettings().setAjaxDebugModeEnabled(true);
-
         Bootstrap.install(Application.get(), new BootstrapSettings());
         //gestion de l'annotation @OnEvent
         getFrameworkSettings().add(new DispatchOnEventMethod());
-
         //gestion de spring
         getComponentInstantiationListeners().add(new SpringComponentInjector(this));
-        //taille max de l'upload
+                //taille max de l'upload
         getApplicationSettings().setDefaultMaximumUploadSize(Bytes.megabytes(100));
-
         getResourceSettings().setThrowExceptionOnMissingResource(false);
-
         //ligne pour forcer le raffraichissement sur history back
         getRequestCycleSettings().setRenderStrategy(IRequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
-
         // Configure Shiro
         AnnotationsShiroAuthorizationStrategy authz = new AnnotationsShiroAuthorizationStrategy();
         getSecuritySettings().setAuthorizationStrategy(authz);
         getSecuritySettings().setUnauthorizedComponentInstantiationListener(new ShiroUnauthorizedComponentListener(SigninPage.class, UnauthorizedPage.class, authz));
-
         config = Config.get();
         config.set(getServletContext().getRealPath("/"));
-
         mountPage("logout", SignoutPage.class);
         mountPage("unauthorized", UnauthorizedPage.class);
-
         mountPage("prodplan", ProdPlanPage.class);
-
         mountPage("restorepassword/${uid}", RestorePasswordPage.class);
         mountPage("forgotPasssword", ForgotPasssword.class);
-
-
         IApplicationSettings settings = getApplicationSettings();
-
         settings.setAccessDeniedPage(UnauthorizedPage.class);
         settings.setPageExpiredErrorPage(SigninPage.class);
         settings.setInternalErrorPage(ErrorPage.class);
-
         getApplicationSettings().setUploadProgressUpdatesEnabled(true);
-
         if (getConfigurationType() == RuntimeConfigurationType.DEVELOPMENT)
             WicketSource.configure(this);
     }
