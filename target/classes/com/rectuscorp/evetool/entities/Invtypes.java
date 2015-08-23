@@ -51,9 +51,6 @@ public class Invtypes {
     @Column(name = "published")
     private boolean published;
 
-    @OneToOne
-    @JoinColumn(name = "invblueprinttypes")
-    private InvBlueprintTypes invBlueprintTypes;
     @ManyToOne
     @JoinColumn(name = "marketGroupID", referencedColumnName = "marketGroupID")
     private MarketGroup marketGroupID;
@@ -65,8 +62,6 @@ public class Invtypes {
     @JoinColumn(name = "raceID", referencedColumnName = "raceID")
     private Chrraces raceID;
 
-    @OneToMany(mappedBy = "typeID", targetEntity = TypesMaterials.class)
-    private List<TypesMaterials> materialsList = new ArrayList<TypesMaterials>();
 
     public long getTypeId() {
         return typeId;
@@ -172,11 +167,4 @@ public class Invtypes {
         this.raceID = raceId;
     }
 
-    public List<TypesMaterials> getMaterialsList() {
-        return materialsList;
-    }
-
-    public void setMaterialsList(List<TypesMaterials> materialsList) {
-        this.materialsList = materialsList;
-    }
 }

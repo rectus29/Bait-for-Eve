@@ -16,15 +16,16 @@ import javax.persistence.*;
 @Entity
 public class InvBlueprintTypes {
 
-
     @Id
-    @GeneratedValue
     private long id;
+
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "blueprintTypeID", referencedColumnName = "typeID")
+    @JoinColumn(name = "blueprintTypeID", referencedColumnName = "typeID")
     private Invtypes invtypes;
+
     @Column(name = "parentBlueprintTypeID")
     private long parentBlueprintTypeID;
+
     @OneToOne
     @JoinColumn(name = "productTypeID", referencedColumnName = "typeID")
     private Invtypes productTypeID;

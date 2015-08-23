@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.entities;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 public class Chrraces {
     private int raceId;
 
-    @javax.persistence.Column(name = "raceID")
+    @Column(name = "raceID")
     @Id
     public int getRaceId() {
         return raceId;
@@ -26,7 +27,7 @@ public class Chrraces {
 
     private String raceName;
 
-    @javax.persistence.Column(name = "raceName")
+    @Column(name = "raceName")
     @Basic
     public String getRaceName() {
         return raceName;
@@ -38,7 +39,7 @@ public class Chrraces {
 
     private String description;
 
-    @javax.persistence.Column(name = "description")
+    @Column(name = "description")
     @Basic
     public String getDescription() {
         return description;
@@ -50,7 +51,7 @@ public class Chrraces {
 
     private int iconId;
 
-    @javax.persistence.Column(name = "iconID")
+    @Column(name = "iconID")
     @Basic
     public int getIconId() {
         return iconId;
@@ -62,7 +63,7 @@ public class Chrraces {
 
     private String shortDescription;
 
-    @javax.persistence.Column(name = "shortDescription")
+    @Column(name = "shortDescription")
     @Basic
     public String getShortDescription() {
         return shortDescription;

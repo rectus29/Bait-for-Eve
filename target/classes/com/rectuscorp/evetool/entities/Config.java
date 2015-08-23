@@ -7,7 +7,6 @@ import javax.persistence.*;
  * User: olivier
  * Date: 9 avr. 2010
  * Time: 15:30:53
- * To change this template use File | Settings | File Templates.
  */
 @SuppressWarnings("serial")
 @Entity
