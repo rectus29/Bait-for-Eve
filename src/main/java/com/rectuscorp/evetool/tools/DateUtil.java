@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Rectus for Andil
+ * User: Rectus for
  * Date: 5 nov. 2010
  * Time: 09:37:27
  */

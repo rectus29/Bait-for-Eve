@@ -1,5 +1,5 @@
 package com.rectuscorp.evetool.entities; /**
- * Andil
+ *
  * User: olivier
  * Date: 24/07/11
  * Time: 07:47

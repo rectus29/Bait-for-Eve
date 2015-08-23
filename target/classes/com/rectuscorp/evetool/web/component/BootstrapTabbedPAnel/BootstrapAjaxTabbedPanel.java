@@ -8,7 +8,7 @@ package com.rectuscorp.evetool.web.component.BootstrapTabbedPAnel;
 /*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
 /*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
 /*                                                     */
-/* User: Rectus for Andil         Date: 11/01/13 11:14 */
+/* User: Rectus for          Date: 11/01/13 11:14 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/

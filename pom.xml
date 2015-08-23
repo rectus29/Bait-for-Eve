@@ -86,7 +86,7 @@
                 <artifactId>wicketstuff-shiro</artifactId>
                 <version>6.3.0</version>
             </dependency>
-            <!-- com.andil.mismastore.web component -->
+
             <dependency>
                 <groupId>org.apache.wicket</groupId>
                 <artifactId>wicket-devutils</artifactId>

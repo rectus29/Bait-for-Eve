@@ -7,7 +7,7 @@ package com.rectuscorp.evetool.event;/**
 /*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
 /*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
 /*                                                     */
-/* User: Olivier for Andil        Date: 21/12/12 11:22 */
+/* User: Olivier for         Date: 21/12/12 11:22 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/

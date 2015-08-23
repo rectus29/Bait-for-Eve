@@ -6,7 +6,7 @@ import org.apache.wicket.model.IModel;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Rectus for Andil
+ * User: Rectus for
  * Date: 06/03/12
  * Time: 15:13
  */

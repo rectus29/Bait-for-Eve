@@ -38,7 +38,7 @@ public class ServiceSession implements IserviceSession {
     public void onStop(Session session) {
         Subject subjectToRemove = null;
         for (Subject subject : subjectList) {
-            /*if (subject.getSession().getId().equals(com.andil.mismastore.session.getId())) {
+            /*if (subject.getSession().getId().equals(com..mismastore.session.getId())) {
                 subjectToRemove = subject;
                 User u = serviceUser.getUser(subject);
                 log.debug(u.getLastName() + " vient de deco");

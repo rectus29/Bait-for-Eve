@@ -18,7 +18,7 @@ import java.util.UUID;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Rectus for Andil
+ * User: Rectus for
  * Date: 29/11/11
  * Time: 11:15
  */

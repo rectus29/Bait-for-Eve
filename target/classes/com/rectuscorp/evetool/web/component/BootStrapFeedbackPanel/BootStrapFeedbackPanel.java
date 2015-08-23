@@ -8,7 +8,7 @@ package com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel;
 /*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
 /*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
 /*                                                     */
-/* User: Rectus for Andil         Date: 04/12/12 14:52 */
+/* User: Rectus for          Date: 04/12/12 14:52 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/

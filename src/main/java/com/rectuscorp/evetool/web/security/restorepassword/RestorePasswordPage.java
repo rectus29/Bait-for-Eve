@@ -23,13 +23,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import java.util.Date;
 
 /*-----------------------------------------------------*/
-/*           _/_/    _/      _/  _/_/_/    _/_/_/  _/  */
-/*        _/    _/  _/_/    _/  _/    _/    _/    _/   */
-/*      _/_/_/_/  _/  _/  _/  _/    _/    _/    _/     */
-/*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
-/*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
-/*                                                     */
-/* User: Rectus for Andil         Date: 21/12/12 11:22 */
+/* User: Rectus for          Date: 21/12/12 11:22 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
@@ -66,17 +60,17 @@ public class RestorePasswordPage extends BasePage {
         feed.setOutputMarkupId(true);
         add(feed);
 
-        //test de validiter de la com.andil.mismastore.session
+        //test de validiter de la com..mismastore.session
         try {
             String uid = parameters.get("uid").toString();
             user = serviceUser.getByProperty("restoreSession", uid, true);
-            //test de la com.andil.mismastore.session
+            //test de la com..mismastore.session
             if (user != null) {
                 if (user.getRestoreSessionDate().before(DateUtils.addDays(new Date(), -1))) {
                     throw new Exception("Votre session de restoration date de plus de 24h, veuillez recommencer la procédure");
                 }
             } else {
-                throw new Exception("Information de com.andil.mismastore.session invalide");
+                throw new Exception("Information de com..mismastore.session invalide");
             }
         } catch (Exception ex) {
             form.setVisible(false);

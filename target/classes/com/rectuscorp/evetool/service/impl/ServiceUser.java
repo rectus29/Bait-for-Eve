@@ -44,7 +44,7 @@ public class ServiceUser extends GenericManagerImpl<User, Long> implements Iserv
     public User getUser(Subject subject) {
         Long id = (Long) subject.getPrincipal();
         if (id != null) {
-            // they are either authenticated or remembered from a previous com.andil.mismastore.session,
+            // they are either authenticated or remembered from a previous com..mismastore.session,
             // so return the user:
             return get(id);
         } else {
@@ -56,7 +56,7 @@ public class ServiceUser extends GenericManagerImpl<User, Long> implements Iserv
     public User getUserLDAP(Subject subject) {
         String userName = (String) subject.getPrincipal();
         if (userName != null) {
-            // they are either authenticated or remembered from a previous com.andil.mismastore.session,
+            // they are either authenticated or remembered from a previous com..mismastore.session,
             // so return the user:
             return getUserByUsername(userName);
         } else {

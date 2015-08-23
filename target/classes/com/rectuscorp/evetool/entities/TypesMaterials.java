@@ -7,7 +7,7 @@ package com.rectuscorp.evetool.entities;
 /*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
 /*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
 /*                                                     */
-/* User: Rectus_29 for Andil       Date: 22/05/13 12:30 */
+/* User: Rectus_29 for        Date: 22/05/13 12:30 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/

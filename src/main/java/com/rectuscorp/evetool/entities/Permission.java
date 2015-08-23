@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Rectus for Andil
+ * User: Rectus for
  * Date: 12/01/12
  * Time: 11:03
  */
