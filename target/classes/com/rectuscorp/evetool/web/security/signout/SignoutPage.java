@@ -4,12 +4,6 @@ import com.rectuscorp.evetool.web.page.base.BasePage;
 import org.apache.shiro.SecurityUtils;
 
 /*-----------------------------------------------------*/
-/*           _/_/    _/      _/  _/_/_/    _/_/_/  _/  */
-/*        _/    _/  _/_/    _/  _/    _/    _/    _/   */
-/*      _/_/_/_/  _/  _/  _/  _/    _/    _/    _/     */
-/*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
-/*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
-/*                                                     */
 /* User: Rectus for          Date: 21/12/12 11:22 */
 /*                                                     */
 /*                 All right reserved                  */

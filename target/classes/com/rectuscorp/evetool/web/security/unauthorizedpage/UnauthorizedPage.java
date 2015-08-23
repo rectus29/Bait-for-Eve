@@ -7,12 +7,6 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 /*-----------------------------------------------------*/
-/*           _/_/    _/      _/  _/_/_/    _/_/_/  _/  */
-/*        _/    _/  _/_/    _/  _/    _/    _/    _/   */
-/*      _/_/_/_/  _/  _/  _/  _/    _/    _/    _/     */
-/*    _/    _/  _/    _/_/  _/    _/    _/    _/       */
-/*  _/    _/  _/      _/  _/_/_/    _/_/_/  _/_/_/_/   */
-/*                                                     */
 /* User: Rectus for          Date: 21/12/12 11:22 */
 /*                                                     */
 /*                 All right reserved                  */
