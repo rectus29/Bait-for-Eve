@@ -1,9 +1,10 @@
 package com.rectuscorp.evetool.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /*-----------------------------------------------------*/
 /* User: Rectus_29                 Date: 21/04/13 16:22 */
