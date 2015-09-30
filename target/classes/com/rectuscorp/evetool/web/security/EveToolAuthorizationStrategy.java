@@ -9,6 +9,8 @@ import org.apache.wicket.RestartResponseAtInterceptPageException;
 import org.apache.wicket.authorization.Action;
 import org.apache.wicket.authorization.IAuthorizationStrategy;
 import org.apache.wicket.authorization.IUnauthorizedComponentInstantiationListener;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.request.resource.IResource;
 
 /*-----------------------------------------------------*/
 /* User: Rectus for          Date: 21/12/12 11:22 */
@@ -26,14 +28,15 @@ public final class EveToolAuthorizationStrategy implements IAuthorizationStrateg
     }
 
     public boolean isInstantiationAuthorized(Class componentClass) {
-        if (ProtectedPage.class.isAssignableFrom(componentClass)) {
-            return EveToolSession.get().isAuthenticated();
-        }
+		return !ProtectedPage.class.isAssignableFrom(componentClass) || EveToolSession.get().isAuthenticated();
 
-        return true;
-    }
+	}
 
-    public void onUnauthorizedInstantiation(Component component) {
+	public boolean isResourceAuthorized(IResource iResource, PageParameters pageParameters) {
+		return true;
+	}
+
+	public void onUnauthorizedInstantiation(Component component) {
         throw new RestartResponseAtInterceptPageException(
                 SigninPage.class);
     }

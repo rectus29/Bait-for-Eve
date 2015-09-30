@@ -36,7 +36,7 @@ public class PasswordPolicyValidator implements IValidator<String> {
 
     private void error(IValidatable<String> validatable, String errorKey) {
         ValidationError error = new ValidationError();
-        error.addMessageKey(getClass().getSimpleName() + "." + errorKey);
+        error.setMessage(getClass().getSimpleName() + "." + errorKey);
         validatable.error(error);
     }
 

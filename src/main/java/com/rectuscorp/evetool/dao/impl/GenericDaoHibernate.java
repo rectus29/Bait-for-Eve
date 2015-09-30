@@ -165,7 +165,7 @@ public abstract class GenericDaoHibernate<T, PK extends Serializable> implements
             values[index++] = queryParams.get(s);
         }
 
-        return hibernateTemplate.findByNamedQueryAndNamedParam(queryName, params, values);
+        return (List<T>)hibernateTemplate.findByNamedQueryAndNamedParam(queryName, params, values);
     }
 
     public List<T> findByNamedQuery(String queryName, Map<String, Object> queryParams, int start, int nb) {

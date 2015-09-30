@@ -37,7 +37,7 @@ public class ProtectedPage extends BasePage {
 
     }
 
-    public EveToolSession getMismaSession() {
+    public EveToolSession getEveToolSession() {
         return (EveToolSession) getSession();
     }
 

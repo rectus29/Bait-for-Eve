@@ -19,6 +19,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.util.visit.IVisit;
 import org.apache.wicket.util.visit.IVisitor;
+import org.wicketstuff.shiro.annotation.ShiroSecurityConstraint;
 
 public class BasePage extends WebPage implements TitleContributor {
 

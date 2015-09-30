@@ -88,7 +88,7 @@ public class DaoUser extends GenericDaoHibernate<User, Long> implements IdaoUser
     public User getUserByMail(String property) {
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
         detachedCriteria.add(Restrictions.eq("email", property));
-        List<User> result = getHibernateTemplate().findByCriteria(detachedCriteria);
+        List<User> result = (List<User>)getHibernateTemplate().findByCriteria(detachedCriteria);
         if (result.size() > 0) return result.get(0);
         return null;
     }

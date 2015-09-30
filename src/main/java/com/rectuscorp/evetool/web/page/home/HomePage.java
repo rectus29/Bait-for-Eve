@@ -21,6 +21,8 @@ public class HomePage extends ProtectedPage {
 	public HomePage() {
 	}
 
+
+
 	public HomePage(IModel model) {
 		super(model);
 	}

@@ -107,7 +107,6 @@ public class SigninPage extends BasePage {
         User u = serviceUser.getCurrentUser();
         u.setLastLogin(new Date());
         serviceUser.save(u);
-        serviceHistory.save(new History("login", "", ((ServletWebRequest) RequestCycle.get().getRequest()).getContainerRequest().getRemoteHost(), u.getId(), "user", u));
 
         // If login has been called because the user was not yet
         // logged in, than continue to the original destination,

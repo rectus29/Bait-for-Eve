@@ -24,11 +24,15 @@ public class BigDecimalCurrencyConverter extends AbstractNumberConverter {
         return BigDecimal.class;
     }
 
-    @Override
+	@Override
+	protected NumberFormat newNumberFormat(Locale locale) {
+		return getNumberFormat(locale);
+	}
+
     public Object convertToObject(String s, Locale locale) {
         // string to bigdecimal.
         try {
-            return getNumberFormat(locale).parse(s);
+            return newNumberFormat(locale).parse(s);
         } catch (ParseException ex) {
             throw new RuntimeException("exception when trying to parse currency value:" + ex.getMessage());
         }
