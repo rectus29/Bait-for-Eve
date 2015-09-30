@@ -5,27 +5,37 @@ package com.rectuscorp.evetool.entities; /**
  * Time: 07:47
  */
 
-import org.apache.log4j.Logger;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 @MappedSuperclass
-public class GenericEntity implements DomainObject {
-
-    private static final Logger log = Logger.getLogger(GenericEntity.class);
+public class GenericEntity implements DomainObject, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created = new Date();
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updated = new Date();
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Date getCreated() {
+		return created;
+	}
+
+	public Date getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
 }

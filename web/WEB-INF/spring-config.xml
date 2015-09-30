@@ -51,7 +51,7 @@
         </property>
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource">
             <ref bean="dataSource"/>
         </property>
@@ -70,12 +70,12 @@
                 <prop key="hibernate.c3p0.max_size">20</prop>
                 <prop key="hibernate.c3p0.timeout">300</prop>
                 <prop key="hibernate.c3p0.max_statements">50</prop>
-                <prop key="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</prop>
+                <prop key="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
             </props>
         </property>
     </bean>
     <!-- setup transaction manager	-->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>

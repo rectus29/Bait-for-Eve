@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <body>
+<wicket:extend>
 
+
+    <div class="row">
+        <div class="col-md-2">
+            <h1 class="page-header">
+                Administration
+            </h1>
+            <ul class="nav nav-sidebar">
+                <li wicket:id="serverCont">
+                    <a href="#" wicket:id="serverLink">
+                        <i class="fa fa-cube"></i>&nbsp;Serveur
+                    </a>
+                </li>
+                <li wicket:id="userCont">
+                    <a href="#" wicket:id="userLink">
+                        <i class="fa fa-users"></i>&nbsp;Utilisateur
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10" wicket:id="panel"/>
+    </div>
+</wicket:extend>
 </body>
 </html>

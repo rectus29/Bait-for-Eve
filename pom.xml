@@ -23,6 +23,7 @@
         <wicket.version>7.0.0</wicket.version>
         <log4j.version>1.2.14</log4j.version>
         <shiro.version>1.2.4</shiro.version>
+        <hibernate.version>3.6.10.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -157,29 +158,29 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.11.Final</version>
+            <version>${hibernate.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
-            <version>4.3.11.Final</version>
+            <version>${hibernate.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.3.11.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.3.2.Final</version>
+            <version>3.1.0.GA</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>4.3.11.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
@@ -221,6 +222,14 @@
             <artifactId>commons-compress</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <!-- RSS/ATOM FEED PARSER -->
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
 
         <!-- Dev -->
         <dependency>

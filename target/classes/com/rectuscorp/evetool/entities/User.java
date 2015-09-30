@@ -1,131 +1,184 @@
 package com.rectuscorp.evetool.entities;
 
 import com.rectuscorp.evetool.enums.State;
+import com.rectuscorp.evetool.enums.UserAuthentificationType;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "users")
-public class User extends GenericEntity implements Serializable {
+public class User extends GenericEntity implements Individual {
 
-    @Column(nullable = false)
-    private String password;
+	@Column(nullable = false)
+	private String password;
 
-    @Column(nullable = false)
-    private String username;
+	@Column(nullable = false)
+	private String userName;
 
+	@Column(nullable = false, length = 65536)
+	private String lastName;
 
-    @Column(nullable = false)
-    private String email;
+	@Column(nullable = false, length = 65536)
+	private String firstName;
 
-    @Column
-    private State state = State.ENABLE;
+	@Column(nullable = false)
+	private String email;
 
-    @Column
-    private String salt = new SecureRandomNumberGenerator().nextBytes(64).toBase64();
+	@Column
+	private String avatarPath;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST})
-    private Role role;
+	@Column
+	private State state = State.ENABLE;
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date restoreSessionDate;
+	@Column
+	private String salt = new SecureRandomNumberGenerator().nextBytes(64).toBase64();
 
-    @Column(name = "restoreSession")
-    private String restoreSession;
+	@ManyToOne(cascade = { CascadeType.PERSIST })
+	private Role role;
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLogin;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date restoreSessionDate;
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created = new Date();
+	@Column(name = "restoreSession")
+	private String restoreSession;
 
-    public User() {
-    }
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastLogin;
 
-    public String getPassword() {
-        return password;
-    }
+	@Column
+	private UserAuthentificationType userAuthentificationType = UserAuthentificationType.EMBED;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public User() {
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public void setUsername(String userName) {
-        this.username = userName;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public State getState() {
-        return state;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setState(State state) {
-        this.state = state;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getSalt() {
-        return salt;
-    }
+	public String getUsername() {
+		return userName;
+	}
 
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
+	public void setUsername(String userName) {
+		this.userName = userName;
+	}
 
-    public Role getRole() {
-        return role;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Date getRestoreSessionDate() {
-        return restoreSessionDate;
-    }
+	public State getState() {
+		return state;
+	}
 
-    public void setRestoreSessionDate(Date restoreSessionDate) {
-        this.restoreSessionDate = restoreSessionDate;
-    }
+	public void setState(State state) {
+		this.state = state;
+	}
 
-    public String getRestoreSession() {
-        return restoreSession;
-    }
+	public String getSalt() {
+		return salt;
+	}
 
-    public void setRestoreSession(String restoreSession) {
-        this.restoreSession = restoreSession;
-    }
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 
-    public Date getLastLogin() {
-        return lastLogin;
-    }
+	public Role getRole() {
+		return role;
+	}
 
-    public void setLastLogin(Date lastLogin) {
-        this.lastLogin = lastLogin;
-    }
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
-    public Date getCreated() {
-        return created;
-    }
+	public boolean hasRole(String roleName) {
+		return role.getName().equals(roleName);
+	}
 
-    public void setCreated(Date created) {
-        this.created = created;
-    }
+	public Date getRestoreSessionDate() {
+		return restoreSessionDate;
+	}
+
+	public void setRestoreSessionDate(Date restoreSessionDate) {
+		this.restoreSessionDate = restoreSessionDate;
+	}
+
+	public String getRestoreSession() {
+		return restoreSession;
+	}
+
+	public void setRestoreSession(String restoreSession) {
+		this.restoreSession = restoreSession;
+	}
+
+	public Date getLastLogin() {
+		return lastLogin;
+	}
+
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
+	}
+
+	public String getFormattedName() {
+		return getFirstName() + " " + getLastName();
+	}
+
+	public String getAvatarPath() {
+		return avatarPath;
+	}
+
+	public boolean isAdmin() {
+		if (this.role != null)
+			return this.role.getIsAdmin();
+		return false;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public void setAvatarPath(String avatarPath) {
+		this.avatarPath = avatarPath;
+	}
+
+	public UserAuthentificationType getUserAuthentificationType() {
+		return userAuthentificationType;
+	}
+
+	public void setUserAuthentificationType(UserAuthentificationType userAuthentificationType) {
+		this.userAuthentificationType = userAuthentificationType;
+	}
 }

@@ -1,57 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:wicket="http://wicket.apache.org">
 <wicket:head>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#form').live('submit', function () {
-                $('#loader').slideToggle();
-                repeater();
-            })
-        });
-        var timer;
-        var step = 0;
-        var tab = new Array("Initialisation de votre profil", "Chargement des permissions", "Chargement des modules", "Construction de votre arborescence", "Chargement de l'interface utilisateur");
-        function repeater() {
-            step++;
-            if (tab.length - 1 < step) {
-                clearTimeout(timer);
-            } else {
-                $('#fakeinfo').append(tab[step] + "<br/>");
-                timer = setTimeout("repeater()", 4000);
-            }
-        }
-    </script>
-    <style type="text/css">
-        body {
-        }
 
-    </style>
 </wicket:head>
 <wicket:extend>
     <div class="container login-holder">
-        <div class="row ">
-            <div class="span4 offset4 well" id="connectWrapper">
+        <div class="loginpage">
+            <form class="form-horizontal col-md-4 col-md-offset-4 well" id="connectWrapper" wicket:id="authenticationForm">
+
                 <img src="img/logo.png"/>
-                <form class="form" id="connectForm" wicket:id="authenticationForm">
-                    <fieldset>
-                        <legend style="color:white;">Connexion</legend>
-                        <div class="control-row">
-                            <div >
-                                <label>Identifiant</label>
-                                <input type="text" class="input-medium span3" wicket:id="username"/>
-                            </div>
-                            <div >
-                                <label>Mot de passe</label>
-                                <input type="password" class="input-medium span3" wicket:id="password"/>
-                            </div>
-                        </div>
-                        <div>
-                            <input type="submit" name="Connexion" value="Connexion" class="btn btn-medium btn-inverse">
-                        </div>
-                    </fieldset>
-                </form>
-                <span wicket:id="feedback" class="loginError"></span>
-            </div>
+                <hr>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-user"/>
+                    </div>
+                    <input class="form-control" type="text" wicket:id="username" wicket:message="placeholder:username"/>
+                </div>
+                <br/>
+
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-lock"/>
+                    </div>
+                    <input class="form-control" type="password" wicket:id="password" wicket:message="placeholder:password"/>
+                </div>
+                <br/>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <wicket:message key="connect"/>
+                    </button>
+                </div>
+                <span wicket:id="feedback"/>
+            </form>
         </div>
     </div>
 </wicket:extend>

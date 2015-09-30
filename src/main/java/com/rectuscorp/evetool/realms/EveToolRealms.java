@@ -49,7 +49,7 @@ public class EveToolRealms extends AuthorizingRealm {
 
     protected SaltedAuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-        User user = serviceUser.getByProperty("username",token.getUsername(),true);
+        User user = serviceUser.getByProperty("userName",token.getUsername(),true);
         if (user != null) {
             SimpleAuthenticationInfo auth = new SimpleAuthenticationInfo(user.getId(), user.getPassword(), new SimpleByteSource(Base64.decode(user.getSalt())), getName());
             return auth;

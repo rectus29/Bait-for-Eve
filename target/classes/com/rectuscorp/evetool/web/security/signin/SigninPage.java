@@ -1,5 +1,7 @@
 package com.rectuscorp.evetool.web.security.signin;
 
+import com.rectuscorp.evetool.enums.UserAuthentificationType;
+import com.rectuscorp.evetool.service.IserviceConfig;
 import com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel.BootStrapFeedbackPanel;
 import com.rectuscorp.evetool.entities.History;
 import com.rectuscorp.evetool.entities.User;
@@ -7,15 +9,21 @@ import com.rectuscorp.evetool.service.IserviceHistory;
 import com.rectuscorp.evetool.service.IserviceSession;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.BasePage;
+import com.rectuscorp.evetool.web.security.maintenancepage.MaintenancePage;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.apache.wicket.RestartResponseException;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
+import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.protocol.http.servlet.ServletWebRequest;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -31,92 +39,86 @@ import java.util.Date;
 
 public class SigninPage extends BasePage {
 
-    private static final Logger log = Logger.getLogger(SigninPage.class);
+	private static final Logger log = Logger.getLogger(SigninPage.class);
+	@SpringBean(name = "serviceSession")
+	private IserviceSession serviceSession;
+	@SpringBean(name = "serviceUser")
+	private IserviceUser serviceUser;
+	@SpringBean(name = "serviceConfig")
+	private IserviceConfig serviceConfig;
+	private FeedbackPanel feed;
+	private Form form;
+	private String password;
+	private String username;
+	private Boolean rememberMe = false;
+	private String session;
 
-    @SpringBean(name = "serviceSession")
-    private IserviceSession serviceSession;
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
 
-    @SpringBean(name = "serviceUser")
-    private IserviceUser serviceUser;
+		add((form = new Form("authenticationForm") {
+			@Override
+			public final void onSubmit() {
+				if (login(getUsername(), getPassword(), false)) {
+					onSignInSucceeded();
+				}
+			}
+		}).setOutputMarkupId(true));
+		form.add(new TextField<String>("username", new PropertyModel<String>(this, "username")));
+		form.add(new PasswordTextField("password", new PropertyModel<String>(this, "password")));
+		form.add((feed = new BootStrapFeedbackPanel("feedback")).setOutputMarkupId(true));
 
-    @SpringBean(name = "serviceHistory")
-    private IserviceHistory serviceHistory;
+	}
 
-    private final class SignInForm extends StatelessForm {
+	/**
+	 * Sign in user if possible.
+	 *
+	 * @param username The username
+	 * @param password The password
+	 * @return True if signin was successful
+	 */
+	public boolean login(String username, String password, boolean rememberMe) {
+		Subject currentUser = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
+		try {
+			currentUser.login(token);
+			serviceSession.addSubject(currentUser);
+			return true;
+		} catch (Exception ex) {
+			error(getString("error-invalid-credential"));
+		}
+		return false;
+	}
 
-        private String password;
-        private String username;
-        private Boolean rememberMe = false;
+	protected void onSignInSucceeded() {
+		User u = serviceUser.getCurrentUser();
+		u.setLastLogin(new java.util.Date());
+		serviceUser.save(u);
 
-        public SignInForm(String id) {
-            super(id);
-            setModel(new CompoundPropertyModel(this));
-            add(new TextField("username"));
-            add(new PasswordTextField("password"));
-        }
+		if (serviceConfig.getByProperty("key", "maintenance_mod", true).getValue().equals("1") && !serviceUser.getCurrentUser().isAdmin()) {
+			throw new RestartResponseException(MaintenancePage.class);
+		}
+		continueToOriginalDestination();
+		setResponsePage(getApplication().getHomePage());
+	}
 
-        @Override
-        public final void onSubmit() {
-            if (login(username, password, false)) {
-                onSignInSucceeded();
-            }
-        }
+	@Override
+	public String getTitleContribution() {
+		return "Connection";
+	}
 
+	@Override
+	public void renderHead(IHeaderResponse response) {
+		String javascript = "document.body.setAttribute('class', 'signin');";
+		response.render(OnDomReadyHeaderItem.forScript(javascript));
+	}
 
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public SigninPage() {
-        add(new SignInForm("authenticationForm"));
-        FeedbackPanel feed = new BootStrapFeedbackPanel("feedback");
-        feed.setEscapeModelStrings(false);
-        add(feed);
-        setStatelessHint(true);
-    }
-
-    public SigninPage(PageParameters parameters) {
-        add(new SignInForm("authenticationForm"));
-        BootStrapFeedbackPanel feed = new BootStrapFeedbackPanel("feedback");
-        feed.setEscapeModelStrings(false);
-        add(feed);
-        setStatelessHint(true);
-    }
-
-
-    /**
-     * Sign in user if possible.
-     *
-     * @param username The username
-     * @param password The password
-     * @return True if signin was successful
-     */
-    public boolean login(String username, String password, boolean rememberMe) {
-        Subject currentUser = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
-        try {
-            currentUser.login(token);
-            serviceSession.addSubject(currentUser);
-            return true;
-        } catch (Exception ex) {
-            error("Identifiant et/ou mot de passe invalide.");
-        }
-        return false;
-    }
-
-
-    protected void onSignInSucceeded() {
-        User u = serviceUser.getCurrentUser();
-        u.setLastLogin(new Date());
-        serviceUser.save(u);
-
-        // If login has been called because the user was not yet
-        // logged in, than continue to the original destination,
-        // otherwise to the Home page
-        continueToOriginalDestination();
-        setResponsePage(getApplication().getHomePage());
-    }
-
-    @Override
-    public String getTitleContribution() {
-        return "Connection";
-    }
+	public String getUsername() {
+		return username;
+	}
 }

@@ -1,9 +1,15 @@
 package com.rectuscorp.evetool.web;
 
+import com.rectuscorp.evetool.service.IserviceConfig;
+import com.rectuscorp.evetool.spring.AppContext;
 import org.apache.log4j.Logger;
 import org.apache.wicket.util.file.Folder;
+import org.joda.time.format.PeriodFormatter;
+import org.joda.time.format.PeriodFormatterBuilder;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,19 +19,18 @@ import java.util.Date;
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-
-public class Config {
+@Transactional
+public class Config implements Serializable{
 
     private static final Logger log = Logger.getLogger(Config.class);
+	private IserviceConfig serviceConfig;
     private static Config ourInstance = new Config();
     public static final String RESOURCE_PATH = "files";
-
-    private Folder uploadFolder = new Folder("uploads");
-
-    private Folder rootFolder = null;
-    private String dateFormat = "dd/MM/yyyy";
+	private Folder uploadFolder = null, avatarFolder = null, rootFolder = null,XMLExportFolder = null,  resourceFolder = null;
+	private String dateFormat = "dd/MM/yyyy";
     private String fullDateFormat = dateFormat + " HH:mm:ss";
-    private SimpleDateFormat dateFormater = new SimpleDateFormat(dateFormat);
+	private SimpleDateFormat dateFormater;
+	private PeriodFormatter durationFormater;
     private DecimalFormat formatter = new DecimalFormat("###,###,###,###.###");
     private String defaultColor[] = {"#FFAA00", "#877F13", "#C4A64C", "#BF3E21", "#A61F2B", "#5C1644", "#BF6374", "#872858", "#541154", "#BDB738", "#E5C85B", "#0C83B4"};
 
@@ -38,15 +43,30 @@ public class Config {
     }
 
 
-    public void set(String rootPath) {
-        this.rootFolder = new Folder(rootPath);
-        uploadFolder = new Folder(rootFolder + File.separator + "uploads");
-        uploadFolder.mkdirs();
-        dateFormat = "dd/MM/yyyy";
-        fullDateFormat = dateFormat + " HH:mm:ss";
-        dateFormater = new SimpleDateFormat(dateFormat);
-
-    }
+	public void set(String rootPath) {
+		rootFolder = new Folder(rootPath);
+		uploadFolder = new Folder(System.getProperty("java.io.tmpdir"), "upload_tmp");
+		uploadFolder.mkdirs();
+		XMLExportFolder = new Folder(rootPath + File.separator + "XMLExportFile");
+		XMLExportFolder.mkdirs();
+		dateFormater = new SimpleDateFormat(dateFormat);
+		durationFormater = new PeriodFormatterBuilder()
+				//                .appendDays().printZeroAlways().appendSeparator(":")
+				.appendHours().printZeroAlways().minimumPrintedDigits(2).appendSeparator(":")
+				.appendMinutes().printZeroAlways().minimumPrintedDigits(2).appendSeparator(":")
+				.appendSeconds().printZeroAlways().minimumPrintedDigits(2)
+				.toFormatter();
+		formatter = new DecimalFormat("###,###,###,###.##");
+		formatter.setMinimumFractionDigits(2);
+		resourceFolder = new Folder(rootFolder, File.separator + RESOURCE_PATH);
+		resourceFolder.mkdirs();
+		avatarFolder = new Folder( resourceFolder  + File.separator + "avatar");
+		avatarFolder.mkdirs();
+		dateFormat = "dd/MM/yyyy";
+		fullDateFormat = dateFormat + " HH:mm:ss";
+		this.serviceConfig = (IserviceConfig)  AppContext.getApplicationContext().getBean("serviceConfig");
+		defaultColor = serviceConfig.getByKey("graphColor").getValue().replaceAll(" ","").split(",");
+	}
 
     public Folder getUploadFolder() {
         return uploadFolder;
@@ -80,22 +100,38 @@ public class Config {
         return new Folder(rootFolder, File.separator + RESOURCE_PATH + File.separator + "product");
     }
 
-    public String getDefaultColor() {
+	public Folder getAvatarFolder() {
+		return avatarFolder;
+	}
+
+	public void setAvatarFolder(Folder avatarFolder) {
+		this.avatarFolder = avatarFolder;
+	}
+
+	public String getDefaultColor() {
         String out = "";
-        for (int i = 0; i < defaultColor.length; i++) {
-            out += "'" + defaultColor[i] + "',";
-        }
+		for (String aDefaultColor : defaultColor) {
+			out += "'" + aDefaultColor + "',";
+		}
         return out.substring(0, out.length() - 1);
     }
+
+	public String getFullDateFormat() {
+		return fullDateFormat;
+	}
+
+	public String getDateFormat() {
+		return this.dateFormat;
+	}
 
     public String dateFormat(Date date) {
         return dateFormater.format(date);
     }
 
     public String dateHourFormat(Date date) {
-        dateFormater.applyPattern(fullDateFormat);
+        dateFormater.applyPattern(getFullDateFormat());
         String out = dateFormater.format(date);
-        dateFormater.applyPattern(dateFormat);
+        dateFormater.applyPattern(getDateFormat());
         return out;
     }
 
@@ -106,20 +142,12 @@ public class Config {
     public String dateFormat(String pattern, Date date) {
         dateFormater.applyPattern(pattern);
         String out = dateFormater.format(date);
-        dateFormater.applyPattern(dateFormat);
+        dateFormater.applyPattern(getDateFormat());
         return out;
     }
 
     public String format(double number) {
         return formatter.format(number);
     }
-
-    public String format(String format, Integer number) {
-        formatter.applyPattern(format);
-        String out = formatter.format(number);
-        formatter.applyPattern(dateFormat);
-        return out;
-    }
-
 
 }

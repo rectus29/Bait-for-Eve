@@ -1,0 +1,67 @@
+package com.rectuscorp.evetool.web.panel.lazyloadPanel;
+
+import org.apache.wicket.Component;
+import org.apache.wicket.extensions.ajax.markup.html.AjaxLazyLoadPanel;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: Rectus for Andil
+ * Date: 13/09/12
+ * Time: 16:50
+ */
+public class GigaLazyLoadPanel extends AjaxLazyLoadPanel {
+
+    private String htmlText = getString("current-computation") +"<br/>"+ getString("please-wait");
+
+    public GigaLazyLoadPanel(String id) {
+        super(id);
+    }
+
+    public GigaLazyLoadPanel(String id, String htmlText) {
+        super(id);
+        this.htmlText = htmlText;
+    }
+
+    public GigaLazyLoadPanel(String id, IModel<?> model) {
+        super(id, model);
+    }
+
+    @Override
+    public Component getLoadingComponent(String markupId) {
+        return new LoaderPanel(markupId);
+    }
+
+    protected void handleCallbackScript(IHeaderResponse response, String callbackScript) {
+        super.handleCallbackScript(response, callbackScript, this);
+    }
+
+    @Override
+    protected void onBeforeRender() {
+        super.onBeforeRender();
+    }
+
+    @Override
+    public Component getLazyLoadComponent(String markupId) {
+        return null;
+    }
+
+    public String getText(){
+        return htmlText;
+    }
+
+    private class LoaderPanel extends Panel {
+        private LoaderPanel(String id) {
+            super(id);
+        }
+
+        @Override
+        protected void onInitialize() {
+            super.onInitialize();
+            add(new Label("loaderTxt", getText()).setEscapeModelStrings(false));
+        }
+    }
+}

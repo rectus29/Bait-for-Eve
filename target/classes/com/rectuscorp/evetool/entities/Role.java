@@ -5,138 +5,116 @@ package com.rectuscorp.evetool.entities;
  * Date: 27 mai 2009
  */
 
-import org.apache.log4j.Logger;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "role")
-public class Role implements DomainObject, Comparable<Role> {
+public class Role extends GenericEntity implements Comparable<Role> {
 
-    private static final Logger log = Logger.getLogger(Role.class);
+	@Column
+	private String name;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+	@Column
+	private String description;
 
+	@Column
+	private int weight = 100;
 
-    //@Basic(optional=false)
-    @Column(length = 100)
-    //@Index(name="idx_roles_name")
-    private String name;
+	@ManyToMany(cascade = { CascadeType.PERSIST })
+	private Set<Permission> permissions;
 
-    private String description;
+	@OneToMany(mappedBy = "role")
+	private Set<User> users = new HashSet<User>();
 
-    @Column
-    private int weight = 100;
+	@Column
+	private Boolean isAdmin = false;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST})
-    private Set<Permission> permissions;
+	public Role() {
 
-    @OneToMany(mappedBy = "role")
-    private Set<User> users = new HashSet<User>();
+		this.permissions = new HashSet<Permission>();
+	}
 
+	public Set<User> getUsers() {
+		return users;
+	}
 
-    public Role() {
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 
-        this.permissions = new HashSet<Permission>();
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public Set<User> getUsers() {
-        return users;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
+	public Set<Permission> getPermissions() {
+		return permissions;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setPermissions(Set<Permission> permissions) {
+		this.permissions = permissions;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public List<Permission> getContainerPermissions() {
+		List<Permission> out = new ArrayList<Permission>();
+		for (Permission temp : this.permissions) {
+			if (temp.getCodeString().startsWith("container:"))
+				out.add(temp);
+		}
+		return out;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public List<Permission> getActivityPermissions() {
+		List<Permission> out = new ArrayList<Permission>();
+		for (Permission temp : this.permissions) {
+			if (temp.getCodeString().startsWith("activity:"))
+				out.add(temp);
+		}
+		return out;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void addPermission(Permission perm) {
+		if (!this.permissions.contains(perm))
+			this.permissions.add(perm);
+	}
 
-    public Set<Permission> getPermissions() {
-        return permissions;
-    }
+	public void removePermission(Permission perm) {
+		this.permissions.remove(perm);
+	}
 
-    public void setPermissions(Set<Permission> permissions) {
-        this.permissions = permissions;
-    }
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
 
-    public List<Permission> getContainerPermissions() {
-        List<Permission> out = new ArrayList<Permission>();
-        for (Permission temp : this.permissions) {
-            if (temp.getCodeString().startsWith("container:"))
-                out.add(temp);
-        }
-        return out;
-    }
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 
-    public List<Permission> getActivityPermissions() {
-        List<Permission> out = new ArrayList<Permission>();
-        for (Permission temp : this.permissions) {
-            if (temp.getCodeString().startsWith("activity:"))
-                out.add(temp);
-        }
-        return out;
-    }
+	public int compareTo(Role o) {
+		return this.getId().compareTo(o.getId());
+	}
 
-    public void addPermission(Permission perm) {
-        if (!this.permissions.contains(perm))
-            this.permissions.add(perm);
-    }
+	public int getWeight() {
+		return weight;
+	}
 
-    public void removePermission(Permission perm) {
-        this.permissions.remove(perm);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return this.getName().equals(((Role) obj).getName());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
-    }
-
-    public int compareTo(Role o) {
-        return this.getId().compareTo(o.getId());
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
 }
