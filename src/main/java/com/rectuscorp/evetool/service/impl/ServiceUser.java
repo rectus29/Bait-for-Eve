@@ -96,12 +96,10 @@ public class ServiceUser extends GenericManagerImpl<User, Long> implements Iserv
         daoUser.disable(user);
     }
 
-    @Override
     public int disablePhoneActivatedUsers() {
         return daoUser.disablePhoneActivatedUsers();
     }
 
-    @Override
     public User getByIdAndService(String accountID, String username, String service) {
         return daoUser.getByIdAndService(accountID, username,service );
     }

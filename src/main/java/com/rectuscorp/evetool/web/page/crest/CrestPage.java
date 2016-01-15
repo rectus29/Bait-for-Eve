@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.web.page.crest;
 
+import com.rectuscorp.evetool.CrestObject;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -42,7 +43,7 @@ public class CrestPage extends ProtectedPage {
         super.onInitialize();
         HttpClient client = new HttpClient();
         try {
-            GetMethod get = new GetMethod("http://public-crest-sisi.testeveonline.com/market/groups/");
+            GetMethod get = new GetMethod( CrestObject.API_URL + "market/groups/");
             client.executeMethod(get);
             String resp = get.getResponseBodyAsString();
             JSONObject jsonObj = new JSONObject(resp);
