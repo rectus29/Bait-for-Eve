@@ -70,7 +70,6 @@ public class EveToolApplication extends WebApplication {
 		getApplicationSettings().setUploadProgressUpdatesEnabled(true);
 	}
 
-	@Override
 	public Class<? extends Page> getHomePage() {
 		return HomePage.class;
 	}

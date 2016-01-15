@@ -65,7 +65,7 @@ public class Config implements Serializable{
 		dateFormat = "dd/MM/yyyy";
 		fullDateFormat = dateFormat + " HH:mm:ss";
 		this.serviceConfig = (IserviceConfig)  AppContext.getApplicationContext().getBean("serviceConfig");
-		defaultColor = serviceConfig.getByKey("graphColor").getValue().replaceAll(" ","").split(",");
+		defaultColor = (serviceConfig.getByKey("graphColor") != null)?serviceConfig.getByKey("graphColor").getValue().replaceAll(" ","").split(","): defaultColor;
 	}
 
     public Folder getUploadFolder() {
