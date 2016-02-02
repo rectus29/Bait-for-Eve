@@ -71,7 +71,8 @@ public class CrestPage extends ProtectedPage {
                         return object.toString();
                     }
                 }
-            }).add(new AjaxFormComponentUpdatingBehavior("change") {
+
+			}).add(new AjaxFormComponentUpdatingBehavior("change") {
                 @Override
                 protected void onUpdate(AjaxRequestTarget ajaxRequestTarget) {
                     log.debug("");
