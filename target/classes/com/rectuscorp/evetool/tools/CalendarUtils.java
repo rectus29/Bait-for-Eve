@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,7 +15,7 @@ import java.util.Locale;
 
 public class CalendarUtils {
 
-    private static final Logger log = Logger.getLogger(CalendarUtils.class);
+    private static final Logger log = LogManager.getLogger(CalendarUtils.class);
 
     	private static long dayInMs = (60 * 60 * 24 * 1000);
 	private static long hourInMs = (60 * 60 * 1000);

@@ -3,7 +3,7 @@ package com.rectuscorp.evetool.service.impl;
 import com.rectuscorp.evetool.entities.User;
 import com.rectuscorp.evetool.service.IserviceSession;
 import com.rectuscorp.evetool.service.IserviceUser;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.Set;
 @Service("serviceSession")
 public class ServiceSession implements IserviceSession {
 
-    private static final Logger log = Logger.getLogger(ServiceSession.class);
+    private static final Logger log = LogManager.getLogger(ServiceSession.class);
     private IserviceUser serviceUser;
 
     Set<Subject> subjectList = new HashSet<Subject>();

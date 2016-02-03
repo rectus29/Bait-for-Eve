@@ -11,7 +11,7 @@ import com.rectuscorp.evetool.web.component.avatarimage.AvatarImage;
 import com.rectuscorp.evetool.web.component.confirmation.ConfirmationLink;
 import com.rectuscorp.evetool.web.page.admin.users.panels.edit.UserEditPanel;
 import com.rectuscorp.evetool.web.page.home.HomePage;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
@@ -39,7 +39,7 @@ import java.util.List;
 public class UserListPanel extends Panel {
 
     final static int NB_USERS_BY_PAGE = 20;
-    private static final Logger log = Logger.getLogger(UserListPanel.class);
+    private static final Logger log = LogManager.getLogger(UserListPanel.class);
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;
     private String name;

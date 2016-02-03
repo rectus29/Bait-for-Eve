@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class StringUtils {
 
 
-    private static final Logger log = Logger.getLogger(StringUtils.class);
+    private static final Logger log = LogManager.getLogger(StringUtils.class);
 
 
     /**

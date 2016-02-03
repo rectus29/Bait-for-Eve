@@ -3,7 +3,7 @@ package com.rectuscorp.evetool.web.panel.hc.spiderPanel;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.Config;
 import com.rectuscorp.evetool.web.panel.hc.GraphPanel;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
@@ -22,7 +22,7 @@ import java.util.*;
  */
 public abstract class SpiderPanel extends GraphPanel {
 
-	private static final Logger log = Logger.getLogger(SpiderPanel.class);
+	private static final Logger log = LogManager.getLogger(SpiderPanel.class);
 
 	@SpringBean(name = "serviceUser")
 	private IserviceUser serviceUser;

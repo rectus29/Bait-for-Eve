@@ -9,7 +9,7 @@ package com.rectuscorp.evetool.web.page.base;
 
 
 import com.rectuscorp.evetool.service.IserviceUser;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -26,7 +26,7 @@ public class BasePage extends WebPage implements TitleContributor {
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;
 
-    private static final Logger log = Logger.getLogger(BasePage.class);
+    private static final Logger log = LogManager.getLogger(BasePage.class);
 
     public BasePage() {
     }

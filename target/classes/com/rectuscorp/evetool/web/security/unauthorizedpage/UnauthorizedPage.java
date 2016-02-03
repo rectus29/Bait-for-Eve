@@ -2,7 +2,7 @@ package com.rectuscorp.evetool.web.security.unauthorizedpage;
 
 import com.rectuscorp.evetool.web.page.base.BasePage;
 import com.rectuscorp.evetool.web.panel.footerpanel.FooterPanel;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
@@ -14,7 +14,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 public class UnauthorizedPage extends BasePage {
 
-    private static final Logger log = Logger.getLogger(UnauthorizedPage.class);
+    private static final Logger log = LogManager.getLogger(UnauthorizedPage.class);
 
     public UnauthorizedPage(){
     }

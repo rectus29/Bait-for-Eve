@@ -3,7 +3,7 @@ package com.rectuscorp.evetool.web.panel.hc.hcsplinepanel;
 
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.Config;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
@@ -23,7 +23,7 @@ import java.util.*;
  */
 public abstract class HcSplinePanel extends Panel {
 
-    private static final Logger log = Logger.getLogger(HcSplinePanel.class);
+    private static final Logger log = LogManager.getLogger(HcSplinePanel.class);
 
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;

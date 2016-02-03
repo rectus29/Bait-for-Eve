@@ -2,7 +2,7 @@ package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoRole;
 import com.rectuscorp.evetool.entities.*;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -20,7 +20,7 @@ import java.util.List;
 @Repository("daoRole")
 public class DaoRole extends GenericDaoHibernate<Role, Long> implements IdaoRole {
 
-    private static final Logger log = Logger.getLogger(DaoRole.class);
+    private static final Logger log = LogManager.getLogger(DaoRole.class);
 
     public DaoRole() {
         super(Role.class);

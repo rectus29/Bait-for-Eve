@@ -5,7 +5,7 @@ package com.rectuscorp.evetool.web.panel.hc.hcBar;
  */
 
 import com.rectuscorp.evetool.web.Config;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
@@ -17,7 +17,7 @@ import java.util.*;
 
 public abstract class HcBarPanel extends Panel {
 
-    private static final Logger log = Logger.getLogger(HcBarPanel.class);
+    private static final Logger log = LogManager.getLogger(HcBarPanel.class);
 
     public static String height = "200px";
     public static String width = "400px";

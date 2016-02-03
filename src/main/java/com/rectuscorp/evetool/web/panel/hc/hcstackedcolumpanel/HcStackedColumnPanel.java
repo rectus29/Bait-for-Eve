@@ -7,7 +7,7 @@ package com.rectuscorp.evetool.web.panel.hc.hcstackedcolumpanel;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.web.Config;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
@@ -19,7 +19,7 @@ import java.util.*;
 
 public abstract class HcStackedColumnPanel extends Panel {
 
-    private static final Logger log = Logger.getLogger(HcStackedColumnPanel.class);
+    private static final Logger log = LogManager.getLogger(HcStackedColumnPanel.class);
     private Label chart;
     private ArrayList<String> tickList = new ArrayList<String>();
     private List<BarStackedDataObject> data = new ArrayList<BarStackedDataObject>();

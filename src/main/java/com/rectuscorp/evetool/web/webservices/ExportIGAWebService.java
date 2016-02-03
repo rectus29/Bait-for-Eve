@@ -16,7 +16,8 @@ package com.rectuscorp.evetool.web.webservices;
 
 import com.rectuscorp.evetool.web.Config;
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.markup.MarkupType;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -27,7 +28,7 @@ import java.io.PrintWriter;
 
 public class ExportIGAWebService extends WebPage {
 
-    private static final Logger log = Logger.getLogger(ExportIGAWebService.class);
+    private static final Logger log = LogManager.getLogger(ExportIGAWebService.class);
 
     private static String USERID = "userId";
     private static String FORMID = "formId";

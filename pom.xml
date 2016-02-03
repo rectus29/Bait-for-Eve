@@ -21,8 +21,8 @@
     <properties>
         <spring.version>4.1.0.RELEASE</spring.version>
         <wicket.version>7.0.0</wicket.version>
-        <log4j.version>1.2.14</log4j.version>
         <shiro.version>1.2.4</shiro.version>
+        <log4J.version>2.5</log4J.version>
         <hibernate.version>3.6.10.Final</hibernate.version>
     </properties>
 
@@ -31,12 +31,17 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.4</version>
+            <version>${log4J.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.12</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4J.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4J.version}</version>
         </dependency>
         <dependency>
             <groupId>dom4j</groupId>
@@ -89,11 +94,11 @@
             <artifactId>wicket-datetime</artifactId>
             <version>${wicket.version}</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.wicketstuff</groupId>
             <artifactId>wicketstuff-progressbar-spring</artifactId>
             <version>${wicket.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>

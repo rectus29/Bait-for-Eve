@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.session;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.SecurityUtils;
 import org.apache.wicket.Session;
 import org.apache.wicket.injection.Injector;
@@ -16,7 +16,7 @@ import org.apache.wicket.request.Request;
 
 public class EveToolSession extends WebSession {
 
-    private static final Logger log = Logger.getLogger(EveToolSession.class);
+    private static final Logger log = LogManager.getLogger(EveToolSession.class);
 
 
     public static EveToolSession get() {

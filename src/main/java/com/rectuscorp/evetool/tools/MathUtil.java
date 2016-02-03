@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ import java.util.*;
 
 public class MathUtil {
 
-    private static final Logger log = Logger.getLogger(MathUtil.class);
+    private static final Logger log = LogManager.getLogger(MathUtil.class);
 
     /**
      * renvoie une moyenne ponderee

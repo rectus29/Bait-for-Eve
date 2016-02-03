@@ -2,7 +2,7 @@ package com.rectuscorp.evetool.web;
 
 import com.rectuscorp.evetool.service.IserviceConfig;
 import com.rectuscorp.evetool.spring.AppContext;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.util.file.Folder;
 import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
@@ -22,7 +22,7 @@ import java.util.Date;
 @Transactional
 public class Config implements Serializable{
 
-    private static final Logger log = Logger.getLogger(Config.class);
+    private static final Logger log = LogManager.getLogger(Config.class);
 	private IserviceConfig serviceConfig;
     private static Config ourInstance = new Config();
     public static final String RESOURCE_PATH = "files";

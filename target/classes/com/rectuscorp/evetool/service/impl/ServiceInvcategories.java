@@ -17,14 +17,14 @@ import com.rectuscorp.evetool.entities.Invcategories;
 import com.rectuscorp.evetool.entities.Invgroups;
 import com.rectuscorp.evetool.service.IserviceInvcategories;
 import com.rectuscorp.evetool.service.IserviceInvgroups;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("ServiceInvcategories")
 public class ServiceInvcategories extends GenericManagerImpl<Invcategories, Long> implements IserviceInvcategories {
 
-    private static final Logger log = Logger.getLogger(ServiceInvcategories.class);
+    private static final Logger log = LogManager.getLogger(ServiceInvcategories.class);
 
     private DaoInvcategories daoInvcategories;
 

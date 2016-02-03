@@ -14,14 +14,14 @@ package com.rectuscorp.evetool.service.impl;
 import com.rectuscorp.evetool.dao.impl.DaoInvtypes;
 import com.rectuscorp.evetool.entities.Invtypes;
 import com.rectuscorp.evetool.service.IserviceInvtypes;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("ServiceInvtypes")
 public class ServiceInvtypes extends GenericManagerImpl<Invtypes, Long> implements IserviceInvtypes {
 
-    private static final Logger log = Logger.getLogger(ServiceInvtypes.class);
+    private static final Logger log = LogManager.getLogger(ServiceInvtypes.class);
 
     private DaoInvtypes daoInvtypes;
 

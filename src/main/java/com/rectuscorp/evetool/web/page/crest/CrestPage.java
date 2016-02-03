@@ -4,7 +4,7 @@ import com.rectuscorp.evetool.CrestObject;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.ajax.json.JSONException;
@@ -30,7 +30,7 @@ import java.util.Comparator;
 /*-----------------------------------------------------*/
 public class CrestPage extends ProtectedPage {
 
-    private static final Logger log = Logger.getLogger(CrestPage.class);
+    private static final Logger log = LogManager.getLogger(CrestPage.class);
 
     private JSONObject group;
 

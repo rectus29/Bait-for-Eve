@@ -3,7 +3,7 @@ package com.rectuscorp.evetool.service.impl;
 import com.rectuscorp.evetool.dao.impl.DaoUser;
 import com.rectuscorp.evetool.entities.User;
 import com.rectuscorp.evetool.service.IserviceUser;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.List;
 @Service("serviceUser")
 public class ServiceUser extends GenericManagerImpl<User, Long> implements IserviceUser {
 
-    private static final Logger log = Logger.getLogger(ServiceUser.class);
+    private static final Logger log = LogManager.getLogger(ServiceUser.class);
 
     private DaoUser daoUser;
 

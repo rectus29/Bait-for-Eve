@@ -6,7 +6,7 @@ import com.rectuscorp.evetool.entities.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.BasePage;
 import org.apache.commons.lang.time.DateUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.util.SimpleByteSource;
@@ -31,7 +31,7 @@ import java.util.Date;
 
 public class RestorePasswordPage extends BasePage {
 
-    private static final Logger log = Logger.getLogger(RestorePasswordPage.class);
+    private static final Logger log = LogManager.getLogger(RestorePasswordPage.class);
 
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;

@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.dom4j.Document;
 import org.dom4j.Node;
 import org.dom4j.io.OutputFormat;
@@ -18,7 +18,7 @@ import java.io.StringWriter;
  */
 public class XmlUtils {
 
-    private static final Logger log = Logger.getLogger(XmlUtils.class);
+    private static final Logger log = LogManager.getLogger(XmlUtils.class);
 
     public static String asXMLWithoutHeaders(Node n){
         OutputFormat format = new OutputFormat("",false);

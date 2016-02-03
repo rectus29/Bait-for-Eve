@@ -4,7 +4,7 @@ import com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel.BootStrapFeed
 import com.rectuscorp.evetool.entities.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.BasePage;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxButton;
 import org.apache.wicket.markup.html.form.Form;
@@ -24,7 +24,7 @@ import java.util.UUID;
  */
 public class ForgotPasssword extends BasePage {
 
-    private static final Logger log = Logger.getLogger(ForgotPasssword.class);
+    private static final Logger log = LogManager.getLogger(ForgotPasssword.class);
 
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;

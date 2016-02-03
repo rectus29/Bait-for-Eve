@@ -4,7 +4,7 @@ import com.rectuscorp.evetool.dao.impl.DaoRole;
 import com.rectuscorp.evetool.entities.Role;
 import com.rectuscorp.evetool.entities.User;
 import com.rectuscorp.evetool.service.IserviceRole;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ import java.util.List;
 @Service("serviceRole")
 public class ServiceRole extends GenericManagerImpl<Role, Long> implements IserviceRole {
 
-    private static final Logger log = Logger.getLogger(ServiceRole.class);
+    private static final Logger log = LogManager.getLogger(ServiceRole.class);
 
     private DaoRole daoRole;
 

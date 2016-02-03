@@ -8,7 +8,7 @@ import com.rectuscorp.evetool.service.IserviceRole;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel.BootStrapFeedbackPanel;
 import com.rectuscorp.evetool.web.page.base.BasePage;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
@@ -37,7 +37,7 @@ import java.util.Arrays;
  */
 public class UserEditPanel extends Panel {
 
-	private static final Logger log = Logger.getLogger(UserEditPanel.class);
+	private static final Logger log = LogManager.getLogger(UserEditPanel.class);
 
 	public Role role = null;
 

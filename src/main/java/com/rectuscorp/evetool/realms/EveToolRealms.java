@@ -3,7 +3,7 @@ package com.rectuscorp.evetool.realms;
 import com.rectuscorp.evetool.entities.Permission;
 import com.rectuscorp.evetool.entities.User;
 import com.rectuscorp.evetool.service.IserviceUser;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -25,7 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class EveToolRealms extends AuthorizingRealm {
 
-    private static final Logger log = Logger.getLogger(EveToolRealms.class);
+    private static final Logger log = LogManager.getLogger(EveToolRealms.class);
 
     protected IserviceUser serviceUser;
 

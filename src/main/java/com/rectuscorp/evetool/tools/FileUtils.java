@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 
 import java.io.*;
 import java.util.Calendar;
@@ -14,7 +14,7 @@ import java.util.Calendar;
  */
 public class FileUtils {
 
-    private static final Logger log = Logger.getLogger(FileUtils.class);
+    private static final Logger log = LogManager.getLogger(FileUtils.class);
 
     public static String getExtension(String filename) {
         int pos = filename.lastIndexOf(".");

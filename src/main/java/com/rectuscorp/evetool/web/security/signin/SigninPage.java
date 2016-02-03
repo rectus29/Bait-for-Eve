@@ -10,7 +10,7 @@ import com.rectuscorp.evetool.service.IserviceSession;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.BasePage;
 import com.rectuscorp.evetool.web.security.maintenancepage.MaintenancePage;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -39,7 +39,7 @@ import java.util.Date;
 
 public class SigninPage extends BasePage {
 
-	private static final Logger log = Logger.getLogger(SigninPage.class);
+	private static final Logger log = LogManager.getLogger(SigninPage.class);
 	@SpringBean(name = "serviceSession")
 	private IserviceSession serviceSession;
 	@SpringBean(name = "serviceUser")

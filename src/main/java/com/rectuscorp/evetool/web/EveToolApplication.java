@@ -3,6 +3,7 @@ package com.rectuscorp.evetool.web;
 import com.rectuscorp.evetool.event.DispatchOnEventMethod;
 import com.rectuscorp.evetool.realms.EveToolRealms;
 import com.rectuscorp.evetool.session.EveToolSession;
+import com.rectuscorp.evetool.spring.AppContext;
 import com.rectuscorp.evetool.web.page.home.HomePage;
 import com.rectuscorp.evetool.web.page.admin.*;
 import com.rectuscorp.evetool.web.page.prodplan.ProdPlanPage;
@@ -13,6 +14,7 @@ import com.rectuscorp.evetool.web.security.signin.SigninPage;
 import com.rectuscorp.evetool.web.security.signout.SignoutPage;
 import com.rectuscorp.evetool.web.security.unauthorizedpage.UnauthorizedPage;
 import org.apache.shiro.SecurityUtils;
+import org.apache.wicket.Application;
 import org.apache.wicket.Page;
 import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.Session;
@@ -23,9 +25,12 @@ import org.apache.wicket.settings.ApplicationSettings;
 import org.apache.wicket.settings.RequestCycleSettings;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.apache.wicket.util.lang.Bytes;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.wicketstuff.shiro.annotation.AnnotationsShiroAuthorizationStrategy;
 import org.wicketstuff.shiro.authz.ShiroUnauthorizedComponentListener;
+
+import javax.servlet.ServletContext;
 
 /*-----------------------------------------------------*/
 /* User: Rectus for          Date: 21/12/12 11:22 */

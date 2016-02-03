@@ -14,14 +14,15 @@ package com.rectuscorp.evetool.service.impl;
 import com.rectuscorp.evetool.dao.impl.DaoInvmarketgroups;
 import com.rectuscorp.evetool.entities.MarketGroup;
 import com.rectuscorp.evetool.service.IserviceInvmarketgroups;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("ServiceInvmarketgroups")
 public class ServiceInvmarketgroups extends GenericManagerImpl<MarketGroup, Long> implements IserviceInvmarketgroups {
 
-    private static final Logger log = Logger.getLogger(ServiceInvmarketgroups.class);
+    private static final Logger log = LogManager.getLogger(ServiceInvmarketgroups.class);
 
     private DaoInvmarketgroups daoInvmarketgroups;
 

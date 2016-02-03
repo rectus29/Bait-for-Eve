@@ -15,7 +15,7 @@ import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.behavior.AttributeAppender;
@@ -38,7 +38,7 @@ import java.util.*;
 /*-----------------------------------------------------*/
 
 public class NewsPanel extends Panel {
-    private static final Logger log = Logger.getLogger(NewsPanel.class);
+    private static final Logger log = LogManager.getLogger(NewsPanel.class);
     @SpringBean(name = "serviceNews")
     private IserviceNews serviceNews;
     @SpringBean(name = "serviceConfig")
