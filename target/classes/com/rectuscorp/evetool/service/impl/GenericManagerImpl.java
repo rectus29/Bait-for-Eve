@@ -186,7 +186,6 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
         return genericDao.getByProperties(hm);
     }
 
-    @Override
     public List<T> findByNamedQuery(String queryName, Map<String, Object> queryParams) {
         return genericDao.findByNamedQuery(queryName, queryParams);
     }
