@@ -82,11 +82,9 @@ public class ServiceUser extends GenericManagerImpl<User, Long> implements Iserv
         return daoUser.getUsers(first, count, sortProperty, sortAsc, nameFilter);
     }
 
-
     public List getUsers(int first, int count, String sortProperty, boolean sortAsc) {
         return daoUser.getUsers(first, count, sortProperty, sortAsc, "");
     }
-
 
     public User save(User c) {
         return daoUser.save(c);
