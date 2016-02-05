@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoPermission;
-import com.rectuscorp.evetool.entities.*;
+import com.rectuscorp.evetool.entities.core.Permission;
 import org.springframework.stereotype.Repository;
 
 /**

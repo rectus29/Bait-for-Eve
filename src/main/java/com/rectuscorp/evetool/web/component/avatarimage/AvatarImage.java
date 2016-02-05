@@ -2,7 +2,7 @@ package com.rectuscorp.evetool.web.component.avatarimage;
 
 
 import com.rectuscorp.evetool.entities.Individual;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.Config;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;

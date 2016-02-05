@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoNews;
-import com.rectuscorp.evetool.entities.News;
+import com.rectuscorp.evetool.entities.core.News;
 import com.rectuscorp.evetool.enums.State;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;

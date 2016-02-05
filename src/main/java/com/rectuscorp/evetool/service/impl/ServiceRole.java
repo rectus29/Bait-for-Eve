@@ -1,8 +1,8 @@
 package com.rectuscorp.evetool.service.impl;
 
 import com.rectuscorp.evetool.dao.impl.DaoRole;
-import com.rectuscorp.evetool.entities.Role;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.Role;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceRole;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;

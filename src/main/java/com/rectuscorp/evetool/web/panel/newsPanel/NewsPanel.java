@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.web.panel.newsPanel;
 
-import com.rectuscorp.evetool.entities.Config;
-import com.rectuscorp.evetool.entities.News;
+import com.rectuscorp.evetool.entities.core.Config;
+import com.rectuscorp.evetool.entities.core.News;
 import com.rectuscorp.evetool.enums.NewsType;
 import com.rectuscorp.evetool.service.IserviceConfig;
 import com.rectuscorp.evetool.service.IserviceNews;

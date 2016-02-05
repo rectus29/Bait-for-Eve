@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.service;
 
-import com.rectuscorp.evetool.entities.Role;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.Role;
+import com.rectuscorp.evetool.entities.core.User;
 
 import java.util.List;
 

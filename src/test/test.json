@@ -1,0 +1,32 @@
+{
+  "stats": {"href": "https://public-crest.eveonline.com/solarsystems/30000321/stats/"},
+  "name": "MGAM-4",
+  "securityStatus": -0.5753650665283203,
+  "securityClass": "H4",
+  "href": "https://public-crest.eveonline.com/solarsystems/30000321/",
+  "id_str": "30000321",
+  "planets": [
+    {"href": "https://public-crest.eveonline.com/planets/40020188/"},
+    {"href": "https://public-crest.eveonline.com/planets/40020191/"},
+    {"href": "https://public-crest.eveonline.com/planets/40020192/"},
+    {"href": "https://public-crest.eveonline.com/planets/40020195/"},
+    {"href": "https://public-crest.eveonline.com/planets/40020200/"}
+  ],
+  "position": {
+    "y": 7.30424399854426e+16,
+    "x": 7181150794870746.0,
+    "z": 1.660313513110514e+17
+  },
+  "sovereignty": {
+    "id_str": "150097440",
+    "href": "https://public-crest.eveonline.com/alliances/150097440/",
+    "id": 150097440,
+    "name": "Get Off My Lawn"
+  },
+  "constellation": {
+    "href": "https://public-crest.eveonline.com/constellations/20000046/",
+    "id": 20000046,
+    "id_str": "20000046"
+  },
+  "id": 30000321
+}

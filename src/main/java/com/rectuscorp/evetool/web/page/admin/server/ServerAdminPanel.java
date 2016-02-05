@@ -9,7 +9,7 @@ package com.rectuscorp.evetool.web.page.admin.server;
 
 
 
-import com.rectuscorp.evetool.entities.Config;
+import com.rectuscorp.evetool.entities.core.Config;
 import com.rectuscorp.evetool.service.IserviceConfig;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel.BootStrapFeedbackPanel;

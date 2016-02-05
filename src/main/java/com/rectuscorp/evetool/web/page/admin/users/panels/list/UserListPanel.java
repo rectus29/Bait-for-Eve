@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.web.page.admin.users.panels.list;
 
 
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.realms.EveToolRealms;
 import com.rectuscorp.evetool.service.IserviceUser;

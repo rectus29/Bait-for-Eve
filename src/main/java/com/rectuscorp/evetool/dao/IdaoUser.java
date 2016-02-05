@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.dao;
 
 
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.User;
 
 import java.util.List;
 

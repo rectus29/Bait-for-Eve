@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.entities;
+package com.rectuscorp.evetool.entities.core;
 
 import javax.persistence.*;
 import java.util.Date;

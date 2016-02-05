@@ -31,7 +31,6 @@ import java.util.Comparator;
 public class CrestPage extends ProtectedPage {
 
     private static final Logger log = LogManager.getLogger(CrestPage.class);
-
     private JSONObject group;
 
     public CrestPage() {

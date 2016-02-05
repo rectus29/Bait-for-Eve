@@ -2,7 +2,7 @@ package com.rectuscorp.evetool.service.impl;
 
 
 import com.rectuscorp.evetool.dao.impl.DaoNews;
-import com.rectuscorp.evetool.entities.News;
+import com.rectuscorp.evetool.entities.core.News;
 import com.rectuscorp.evetool.service.IserviceNews;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

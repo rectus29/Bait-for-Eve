@@ -1,8 +1,8 @@
 package com.rectuscorp.evetool.service.impl;
 
 import com.rectuscorp.evetool.dao.impl.DaoHistory;
-import com.rectuscorp.evetool.entities.History;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.History;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

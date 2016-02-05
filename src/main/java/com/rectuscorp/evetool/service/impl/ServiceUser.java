@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.service.impl;
 
 import com.rectuscorp.evetool.dao.impl.DaoUser;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.SecurityUtils;

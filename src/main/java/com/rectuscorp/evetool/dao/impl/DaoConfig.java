@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoConfig;
-import com.rectuscorp.evetool.entities.Config;
+import com.rectuscorp.evetool.entities.core.Config;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;

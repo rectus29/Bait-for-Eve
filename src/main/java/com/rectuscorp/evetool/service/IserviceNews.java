@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.service;
 
 
-import com.rectuscorp.evetool.entities.News;
+import com.rectuscorp.evetool.entities.core.News;
 
 import java.util.Date;
 import java.util.List;

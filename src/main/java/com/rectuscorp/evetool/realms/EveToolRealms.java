@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.realms;
 
-import com.rectuscorp.evetool.entities.Permission;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.Permission;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.authc.*;

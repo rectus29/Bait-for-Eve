@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.service.factory;
 
-import com.rectuscorp.evetool.entities.GenericEntity;
+import com.rectuscorp.evetool.entities.core.GenericEntity;
 import com.rectuscorp.evetool.service.GenericManager;
 
 /**

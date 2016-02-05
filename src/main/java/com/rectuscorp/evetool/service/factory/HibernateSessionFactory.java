@@ -5,7 +5,7 @@ package com.rectuscorp.evetool.service.factory; /**
  * Time: 08:22
  */
 
-import com.rectuscorp.evetool.entities.GenericEntity;
+import com.rectuscorp.evetool.entities.core.GenericEntity;
 import com.rectuscorp.evetool.service.GenericManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;

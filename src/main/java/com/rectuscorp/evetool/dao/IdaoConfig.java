@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.dao;
 
 
-import com.rectuscorp.evetool.entities.Config;
+import com.rectuscorp.evetool.entities.core.Config;
 
 
 /*-----------------------------------------------------*/

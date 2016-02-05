@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.service;
 
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.User;
 import org.apache.shiro.subject.Subject;
 
 import java.util.List;
