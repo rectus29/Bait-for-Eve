@@ -30,3 +30,28 @@
   },
   "id": 30000321
 }
+
+{
+"position":{"y": 112787086.0, "x": -4765011186.0, "z": 44480055436.0},
+"type":{"href": "https://public-crest.eveonline.com/types/2015/"},
+"system":{"href": "https://public-crest.eveonline.com/solarsystems/30000321/", "name": "MGAM-4"},
+"name": "MGAM-4 I"
+}
+
+{
+"graphicID": {"href": "https://public-crest.eveonline.com/graphicids/3836/", "id": 3836, "id_str": "3836"},
+"capacity": 0.0,
+"description": "So-called \"lava planets\" (properly \"magmatic planets\") fall into one of three groups: solar magmatics, which orbit sufficiently close to their star that the surface never cools enough to solidify; gravitational magmatics, which experience gravitational shifts sufficiently strong to regularly and significantly fracture cooling crusts; and magmatoids, which are for largely-unexplained reasons simply incapable of cooling and forming a persistent crust. All three types generally exhibit the same external phenomena - huge red-orange lava fields being a defining feature - but the latter two types are sometimes capable of briefly solidifying for a period measured in years or perhaps decades.",
+"portionSize_str": "1",
+"iconID": 10133,
+"portionSize": 1,
+"iconID_str": "10133",
+"volume": 1.0,
+"dogma": {},
+"radius": 10000.0,
+"id_str": "2015",
+"published": false,
+"mass": 1e+35,
+"id": 2015,
+"name": "Planet (Lava)"
+}

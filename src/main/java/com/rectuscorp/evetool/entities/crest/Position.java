@@ -2,13 +2,18 @@ package com.rectuscorp.evetool.entities.crest;
 
 import com.rectuscorp.evetool.entities.core.GenericEntity;
 
-import javax.persistence.Table;
+import javax.persistence.*;
 
-//@Table(name = "position")
+
+@Entity
+@Table(name = "position")
 public class Position extends GenericEntity{
 
+	@Column
 	private int x;
+	@Column
 	private int y;
+	@Column
 	private int z;
 
 	public Position(int x, int y, int z) {

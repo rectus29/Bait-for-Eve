@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.entities.core; /**
  *
- * User: olivier
+ * User: Rectus29
  * Date: 24/07/11
  * Time: 07:47
  */
