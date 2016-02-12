@@ -29,7 +29,7 @@ public class Alliance extends GenericEntity {
 	private Corporation executorCorporation;
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Character creatorCharacter;
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "alliance")
 	private List<Corporation> corporationList = new ArrayList<Corporation>();
 
 	public String getName() {

@@ -4,6 +4,7 @@ import com.rectuscorp.evetool.entities.core.GenericEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,8 @@ public class Character extends GenericEntity {
 	private String name;
 	@Column
 	private Boolean isNPC = false;
+	@ManyToOne
+	private Corporation corporation;
 
 	public String getName() {
 		return name;

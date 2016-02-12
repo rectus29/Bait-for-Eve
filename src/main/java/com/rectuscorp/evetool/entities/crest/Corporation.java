@@ -1,9 +1,6 @@
 package com.rectuscorp.evetool.entities.crest;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +12,10 @@ public class Corporation {
 	private String name;
 	@Column
 	private Boolean isNPC = false;
-	@OneToMany
+	@OneToMany(mappedBy = "corporation")
 	private List<Character> characterList = new ArrayList<Character>();
+	@ManyToOne
+	private Alliance alliance;
 
 	public String getName() {
 		return name;
