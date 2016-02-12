@@ -13,4 +13,6 @@ public class Type extends GenericEntity{
 	@Column(length = 65536)
 	private String name;
 
+	//TODO TO finnnish
+
 }
