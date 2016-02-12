@@ -25,11 +25,11 @@ public class Alliance extends GenericEntity {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate = new Date();
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Corporation executorCorporation;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Character creatorCharacter;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Corporation> corporationList = new ArrayList<Corporation>();
 
 	public String getName() {
