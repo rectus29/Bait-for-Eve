@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.web.component.avatarimage;
 
 
-import com.rectuscorp.evetool.entities.Individual;
+import com.rectuscorp.evetool.entities.core.Individual;
 import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.Config;

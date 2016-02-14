@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.entities.crest;
 
 import com.rectuscorp.evetool.entities.core.GenericEntity;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Constellation extends GenericEntity {
 
 	@Column(nullable = false, length = 65536)
 	private String name;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Position position;
 	@OneToMany(mappedBy = "constellation")
 	private List<SolarSystem> solarSystemList = new ArrayList<SolarSystem>();
@@ -41,5 +42,13 @@ public class Constellation extends GenericEntity {
 
 	public void setSolarSystemList(List<SolarSystem> solarSystemList) {
 		this.solarSystemList = solarSystemList;
+	}
+
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 }

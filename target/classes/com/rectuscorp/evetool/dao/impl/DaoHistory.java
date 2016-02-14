@@ -1,7 +1,8 @@
 package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoHistory;
-import com.rectuscorp.evetool.entities.*;
+import com.rectuscorp.evetool.entities.core.History;
+import com.rectuscorp.evetool.entities.core.User;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;

@@ -6,6 +6,8 @@ package com.rectuscorp.evetool.entities.core; /**
  */
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -14,7 +16,10 @@ import java.util.Date;
 public class GenericEntity implements DomainObject, Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+
+	@GeneratedValue(generator="EveGenerator")
+	@GenericGenerator(name="EveGenerator", strategy="com.rectuscorp.evetool.dao.EveToolIDGenerator")
     private Long id;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
@@ -22,6 +27,10 @@ public class GenericEntity implements DomainObject, Serializable {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated = new Date();
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;

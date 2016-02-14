@@ -1,57 +1,55 @@
 {
-  "stats": {"href": "https://public-crest.eveonline.com/solarsystems/30000321/stats/"},
-  "name": "MGAM-4",
-  "securityStatus": -0.5753650665283203,
-  "securityClass": "H4",
-  "href": "https://public-crest.eveonline.com/solarsystems/30000321/",
-  "id_str": "30000321",
-  "planets": [
-    {"href": "https://public-crest.eveonline.com/planets/40020188/"},
-    {"href": "https://public-crest.eveonline.com/planets/40020191/"},
-    {"href": "https://public-crest.eveonline.com/planets/40020192/"},
-    {"href": "https://public-crest.eveonline.com/planets/40020195/"},
-    {"href": "https://public-crest.eveonline.com/planets/40020200/"}
-  ],
-  "position": {
-    "y": 7.30424399854426e+16,
-    "x": 7181150794870746.0,
-    "z": 1.660313513110514e+17
+  "capacity": 0.0,
+  "description": "This decryptor contains true and tested research methods regarding invention jobs with decent stats across the board.<br><br>Probability Multiplier: N/A  <br>Max. Run Modifier: +2 <br>Material Efficiency Modifier: +1 <br>Time Efficiency Modifier: +8",
+  "portionSize_str": "1",
+  "iconID": 2885,
+  "portionSize": 1,
+  "iconID_str": "2885",
+  "volume": 0.1,
+  "dogma": {
+    "attributes": [
+      {
+        "attribute": {
+          "id_str": "1112",
+          "href": "https://public-crest.eveonline.com/dogma/attributes/1112/",
+          "id": 1112,
+          "name": "inventionPropabilityMultiplier"
+        },
+        "value": 1.0
+      },
+      {
+        "attribute": {
+          "id_str": "1113",
+          "href": "https://public-crest.eveonline.com/dogma/attributes/1113/",
+          "id": 1113,
+          "name": "inventionMEModifier"
+        },
+        "value": 1.0
+      },
+      {
+        "attribute": {
+          "id_str": "1114",
+          "href": "https://public-crest.eveonline.com/dogma/attributes/1114/",
+          "id": 1114,
+          "name": "inventionTEModifier"
+        },
+        "value": 8.0
+      },
+      {
+        "attribute": {
+          "id_str": "1124",
+          "href": "https://public-crest.eveonline.com/dogma/attributes/1124/",
+          "id": 1124,
+          "name": "inventionMaxRunModifier"
+        },
+        "value": 2.0
+      }
+    ]
   },
-  "sovereignty": {
-    "id_str": "150097440",
-    "href": "https://public-crest.eveonline.com/alliances/150097440/",
-    "id": 150097440,
-    "name": "Get Off My Lawn"
-  },
-  "constellation": {
-    "href": "https://public-crest.eveonline.com/constellations/20000046/",
-    "id": 20000046,
-    "id_str": "20000046"
-  },
-  "id": 30000321
-}
-
-{
-"position":{"y": 112787086.0, "x": -4765011186.0, "z": 44480055436.0},
-"type":{"href": "https://public-crest.eveonline.com/types/2015/"},
-"system":{"href": "https://public-crest.eveonline.com/solarsystems/30000321/", "name": "MGAM-4"},
-"name": "MGAM-4 I"
-}
-
-{
-"graphicID": {"href": "https://public-crest.eveonline.com/graphicids/3836/", "id": 3836, "id_str": "3836"},
-"capacity": 0.0,
-"description": "So-called \"lava planets\" (properly \"magmatic planets\") fall into one of three groups: solar magmatics, which orbit sufficiently close to their star that the surface never cools enough to solidify; gravitational magmatics, which experience gravitational shifts sufficiently strong to regularly and significantly fracture cooling crusts; and magmatoids, which are for largely-unexplained reasons simply incapable of cooling and forming a persistent crust. All three types generally exhibit the same external phenomena - huge red-orange lava fields being a defining feature - but the latter two types are sometimes capable of briefly solidifying for a period measured in years or perhaps decades.",
-"portionSize_str": "1",
-"iconID": 10133,
-"portionSize": 1,
-"iconID_str": "10133",
-"volume": 1.0,
-"dogma": {},
-"radius": 10000.0,
-"id_str": "2015",
-"published": false,
-"mass": 1e+35,
-"id": 2015,
-"name": "Planet (Lava)"
+  "radius": 1.0,
+  "id_str": "34206",
+  "published": true,
+  "mass": 1.0,
+  "id": 34206,
+  "name": "Symmetry Decryptor"
 }

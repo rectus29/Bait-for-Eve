@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.entities;
+package com.rectuscorp.evetool.entities.core;
 
 /*-----------------------------------------------------*/
 /* User: Rectus_29 for Andil      Date: 27/01/15 18:28 */

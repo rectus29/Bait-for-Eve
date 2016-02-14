@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.service;
 
-import com.rectuscorp.evetool.entities.*;
+import com.rectuscorp.evetool.entities.core.History;
+import com.rectuscorp.evetool.entities.core.User;
 
 import java.util.Date;
 import java.util.List;

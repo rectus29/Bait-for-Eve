@@ -13,15 +13,24 @@ public class SolarSystem extends GenericEntity{
 	@Column(nullable = false, length = 65536)
 	private String name;
 	@Column
-	private int securityStatus;
+	private double securityStatus;
 	@Column
 	private String securityClass;
 	@OneToMany(mappedBy = "solarSystem")
 	private List<Planet> planetList = new ArrayList<Planet>();
-	@ManyToMany()
+	@ManyToMany
 	private List<Sovereignty> sovereigntyList = new ArrayList<Sovereignty>();
 	@ManyToOne
 	private Constellation constellation;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Position position;
+
+	public SolarSystem() {
+	}
+
+	public SolarSystem(String name) {
+		this.name = name;
+	}
 
 	public String getName() {
 		return name;
@@ -31,11 +40,11 @@ public class SolarSystem extends GenericEntity{
 		this.name = name;
 	}
 
-	public int getSecurityStatus() {
+	public double getSecurityStatus() {
 		return securityStatus;
 	}
 
-	public void setSecurityStatus(int securityStatus) {
+	public void setSecurityStatus(double securityStatus) {
 		this.securityStatus = securityStatus;
 	}
 
@@ -69,5 +78,13 @@ public class SolarSystem extends GenericEntity{
 
 	public void setConstellation(Constellation constellation) {
 		this.constellation = constellation;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }

@@ -1,6 +1,5 @@
 package com.rectuscorp.evetool.entities.core;
 
-import com.rectuscorp.evetool.entities.Individual;
 import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.enums.UserAuthentificationType;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;

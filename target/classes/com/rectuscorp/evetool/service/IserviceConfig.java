@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.service;
 
 
-import com.rectuscorp.evetool.entities.Config;
+import com.rectuscorp.evetool.entities.core.Config;
 
 /**
  * Created by IntelliJ IDEA.

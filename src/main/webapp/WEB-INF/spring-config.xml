@@ -35,9 +35,9 @@
             <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
         </property>
     </bean>
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" abstract="false" lazy-init="default" autowire="default" destroy-method="close">
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" lazy-init="default" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1/evetool"/>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1/eve_db"/>
         <property name="user" value="root"/>
         <property name="password" value=""/>
         <property name="autoCommitOnClose">

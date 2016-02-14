@@ -21,7 +21,7 @@ public class Config implements DomainObject {
     @Column(name = "ke", nullable = false, length = 65536)
     private String key;
 
-    @Column(name = "val", nullable = false, length = 65536)
+    @Column(name = "val", length = 65536)
     private String value;
 
     public Long getId() {

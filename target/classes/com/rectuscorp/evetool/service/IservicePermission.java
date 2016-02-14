@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.service;
 
 
-import com.rectuscorp.evetool.entities.*;
+import com.rectuscorp.evetool.entities.core.Permission;
 
 /**
  * Created by Oliv'Generator.

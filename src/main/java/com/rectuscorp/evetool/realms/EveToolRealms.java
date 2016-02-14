@@ -3,7 +3,8 @@ package com.rectuscorp.evetool.realms;
 import com.rectuscorp.evetool.entities.core.Permission;
 import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceUser;
-import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -59,7 +60,7 @@ public class EveToolRealms extends AuthorizingRealm {
     }
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        Long userId = null;
+        Long userId;
         try {
             userId = (Long) principals.fromRealm(getName()).iterator().next();
 

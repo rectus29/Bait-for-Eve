@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.dao;
 
-import com.rectuscorp.evetool.entities.*;
+import com.rectuscorp.evetool.entities.core.Permission;
 
 /**
  * Created by Oliv'Generator.

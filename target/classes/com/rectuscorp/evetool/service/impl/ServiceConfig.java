@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.service.impl;
 
 import com.rectuscorp.evetool.dao.impl.DaoConfig;
-import com.rectuscorp.evetool.entities.Config;
+import com.rectuscorp.evetool.entities.core.Config;
 import com.rectuscorp.evetool.service.IserviceConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

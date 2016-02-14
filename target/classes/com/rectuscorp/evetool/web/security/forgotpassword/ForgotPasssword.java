@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.web.security.forgotpassword;
 
 import com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel.BootStrapFeedbackPanel;
-import com.rectuscorp.evetool.entities.User;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.BasePage;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;

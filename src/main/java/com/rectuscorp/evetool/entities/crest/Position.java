@@ -10,39 +10,42 @@ import javax.persistence.*;
 public class Position extends GenericEntity{
 
 	@Column
-	private int x;
+	private double x;
 	@Column
-	private int y;
+	private double y;
 	@Column
-	private int z;
+	private double z;
 
-	public Position(int x, int y, int z) {
+	public Position() {
+	}
+
+	public Position(double x, double y, double z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
-	public void setX(int x) {
+	public void setX(double x) {
 		this.x = x;
 	}
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 
-	public void setY(int y) {
+	public void setY(double y) {
 		this.y = y;
 	}
 
-	public int getZ() {
+	public double getZ() {
 		return z;
 	}
 
-	public void setZ(int z) {
+	public void setZ(double z) {
 		this.z = z;
 	}
 }

@@ -1,21 +1,17 @@
 package com.rectuscorp.evetool.web.page.crest;
 
 import com.rectuscorp.evetool.CrestObject;
+import com.rectuscorp.evetool.entities.crest.*;
+import com.rectuscorp.evetool.service.IserviceConstellation;
+import com.rectuscorp.evetool.service.IserviceGeneric;
+import com.rectuscorp.evetool.service.IserviceRegion;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
-import org.apache.wicket.ajax.json.JSONException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.wicket.ajax.json.JSONObject;
-import org.apache.wicket.markup.html.form.ChoiceRenderer;
-import org.apache.wicket.markup.html.form.DropDownChoice;
-import org.apache.wicket.model.PropertyModel;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -33,6 +29,14 @@ public class CrestPage extends ProtectedPage {
     private static final Logger log = LogManager.getLogger(CrestPage.class);
     private JSONObject group;
 
+
+    @SpringBean(name = "serviceGeneric")
+    private IserviceGeneric serviceGeneric;
+    @SpringBean(name = "serviceRegion")
+    private IserviceRegion serviceRegion;
+    @SpringBean(name = "serviceConstellation")
+    private IserviceConstellation serviceConstellation;
+
     public CrestPage() {
 
     }
@@ -40,43 +44,192 @@ public class CrestPage extends ProtectedPage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
+
+        //getRegions();
+        //getConstellations();
+        //getSolarSystems();
+        //getAttributes();
+        getCategory();
+
+    }
+
+    private void getCategory() {
         HttpClient client = new HttpClient();
         try {
-            GetMethod get = new GetMethod( CrestObject.API_URL + "market/groups/");
+
+            GetMethod get = new GetMethod(CrestObject.API_URL + "inventory/categories/");
             client.executeMethod(get);
             String resp = get.getResponseBodyAsString();
             JSONObject jsonObj = new JSONObject(resp);
-            ArrayList<JSONObject> jsonObjects = new ArrayList<JSONObject>();
             for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
                 JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
-                if (!temp.has("parentGroup"))
-                    jsonObjects.add(temp);
-            }
-            Collections.sort(jsonObjects, new Comparator<JSONObject>() {
-                public int compare(JSONObject o1, JSONObject o2) {
-                    try {
-                        return ((String) o1.get("name")).compareTo(((String) o2.get("name")));
-                    } catch (Exception e) {
-                        return 0;
-                    }
-                }
-            });
-            add(new DropDownChoice<JSONObject>("drop", new PropertyModel<JSONObject>(this, "group"),jsonObjects, new ChoiceRenderer<JSONObject>() {
-                @Override
-                public Object getDisplayValue(JSONObject object) {
-                    try {
-                        return object.get("name");
-                    } catch (JSONException e) {
-                        return object.toString();
-                    }
-                }
+                if (temp.has("href")) {
+                    Category category = new Category();
+                    category.setId(temp.getLong("id"));
+                    GetMethod getDetail = new GetMethod(temp.getString("href"));
+                    client.executeMethod(getDetail);
+                    JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+                    category.setName(elJsonObj.getString("name"));
+                    category.setPublished(elJsonObj.getBoolean("published"));
+                    for (int j = 0; j < elJsonObj.getJSONArray("groups").length(); j++) {
+                        Group group = new Group();
+                        JSONObject groupJSONObject = (JSONObject) elJsonObj.getJSONArray("groups").get(j);
+                        group.setName(groupJSONObject.getString("name"));
+                        group.setDescription(groupJSONObject.getString("description"));
+                        group.setPublished(groupJSONObject.getBoolean("published"));
+                        for (int t = 0; t < elJsonObj.getJSONArray("types").length(); t++) {
+                            JSONObject tempTypes = (JSONObject) elJsonObj.getJSONArray("types").get(t);
+                            GetMethod getTypes = new GetMethod(tempTypes.getString("href"));
+                            client.executeMethod(getTypes);
+                            JSONObject typeJSONObject = new JSONObject(getTypes.getResponseBodyAsString());
+                            //TODO FINISH
+                            Type type = new Type();
+                            type.setName();
+                            type.setDescription();
+                            type.setMass();
+                            type.setPublished();
+                            type.setCapacity();
+                            type.setPortionSize();
+                            type.setVolume();
+                            type.setRadius();
 
-			}).add(new AjaxFormComponentUpdatingBehavior("change") {
-                @Override
-                protected void onUpdate(AjaxRequestTarget ajaxRequestTarget) {
-                    log.debug("");
+                            type.getDogmaList().add(new Dogma());
+
+
+                            group.getTypeList().add(type);
+                        }
+                        category.getGroupList().add(group);
+                    }
+                    serviceGeneric.save(category);
                 }
-            }));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getAttributes() {
+        HttpClient client = new HttpClient();
+        try {
+
+            for (int p = 1; p < 5; p++) {
+                GetMethod get = new GetMethod(CrestObject.API_URL + "dogma/attributes/?page=" + p);
+                client.executeMethod(get);
+                String resp = get.getResponseBodyAsString();
+                JSONObject jsonObj = new JSONObject(resp);
+                for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+                    JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+                    if (temp.has("href")) {
+                        Attribute attribute = new Attribute();
+                        attribute.setId(temp.getLong("id"));
+                        GetMethod getDetail = new GetMethod(temp.getString("href"));
+                        client.executeMethod(getDetail);
+                        JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+                        if (elJsonObj.has("name")) {
+                            System.out.println(attribute.getId() + " " + elJsonObj.getString("name"));
+                            attribute.setName(elJsonObj.getString("name"));
+                            attribute.setDisplayName(elJsonObj.getString("displayName"));
+                            attribute.setDescription(elJsonObj.getString("description"));
+                            if (elJsonObj.has("unit"))
+                                attribute.setUnit(elJsonObj.getLong("unit"));
+                            if (elJsonObj.has("highIsGood"))
+                                attribute.setHighIsGood(elJsonObj.getBoolean("highIsGood"));
+                            if (elJsonObj.has("stackable"))
+                                attribute.setStackable(elJsonObj.getBoolean("stackable"));
+                            if (elJsonObj.has("defaultValue"))
+                                attribute.setDefaultValue(elJsonObj.getLong("defaultValue"));
+                            if (elJsonObj.has("published"))
+                                attribute.setPublished(elJsonObj.getBoolean("published"));
+                            serviceGeneric.save(attribute);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getSolarSystems() {
+        HttpClient client = new HttpClient();
+        try {
+            GetMethod get = new GetMethod(CrestObject.API_URL + "solarsystems/");
+            client.executeMethod(get);
+            String resp = get.getResponseBodyAsString();
+            JSONObject jsonObj = new JSONObject(resp);
+            for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+                JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+                if (temp.has("href")) {
+                    System.out.println(temp.getLong("id") + " " + i);
+                    SolarSystem solarSystem = new SolarSystem();
+                    solarSystem.setId(temp.getLong("id"));
+                    GetMethod getDetail = new GetMethod(temp.getString("href"));
+                    client.executeMethod(getDetail);
+                    JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+                    log.debug(elJsonObj.getString("name"));
+                    solarSystem.setName(elJsonObj.getString("name"));
+                    solarSystem.setSecurityStatus(elJsonObj.getDouble("securityStatus"));
+                    solarSystem.setSecurityClass(elJsonObj.getString("securityClass"));
+                    solarSystem.setPosition(new Position((elJsonObj.getJSONObject("position")).getDouble("x"), (elJsonObj.getJSONObject("position")).getDouble("y"), (elJsonObj.getJSONObject("position")).getDouble("z")));
+
+                    Constellation constellation = serviceConstellation.get(Long.parseLong(elJsonObj.getJSONObject("constellation").getString("href").split("/")[elJsonObj.getJSONObject("constellation").getString("href").split("/").length - 1]));
+                    solarSystem.setConstellation(constellation);
+                    serviceGeneric.save(solarSystem);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getConstellations() {
+        HttpClient client = new HttpClient();
+        try {
+            GetMethod get = new GetMethod(CrestObject.API_URL + "constellations/");
+            client.executeMethod(get);
+            String resp = get.getResponseBodyAsString();
+            JSONObject jsonObj = new JSONObject(resp);
+            for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+                JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+                if (temp.has("href")) {
+                    Constellation constellation = new Constellation();
+                    constellation.setId(temp.getLong("id"));
+                    GetMethod getDetail = new GetMethod(temp.getString("href"));
+                    client.executeMethod(getDetail);
+                    JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+                    log.debug(elJsonObj.getString("name"));
+                    constellation.setName(elJsonObj.getString("name"));
+                    constellation.setPosition(new Position((elJsonObj.getJSONObject("position")).getDouble("x"), (elJsonObj.getJSONObject("position")).getDouble("y"), (elJsonObj.getJSONObject("position")).getDouble("z")));
+                    Region region = serviceRegion.get(Long.parseLong(elJsonObj.getJSONObject("region").getString("href").split("/")[elJsonObj.getJSONObject("region").getString("href").split("/").length - 1]));
+                    constellation.setRegion(region);
+                    serviceGeneric.save(constellation);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getRegions() {
+        HttpClient client = new HttpClient();
+        try {
+            GetMethod get = new GetMethod(CrestObject.API_URL + "regions/");
+            client.executeMethod(get);
+            String resp = get.getResponseBodyAsString();
+            JSONObject jsonObj = new JSONObject(resp);
+            for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+                JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+                if (temp.has("href")) {
+                    GetMethod getDetail = new GetMethod(temp.getString("href"));
+                    client.executeMethod(getDetail);
+                    JSONObject regionJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+                    Region tempRegion = new Region();
+                    tempRegion.setDescription(regionJsonObj.getString("description"));
+                    tempRegion.setName(regionJsonObj.getString("name"));
+                    tempRegion.setId(regionJsonObj.getLong("id"));
+                    serviceGeneric.save(tempRegion);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

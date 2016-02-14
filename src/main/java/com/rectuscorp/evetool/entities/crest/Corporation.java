@@ -1,12 +1,14 @@
 package com.rectuscorp.evetool.entities.crest;
 
+import com.rectuscorp.evetool.entities.core.GenericEntity;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="corporation")
-public class Corporation {
+public class Corporation extends GenericEntity{
 
 	@Column(length = 65536)
 	private String name;

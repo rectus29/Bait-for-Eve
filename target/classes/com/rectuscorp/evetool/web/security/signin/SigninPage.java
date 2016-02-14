@@ -1,11 +1,8 @@
 package com.rectuscorp.evetool.web.security.signin;
 
-import com.rectuscorp.evetool.enums.UserAuthentificationType;
 import com.rectuscorp.evetool.service.IserviceConfig;
 import com.rectuscorp.evetool.web.component.BootStrapFeedbackPanel.BootStrapFeedbackPanel;
-import com.rectuscorp.evetool.entities.History;
-import com.rectuscorp.evetool.entities.User;
-import com.rectuscorp.evetool.service.IserviceHistory;
+import com.rectuscorp.evetool.entities.core.User;
 import com.rectuscorp.evetool.service.IserviceSession;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.BasePage;
@@ -19,17 +16,10 @@ import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
-import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
-import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.PropertyModel;
-import org.apache.wicket.protocol.http.servlet.ServletWebRequest;
-import org.apache.wicket.request.cycle.RequestCycle;
-import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-
-import java.util.Date;
 
 /*-----------------------------------------------------*/
 /* User: Rectus for          Date: 21/12/12 11:22 */
