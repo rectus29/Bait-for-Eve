@@ -49,12 +49,69 @@ public class CrestPage extends ProtectedPage {
         //getConstellations();
         //getSolarSystems();
         //getAttributes();
-        getCategory();
+        //getCategory();
+        //getEffects();
 
     }
 
-    private void getCategory() {
+
+    private void getEffects(){
         HttpClient client = new HttpClient();
+        try {
+
+            for (int p = 1; p < 9; p++) {
+                GetMethod get = new GetMethod(CrestObject.API_URL + "dogma/effects/?page=" + p);
+                client.executeMethod(get);
+                String resp = get.getResponseBodyAsString();
+                JSONObject jsonObj = new JSONObject(resp);
+                for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+                    JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+                    if (temp.has("href")) {
+                        Effect effect = new Effect();
+                        effect.setId(temp.getLong("id"));
+                        effect.setName(temp.getString("name"));
+                        GetMethod getDetail = new GetMethod(temp.getString("href"));
+                        client.executeMethod(getDetail);
+                        JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+                        if (elJsonObj.has("name")) {
+                            System.out.println(effect.getId() + " " + elJsonObj.getString("name"));
+                            effect.setName(elJsonObj.getString("name"));
+                            effect.setDisplayName(elJsonObj.getString("displayName"));
+                            effect.setDescription(elJsonObj.getString("description"));
+                            if (elJsonObj.has("postExpression"))
+                                effect.setPostExpression(elJsonObj.getLong("postExpression"));
+                            if (elJsonObj.has("preExpression"))
+                                effect.setPreExpression(elJsonObj.getLong("preExpression"));
+                            if (elJsonObj.has("isAssistance"))
+                                effect.setIsAssistance(elJsonObj.getBoolean("isAssistance"));
+                            if (elJsonObj.has("isOffensive"))
+                                effect.setIsOffensive(elJsonObj.getBoolean("isOffensive"));
+                            if (elJsonObj.has("disallowAutoRepeat"))
+                                effect.setDisallowAutoRepeat(elJsonObj.getBoolean("disallowAutoRepeat"));
+                            if (elJsonObj.has("isWarpSafe"))
+                                effect.setIsWarpSafe(elJsonObj.getBoolean("isWarpSafe"));
+                            if (elJsonObj.has("electronicChance"))
+                                effect.setElectronicChance(elJsonObj.getBoolean("electronicChance"));
+                            if (elJsonObj.has("rangeChance"))
+                                effect.setRangeChance(elJsonObj.getBoolean("rangeChance"));
+                            if (elJsonObj.has("effectCategory"))
+                                effect.setEffectCategory(elJsonObj.getLong("effectCategory"));
+                            if (elJsonObj.has("electronicChance"))
+                                effect.setElectronicChance(elJsonObj.getBoolean("electronicChance"));
+                            if (elJsonObj.has("published"))
+                                effect.setPublished(elJsonObj.getBoolean("published"));
+                        }
+                        serviceGeneric.save(effect);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getCategory() {
+        /*HttpClient client = new HttpClient();
         try {
 
             GetMethod get = new GetMethod(CrestObject.API_URL + "inventory/categories/");
@@ -105,7 +162,7 @@ public class CrestPage extends ProtectedPage {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private void getAttributes() {

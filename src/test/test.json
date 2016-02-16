@@ -1,55 +1,21 @@
 {
-  "capacity": 0.0,
-  "description": "This decryptor contains true and tested research methods regarding invention jobs with decent stats across the board.<br><br>Probability Multiplier: N/A  <br>Max. Run Modifier: +2 <br>Material Efficiency Modifier: +1 <br>Time Efficiency Modifier: +8",
-  "portionSize_str": "1",
-  "iconID": 2885,
-  "portionSize": 1,
-  "iconID_str": "2885",
-  "volume": 0.1,
-  "dogma": {
-    "attributes": [
-      {
-        "attribute": {
-          "id_str": "1112",
-          "href": "https://public-crest.eveonline.com/dogma/attributes/1112/",
-          "id": 1112,
-          "name": "inventionPropabilityMultiplier"
-        },
-        "value": 1.0
-      },
-      {
-        "attribute": {
-          "id_str": "1113",
-          "href": "https://public-crest.eveonline.com/dogma/attributes/1113/",
-          "id": 1113,
-          "name": "inventionMEModifier"
-        },
-        "value": 1.0
-      },
-      {
-        "attribute": {
-          "id_str": "1114",
-          "href": "https://public-crest.eveonline.com/dogma/attributes/1114/",
-          "id": 1114,
-          "name": "inventionTEModifier"
-        },
-        "value": 8.0
-      },
-      {
-        "attribute": {
-          "id_str": "1124",
-          "href": "https://public-crest.eveonline.com/dogma/attributes/1124/",
-          "id": 1124,
-          "name": "inventionMaxRunModifier"
-        },
-        "value": 2.0
-      }
-    ]
-  },
-  "radius": 1.0,
-  "id_str": "34206",
-  "published": true,
-  "mass": 1.0,
-  "id": 34206,
-  "name": "Symmetry Decryptor"
+  "effectCategory_str": "4",
+  "preExpression_str": "439",
+  "postExpression_str": "440",
+  "id_str": "50",
+
+  "isAssistance": false,
+  "description": "",
+  "isOffensive": false,
+  "disallowAutoRepeat": false,
+  "isWarpSafe": false,
+  "electronicChance": false,
+  "rangeChance": false,
+  "effectCategory": 4,
+  "published": false,
+
+  "postExpression": 440,
+  "preExpression": 439,
+  "displayName": "",
+  "name": "modifyShieldRechargeRate"
 }
