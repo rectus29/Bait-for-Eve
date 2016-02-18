@@ -7,12 +7,12 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Rectus for Andil
- * Date: 13/09/12
- * Time: 16:50
- */
+
+/*-----------------------------------------------------*/
+/*                    by Rectus_29                     */
+/*                Date: 18/02/16 11:20                 */
+/*                 All right reserved                  */
+/*-----------------------------------------------------*/
 public class GigaLazyLoadPanel extends AjaxLazyLoadPanel {
 
     private String htmlText = getString("current-computation") +"<br/>"+ getString("please-wait");

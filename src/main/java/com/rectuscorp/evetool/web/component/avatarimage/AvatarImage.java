@@ -28,7 +28,7 @@ public class AvatarImage extends WebComponent {
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;
     private IModel<String> context;
-    private IModel<? extends Individual> model;
+    private IModel<? extends User> model;
 
     public AvatarImage(String id) {
         super(id);
@@ -40,14 +40,14 @@ public class AvatarImage extends WebComponent {
         };*/
     }
 
-    public AvatarImage(String id, IModel<? extends Individual> model) {
+    public AvatarImage(String id, IModel<? extends User> model) {
         super(id, model);
         this.model = model;
     }
 
-    public AvatarImage(String id, Individual model) {
+    public AvatarImage(String id, User model) {
         super(id);
-        this.model = new Model<Individual>(model);
+        this.model = new Model<User>(model);
     }
 
     protected void onComponentTag(ComponentTag tag) {

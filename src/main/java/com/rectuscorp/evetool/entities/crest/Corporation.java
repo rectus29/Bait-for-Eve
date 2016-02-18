@@ -15,7 +15,7 @@ public class Corporation extends GenericEntity{
 	@Column
 	private Boolean isNPC = false;
 	@OneToMany(mappedBy = "corporation")
-	private List<Character> characterList = new ArrayList<Character>();
+	private List<CrestCharacter> crestCharacterList = new ArrayList<CrestCharacter>();
 	@ManyToOne
 	private Alliance alliance;
 
@@ -35,11 +35,11 @@ public class Corporation extends GenericEntity{
 		this.isNPC = isNPC;
 	}
 
-	public List<Character> getCharacterList() {
-		return characterList;
+	public List<CrestCharacter> getCrestCharacterList() {
+		return crestCharacterList;
 	}
 
-	public void setCharacterList(List<Character> characterList) {
-		this.characterList = characterList;
+	public void setCrestCharacterList(List<CrestCharacter> crestCharacterList) {
+		this.crestCharacterList = crestCharacterList;
 	}
 }

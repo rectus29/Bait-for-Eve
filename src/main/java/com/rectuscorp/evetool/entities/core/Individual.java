@@ -1,11 +1,11 @@
 package com.rectuscorp.evetool.entities.core;
 
+
 /*-----------------------------------------------------*/
-/* User: Rectus_29 for Andil      Date: 27/01/15 18:28 */
-/*                                                     */
+/*                    by Rectus_29                     */
+/*                Date: 18/02/16 11:20                 */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-
 
 import com.rectuscorp.evetool.enums.State;
 

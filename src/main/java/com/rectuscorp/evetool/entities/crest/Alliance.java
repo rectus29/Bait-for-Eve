@@ -28,7 +28,7 @@ public class Alliance extends GenericEntity {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Corporation executorCorporation;
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	private Character creatorCharacter;
+	private CrestCharacter creatorCrestCharacter;
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "alliance")
 	private List<Corporation> corporationList = new ArrayList<Corporation>();
 
@@ -88,12 +88,12 @@ public class Alliance extends GenericEntity {
 		this.executorCorporation = executorCorporation;
 	}
 
-	public Character getCreatorCharacter() {
-		return creatorCharacter;
+	public CrestCharacter getCreatorCrestCharacter() {
+		return creatorCrestCharacter;
 	}
 
-	public void setCreatorCharacter(Character creatorCharacter) {
-		this.creatorCharacter = creatorCharacter;
+	public void setCreatorCrestCharacter(CrestCharacter creatorCrestCharacter) {
+		this.creatorCrestCharacter = creatorCrestCharacter;
 	}
 
 	public List<Corporation> getCorporationList() {

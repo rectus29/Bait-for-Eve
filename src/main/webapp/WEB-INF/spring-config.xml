@@ -57,7 +57,7 @@
         </property>
         <property name="packagesToScan">
             <list>
-                <value>com.rectuscorp.evetool</value>
+                <value>com.rectuscorp.evetool.entities</value>
             </list>
         </property>
         <property name="hibernateProperties">

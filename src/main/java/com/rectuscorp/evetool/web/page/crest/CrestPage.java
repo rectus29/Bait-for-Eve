@@ -37,7 +37,10 @@ public class CrestPage extends ProtectedPage {
     @SpringBean(name = "serviceConstellation")
     private IserviceConstellation serviceConstellation;
 
-    public CrestPage() {
+	/**
+	 * Instantiates a new Crest page.
+	 */
+	public CrestPage() {
 
     }
 

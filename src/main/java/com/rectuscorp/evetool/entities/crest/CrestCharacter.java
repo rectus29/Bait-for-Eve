@@ -8,8 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "character")
-public class Character extends GenericEntity {
+@Table(name = "crestcharacter")
+public class CrestCharacter extends GenericEntity {
 
 	@Column(length = 65536)
 	private String name;

@@ -14,10 +14,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * User: olivier
- * Date: 9 févr. 2011
- */
+/*-----------------------------------------------------*/
+/*      _____           _               ___   ___      */
+/*     |  __          | |             |__  / _      */
+/*     | |__) |___  ___| |_ _   _ ___     ) | (_) |    */
+/*     |  _  // _ / __| __| | | / __|   / / __, |    */
+/*     | |    __/ (__| |_| |_| __   / /_   / /     */
+/*     |_|  ____|___|__|__,_|___/ |____| /_/      */
+/*                                                     */
+/*                Date: 27/12/14 22:19                */
+/*                 All right reserved                  */
+/*-----------------------------------------------------*/
 @Service("serviceSession")
 public class ServiceSession implements IserviceSession {
 

@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Rectus for Andil
- * Date: 03/09/12
- * Time: 15:09
- */
+
+/*-----------------------------------------------------*/
+/*                    by Rectus_29                     */
+/*                Date: 18/02/16 11:20                 */
+/*                 All right reserved                  */
+/*-----------------------------------------------------*/
 public class PlotDataObject implements Serializable {
 
     private String label;

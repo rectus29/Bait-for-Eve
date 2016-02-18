@@ -1,13 +1,11 @@
 package com.rectuscorp.evetool.enums;
 
+
 /*-----------------------------------------------------*/
-/*                                                     */
-/* User: Rectus for Andil         Date: 07/01/13 13:48 */
-/*                                                     */
+/*                    by Rectus_29                     */
+/*                Date: 18/02/16 11:20                 */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-
-
 public enum NewsType implements Comparable<NewsType> {
     INTERNAL, EXTERNAL
 

@@ -5,72 +5,41 @@ import com.rectuscorp.evetool.enums.UserAuthentificationType;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "users")
-public class User extends GenericEntity implements Individual {
+public class User extends GenericEntity {
 
 	@Column(nullable = false)
 	private String password;
-
 	@Column(nullable = false)
 	private String userName;
-
-	@Column(nullable = false, length = 65536)
-	private String lastName;
-
-	@Column(nullable = false, length = 65536)
-	private String firstName;
-
 	@Column(nullable = false)
 	private String email;
-
-	@Column
-	private String avatarPath;
-
 	@Column
 	private State state = State.ENABLE;
-
 	@Column
 	private String salt = new SecureRandomNumberGenerator().nextBytes(64).toBase64();
-
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Role role;
-
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date restoreSessionDate;
-
 	@Column(name = "restoreSession")
 	private String restoreSession;
-
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastLogin;
-
 	@Column
 	private UserAuthentificationType userAuthentificationType = UserAuthentificationType.EMBED;
-
-	public User() {
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	@OneToMany
+	private List<ApiKey> apiKeyList = new ArrayList<ApiKey>();
+	@OneToOne
+	private Character mainCharacter;
 
 	public String getPassword() {
 		return password;
@@ -148,12 +117,8 @@ public class User extends GenericEntity implements Individual {
 		this.lastLogin = lastLogin;
 	}
 
-	public String getFormattedName() {
-		return getFirstName() + " " + getLastName();
-	}
-
 	public String getAvatarPath() {
-		return avatarPath;
+		return null;
 	}
 
 	public boolean isAdmin() {
@@ -170,15 +135,27 @@ public class User extends GenericEntity implements Individual {
 		this.userName = userName;
 	}
 
-	public void setAvatarPath(String avatarPath) {
-		this.avatarPath = avatarPath;
-	}
-
 	public UserAuthentificationType getUserAuthentificationType() {
 		return userAuthentificationType;
 	}
 
 	public void setUserAuthentificationType(UserAuthentificationType userAuthentificationType) {
 		this.userAuthentificationType = userAuthentificationType;
+	}
+
+	public List<ApiKey> getApiKeyList() {
+		return apiKeyList;
+	}
+
+	public void setApiKeyList(List<ApiKey> apiKeyList) {
+		this.apiKeyList = apiKeyList;
+	}
+
+	public Character getMainCharacter() {
+		return mainCharacter;
+	}
+
+	public void setMainCharacter(Character mainCharacter) {
+		this.mainCharacter = mainCharacter;
 	}
 }
