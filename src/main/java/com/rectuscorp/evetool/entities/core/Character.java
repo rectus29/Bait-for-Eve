@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.entities.core;
 
+import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.entities.crest.SolarSystem;
 import com.rectuscorp.evetool.entities.crest.Type;
 
@@ -21,6 +22,9 @@ public class Character extends GenericEntity {
 	private Date birthDay = new Date();
 	@ManyToOne
 	private ApiKey apiKey;
+	@ManyToOne
+	private Corporation corporation;
+
 
 	public String getName() {
 		return name;
@@ -60,5 +64,13 @@ public class Character extends GenericEntity {
 
 	public void setApiKey(ApiKey apiKey) {
 		this.apiKey = apiKey;
+	}
+
+	public Corporation getCorporation() {
+		return corporation;
+	}
+
+	public void setCorporation(Corporation corporation) {
+		this.corporation = corporation;
 	}
 }
