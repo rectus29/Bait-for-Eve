@@ -1,6 +1,5 @@
 package com.rectuscorp.evetool.tools;
 
-import com.rectuscorp.evetool.EveXmlApiObject;
 import com.rectuscorp.evetool.entities.core.ApiKey;
 import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.entities.crest.Corporation;
@@ -21,15 +20,12 @@ import java.util.List;
 
 public class EveXmlApi {
 
-
+	private static final Logger log = LogManager.getLogger(EveXmlApi.class);
+	public static String API_URL = "https://api.eveonline.com/";
 	@SpringBean(name = "serviceCorporation")
 	private static IserviceCorporation serviceCorporation;
-
-	public static String API_URL = "https://api.eveonline.com/";
-	private static final Logger log = LogManager.getLogger(EveXmlApi.class);
 	private static EveXmlApi ourInstance;
 	private HttpClient client = new HttpClient();
-
 
 	/**
 	 * Singleton Getter
@@ -42,17 +38,23 @@ public class EveXmlApi {
 		return ourInstance;
 	}
 
+	/**
+	 * retrive character by apiKey
+	 *
+	 * @param apiKey
+	 * @return
+	 */
 	public static List<Character> getCharacterList(ApiKey apiKey) {
 		List<Character> out = new ArrayList<Character>();
-		GetMethod get = new GetMethod(EveXmlApiObject.API_URL + "account/Characters.xml.aspx?keyID=" + apiKey.getKeyId() + "&vCode=" + apiKey.getVerificationCode());
+		GetMethod get = new GetMethod(API_URL + "account/Characters.xml.aspx?keyID=" + apiKey.getKeyId() + "&vCode=" + apiKey.getVerificationCode());
 		try {
 			String xmlResponse = get.getResponseBodyAsString();
 			SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
 			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
-			for(DOMElement charElement: (List<DOMElement>)document.selectNodes("//row ")){
+			for (DOMElement charElement : (List<DOMElement>) document.selectNodes("//row ")) {
 				Character character = new Character();
 				character.setName(charElement.getAttribute("name"));
-				if(charElement.getAttribute("corporationID")!= null){
+				if (charElement.getAttribute("corporationID") != null) {
 					Corporation corpo = serviceCorporation.get(Long.parseLong(charElement.getAttribute("corporationID")));
 					character.setCorporation(corpo);
 				}

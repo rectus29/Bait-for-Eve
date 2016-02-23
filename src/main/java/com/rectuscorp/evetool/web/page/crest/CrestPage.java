@@ -4,6 +4,7 @@ import com.rectuscorp.evetool.entities.crest.*;
 import com.rectuscorp.evetool.service.IserviceConstellation;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.IserviceRegion;
+import com.rectuscorp.evetool.tools.EveCRESTApi;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -60,7 +61,7 @@ public class CrestPage extends ProtectedPage {
 		try {
 
 			for (int p = 1; p < 9; p++) {
-				GetMethod get = new GetMethod(CrestObject.API_URL + "dogma/effects/?page=" + p);
+				GetMethod get = new GetMethod(EveCRESTApi.API_URL + "dogma/effects/?page=" + p);
 				client.executeMethod(get);
 				String resp = get.getResponseBodyAsString();
 				JSONObject jsonObj = new JSONObject(resp);
@@ -170,7 +171,7 @@ public class CrestPage extends ProtectedPage {
 		try {
 
 			for (int p = 1; p < 5; p++) {
-				GetMethod get = new GetMethod(CrestObject.API_URL + "dogma/attributes/?page=" + p);
+				GetMethod get = new GetMethod(EveCRESTApi.API_URL + "dogma/attributes/?page=" + p);
 				client.executeMethod(get);
 				String resp = get.getResponseBodyAsString();
 				JSONObject jsonObj = new JSONObject(resp);
@@ -207,37 +208,7 @@ public class CrestPage extends ProtectedPage {
 		}
 	}
 
-	private void getSolarSystems() {
-		HttpClient client = new HttpClient();
-		try {
-			GetMethod get = new GetMethod(CrestObject.API_URL + "solarsystems/");
-			client.executeMethod(get);
-			String resp = get.getResponseBodyAsString();
-			JSONObject jsonObj = new JSONObject(resp);
-			for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
-				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
-				if (temp.has("href")) {
-					System.out.println(temp.getLong("id") + " " + i);
-					SolarSystem solarSystem = new SolarSystem();
-					solarSystem.setId(temp.getLong("id"));
-					GetMethod getDetail = new GetMethod(temp.getString("href"));
-					client.executeMethod(getDetail);
-					JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
-					log.debug(elJsonObj.getString("name"));
-					solarSystem.setName(elJsonObj.getString("name"));
-					solarSystem.setSecurityStatus(elJsonObj.getDouble("securityStatus"));
-					solarSystem.setSecurityClass(elJsonObj.getString("securityClass"));
-					solarSystem.setPosition(new Position((elJsonObj.getJSONObject("position")).getDouble("x"), (elJsonObj.getJSONObject("position")).getDouble("y"), (elJsonObj.getJSONObject("position")).getDouble("z")));
 
-					Constellation constellation = serviceConstellation.get(Long.parseLong(elJsonObj.getJSONObject("constellation").getString("href").split("/")[elJsonObj.getJSONObject("constellation").getString("href").split("/").length - 1]));
-					solarSystem.setConstellation(constellation);
-					serviceGeneric.save(solarSystem);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 
 }
