@@ -45,7 +45,7 @@ public abstract class GenericDaoHibernate<T, PK extends Serializable> implements
      */
     protected final Log log = LogFactory.getLog(getClass());
     private Class<T> persistentClass;
-    private HibernateTemplate hibernateTemplate;
+    protected HibernateTemplate hibernateTemplate;
     private SessionFactory sessionFactory;
 
     /**
