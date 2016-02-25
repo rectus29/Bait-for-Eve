@@ -114,7 +114,7 @@ public class ServerAdminPanel extends Panel {
             supportAdr = supportConfig.getValue();
         add(new Form("emailForm")
                 .add(new TextField<String>("supportEmail", new PropertyModel<String>(this, "supportAdr")))
-                .add(new BootStrapFeedbackPanel("feed"))
+                .add(new BootStrapFeedbackPanel("smf"))
                 .add(new AjaxSubmitLink("adrMailSubmit") {
                     @Override
                     protected void onSubmit(AjaxRequestTarget target, Form<?> form) {

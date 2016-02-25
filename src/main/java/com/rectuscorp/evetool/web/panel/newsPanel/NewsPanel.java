@@ -103,7 +103,7 @@ public class NewsPanel extends Panel {
                                 displayNews++;
                             }
                         } catch (Exception e) {
-                            log.error("Error while Rss feed parsing", e);
+                            log.error("Error while Rss smf parsing", e);
                         }
                     }
                 }

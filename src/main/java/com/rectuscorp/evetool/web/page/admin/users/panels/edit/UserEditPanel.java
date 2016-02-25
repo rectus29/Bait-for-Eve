@@ -111,7 +111,7 @@ public class UserEditPanel extends Panel {
 						onCancel(target);
 					}
 				});
-				add((feed = new BootStrapFeedbackPanel("feed")).setOutputMarkupId(true));
+				add((feed = new BootStrapFeedbackPanel("smf")).setOutputMarkupId(true));
 			}
 		}).setOutputMarkupId(true));
 	}
