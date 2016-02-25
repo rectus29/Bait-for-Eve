@@ -16,6 +16,18 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import java.util.ArrayList;
 import java.util.List;
 
+/*-----------------------------------------------------*/
+/*      _____           _               ___   ___      */
+/*     |  __ \         | |             |__ \ / _ \     */
+/*     | |__) |___  ___| |_ _   _ ___     ) | (_) |    */
+/*     |  _  // _ \/ __| __| | | / __|   / / \__, |    */
+/*     | | \ \  __/ (__| |_| |_| \__ \  / /_   / /     */
+/*     |_|  \_\___|\___|\__|\__,_|___/ |____| /_/      */
+/*                                                     */
+/*                Date: 25/02/2016 16:59               */
+/*                 All right reserved                  */
+/*-----------------------------------------------------*/
+
 public class EveCRESTApi {
 
 	private static final Logger log = LogManager.getLogger(EveCRESTApi.class);

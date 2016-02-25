@@ -12,5 +12,9 @@ package com.rectuscorp.evetool.tools.feedreader;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+import java.util.ArrayList;
+
 public interface IFeedParser {
+
+    public ArrayList<INode> parse(String response);
 }

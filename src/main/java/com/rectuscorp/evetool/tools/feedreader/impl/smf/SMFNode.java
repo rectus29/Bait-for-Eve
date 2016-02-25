@@ -1,4 +1,6 @@
-package com.rectuscorp.evetool.tools.feedreader;
+package com.rectuscorp.evetool.tools.feedreader.impl.smf;
+
+import com.rectuscorp.evetool.tools.feedreader.INode;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -12,8 +14,11 @@ package com.rectuscorp.evetool.tools.feedreader;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-public interface INode {
+public class SMFNode implements INode {
 
-
-
+    private String created;
+    private String subject;
+    private String content;
+    private String link;
+    private String author;
 }
