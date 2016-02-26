@@ -39,15 +39,17 @@ public class SMFFeedParser implements IFeedParser {
         ArrayList<INode> smfNodes = new ArrayList<INode>();
         try {
             SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
+			//strip faild dtd
+			response = response.replace("<smf:xml-feed xmlns:smf=\"http://www.simplemachines.org/\" xmlns=\"http://www.simplemachines.org/xml/recent\" xml:lang=\"fr-FR.utf8\">","<smf>");
+			response = response.replace("</smf:xml-feed>","</smf>");
             DOMDocument document = (DOMDocument) saxReader.read(new StringReader(response));
-            for (Object charElement : document.selectNodes("//recent-post ")) {
+            for (DOMElement charElement : (List<DOMElement>) document.selectNodes("//recent-post ")) {
                 SMFNode smfNode = new SMFNode();
-				//charElement.get("subject");
-//                smfNode.setAuthor();
-//                smfNode.setContent();
-//                smfNode.setCreated();
-//                smfNode.setLink();
-//                smfNode.setSubject();
+                smfNode.setAuthor((charElement.selectSingleNode("poster")!= null)? charElement.selectSingleNode("poster/name").getText():null);
+                smfNode.setContent((charElement.selectSingleNode("body")!= null)? charElement.selectSingleNode("body").getText():null);
+                smfNode.setCreated((charElement.selectSingleNode("time")!= null)? charElement.selectSingleNode("time").getText():null);
+                smfNode.setLink((charElement.selectSingleNode("link")!= null)? charElement.selectSingleNode("link").getText():null);
+				smfNode.setSubject((charElement.selectSingleNode("subject")!= null)? charElement.selectSingleNode("subject").getText():null);
 				smfNodes.add(smfNode);
             }
         } catch (DocumentException e) {

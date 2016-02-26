@@ -14,6 +14,14 @@ package com.rectuscorp.evetool.tools.feedreader;
 
 public interface INode {
 
+	public String getSubject();
 
+	public String getCreated();
+
+	public String getContent();
+
+	public String getLink();
+
+	public String getAuthor();
 
 }
