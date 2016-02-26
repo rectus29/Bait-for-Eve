@@ -1,17 +1,5 @@
 package com.rectuscorp.evetool.tools.feedreader;
 
-/*-----------------------------------------------------*/
-/*      _____           _               ___   ___      */
-/*     |  __ \         | |             |__ \ / _ \     */
-/*     | |__) |___  ___| |_ _   _ ___     ) | (_) |    */
-/*     |  _  // _ \/ __| __| | | / __|   / / \__, |    */
-/*     | | \ \  __/ (__| |_| |_| \__ \  / /_   / /     */
-/*     |_|  \_\___|\___|\__|\__,_|___/ |____| /_/      */
-/*                                                     */
-/*                Date: 25/02/2016 16:59               */
-/*                 All right reserved                  */
-/*-----------------------------------------------------*/
-
 import com.rectuscorp.evetool.entities.crest.Region;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -35,31 +23,34 @@ import java.util.List;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+/**
+ * The type Feed reader.
+ */
 public class FeedReader {
 
     private static final Logger log = LogManager.getLogger(FeedReader.class);
     private static FeedReader ourInstance;
     private static HttpClient client = new HttpClient();
 
-    /**
-     * Singleton Getter
-     *
-     * @return FeedReader
-     */
-    public static FeedReader get() {
+	/**
+	 * Singleton Getter
+	 *
+	 * @return FeedReader feed reader
+	 */
+	public static FeedReader get() {
         if (ourInstance == null)
             return new FeedReader();
         return ourInstance;
     }
 
-
-    /**
-     * Read a feed and return node list
-     * @param url URL to parse
-     * @param feedParser feedParser to use
-     * @return list of parsed list
-     */
-    public ArrayList<INode> read(URL url, IFeedParser feedParser){
+	/**
+	 * Read a feed and return node list
+	 *
+	 * @param url        URL to parse
+	 * @param feedParser feedParser to use
+	 * @return list of parsed list
+	 */
+	public ArrayList<INode> read(URL url, IFeedParser feedParser){
         ArrayList<INode> out = new ArrayList<INode>();
         try {
             GetMethod get = new GetMethod(url.toString());

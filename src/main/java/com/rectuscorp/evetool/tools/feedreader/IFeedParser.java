@@ -14,7 +14,16 @@ package com.rectuscorp.evetool.tools.feedreader;
 
 import java.util.ArrayList;
 
+/**
+ * The interface Feed parser.
+ */
 public interface IFeedParser {
 
-    public ArrayList<INode> parse(String response);
+	/**
+	 * Parse feed and return array list of node.
+	 *
+	 * @param response the response
+	 * @return the array list
+	 */
+	public ArrayList<INode> parse(String response);
 }

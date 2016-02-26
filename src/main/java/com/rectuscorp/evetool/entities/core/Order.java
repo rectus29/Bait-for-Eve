@@ -1,11 +1,5 @@
 package com.rectuscorp.evetool.entities.core;
 
-import com.andil.mismacore.entities.Address;
-import com.andil.mismacore.entities.Currency;
-import com.andil.mismacore.enums.ApplicationScope;
-import com.andil.mismacore.enums.OrderState;
-import com.andil.mismacore.enums.PaymentMethod;
-import com.andil.mismacore.enums.ProductType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -28,14 +22,10 @@ public class Order extends GenericEntity {
     @ManyToOne
     private User user;
 
-    @Column
-    private ApplicationScope scope;
 
-    @Column
-    private OrderState state = OrderState.PENDING;
 
-    @Column
-    private PaymentMethod paymentMethod = PaymentMethod.SIPS;
+//    @Column
+//    private OrderState state = OrderState.PENDING;
 
     @Column(columnDefinition = "MEDIUMTEXT")
     private String paymentToken="";
@@ -46,34 +36,11 @@ public class Order extends GenericEntity {
     @Column(columnDefinition = "MEDIUMTEXT")
     private String paymentResponse="";
 
-    @ManyToOne
-    private Currency currency;
-
-    @ManyToOne
-    private Address billingAddress;
-
-    @ManyToOne
-    private Address deliveryAdress;
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date created = new Date();
 
-    public OrderState getState() {
-        return state;
-    }
-
-    public void setState(OrderState state) {
-        this.state = state;
-    }
-
-    public PaymentMethod getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
 
     public User getUser() {
         return user;
@@ -91,13 +58,6 @@ public class Order extends GenericEntity {
         this.orderItemList = orderItemList;
     }
 
-    public Currency getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
 
     public BigDecimal getOrderPrice() {
         BigDecimal res = new BigDecimal(0);
@@ -129,41 +89,7 @@ public class Order extends GenericEntity {
     public void setPaymentToken(String paymentToken) {
         this.paymentToken = paymentToken;
     }
-    public List<OrderItem> orderItemFromType(ProductType productType) {
-        List<OrderItem> res = new ArrayList<OrderItem>();
-
-        for(OrderItem orderItem : orderItemList){
-            if(orderItem.getType().equals(productType))
-                res.add(orderItem);
-        }
-        return res;
-    }
-
-    public Address getBillingAddress() {
-        return billingAddress;
-    }
-
-    public void setBillingAddress(Address billingAddress) {
-        this.billingAddress = billingAddress;
-    }
-
-    public Address getDeliveryAdress() {
-        return deliveryAdress;
-    }
-
-    public void setDeliveryAdress(Address deliveryAdress) {
-        this.deliveryAdress = deliveryAdress;
-    }
-
-    public ApplicationScope getScope() {
-        return scope;
-    }
-
-    public void setScope(ApplicationScope scope) {
-        this.scope = scope;
-    }
-
-    public String getPaymentRequest() {
+      public String getPaymentRequest() {
         return paymentRequest;
     }
 

@@ -28,19 +28,27 @@ import java.util.List;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+/**
+ * The type Smf feed parser.
+ */
 public class SMFFeedParser implements IFeedParser {
 
     private static final Logger log = LogManager.getLogger(SMFFeedParser.class);
 
-    @Override
     public ArrayList<INode> parse(String response) {
         ArrayList<INode> smfNodes = new ArrayList<INode>();
         try {
             SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
             DOMDocument document = (DOMDocument) saxReader.read(new StringReader(response));
-            for (DOMElement charElement : (List<DOMElement>) document.selectNodes("//recent-post ")) {
+            for (Object charElement : document.selectNodes("//recent-post ")) {
                 SMFNode smfNode = new SMFNode();
-                smfNode.set();
+				//charElement.get("subject");
+//                smfNode.setAuthor();
+//                smfNode.setContent();
+//                smfNode.setCreated();
+//                smfNode.setLink();
+//                smfNode.setSubject();
+				smfNodes.add(smfNode);
             }
         } catch (DocumentException e) {
             log.error("Error while SMF parsing", e);

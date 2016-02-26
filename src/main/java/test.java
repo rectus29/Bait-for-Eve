@@ -1,4 +1,4 @@
-import com.rectuscorp.evetool.CrestObject;
+import com.rectuscorp.evetool.tools.EveCRESTApi;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.logging.log4j.LogManager;
@@ -12,11 +12,11 @@ import java.util.Comparator;
 public class test {
 	private static final Logger log = LogManager.getLogger(test.class);
 
-	public static void main (String[] args){
+	public static void main(String[] args) {
 		HttpClient client = new HttpClient();
 		try {
 			//GetMethod get = new GetMethod( CrestObject.API_URL + "market/groups/");
-			GetMethod get = new GetMethod( CrestObject.API_URL + "regions/");
+			GetMethod get = new GetMethod(EveCRESTApi.API_URL + "regions/");
 			client.executeMethod(get);
 			String resp = get.getResponseBodyAsString();
 			JSONObject jsonObj = new JSONObject(resp);

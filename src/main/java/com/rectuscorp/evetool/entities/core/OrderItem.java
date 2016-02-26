@@ -1,8 +1,6 @@
 package com.rectuscorp.evetool.entities.core;
 
-import com.andil.mismacore.entities.Shop;
-import com.andil.mismacore.enums.OrderItemState;
-import com.andil.mismacore.enums.ProductType;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,19 +20,19 @@ public class OrderItem extends GenericEntity {
     @ManyToOne
     private Order referenceOrder;
 
-    @Column
-    private OrderItemState state = OrderItemState.PENDING;
+//    @Column
+//    private OrderItemState state = OrderItemState.PENDING;
     @Column
     private String productname;
 
-    @Column
-    private ProductType type;
-
-    @ManyToOne
-    private Product originalProduct;
-
-    @ManyToOne
-    private Shop shop;
+//    @Column
+//    private ProductType type;
+//
+//    @ManyToOne
+//    private Product originalProduct;
+//
+//    @ManyToOne
+//    private Shop shop;
 
     @Column(precision = 12, scale = 3)
     private BigDecimal productPrice;
@@ -77,21 +75,6 @@ public class OrderItem extends GenericEntity {
         this.quantity = quantity;
     }
 
-    public ProductType getType() {
-        return type;
-    }
-
-    public void setType(ProductType type) {
-        this.type = type;
-    }
-
-    public Product getOriginalProduct() {
-        return originalProduct;
-    }
-
-    public void setOriginalProduct(Product product) {
-        this.originalProduct = product;
-    }
 
     public BigDecimal getProductPriceWithTax(){
         return getProductPrice().add(getProductPrice().multiply(getProductTax()));
@@ -107,13 +90,6 @@ public class OrderItem extends GenericEntity {
         return getProductPrice().multiply(getProductTax()).setScale(3, BigDecimal.ROUND_HALF_EVEN).multiply(new BigDecimal(getQuantity()));
     }
 
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
-    }
 
     public Order getReferenceOrder() {
         return referenceOrder;
@@ -121,14 +97,6 @@ public class OrderItem extends GenericEntity {
 
     public void setReferenceOrder(Order referenceOrder) {
         this.referenceOrder = referenceOrder;
-    }
-
-    public OrderItemState getState() {
-        return state;
-    }
-
-    public void setState(OrderItemState state) {
-        this.state = state;
     }
 
     public OrderItem() {
