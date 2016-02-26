@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.web.page.profile.apikey.list;
 
 import com.rectuscorp.evetool.entities.core.ApiKey;
+import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.component.confirmation.ConfirmationLink;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -21,6 +22,8 @@ public class ApiKeyListPanel extends Panel {
 
 	@SpringBean(name = "serviceUser")
 	IserviceUser serviceUser;
+	@SpringBean(name = "serviceGeneric")
+	IserviceGeneric serviceGeneric;
 
 	public ApiKeyListPanel(String id) {
 		super(id);
@@ -50,7 +53,7 @@ public class ApiKeyListPanel extends Panel {
 				listItem.add(new ConfirmationLink("remove", new ResourceModel("areyoushure").getObject()) {
 					@Override
 					public void onClick(AjaxRequestTarget ajaxRequestTarget) {
-
+						serviceGeneric.remove();
 					}
 				});
 			}
