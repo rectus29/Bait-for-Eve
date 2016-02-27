@@ -2,7 +2,7 @@ package com.rectuscorp.evetool.dao.tools;
 
 /**
  *
- * User: olivier
+ * User: rectus_29
  * Date: 24/07/11
  * Time: 08:58
  */

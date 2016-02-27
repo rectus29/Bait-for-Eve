@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Created by Oliv'Generator
- * User: Olivier
+ * User: rectus_29
  * Date: 12 janv. 2012
  * Time: 11:32:36
  */

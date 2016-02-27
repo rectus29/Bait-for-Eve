@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 15 avr. 2010
  * Time: 17:04:01
  * To change this template use File | Settings | File Templates.

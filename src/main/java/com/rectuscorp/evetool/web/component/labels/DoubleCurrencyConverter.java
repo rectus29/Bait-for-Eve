@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 /**
- * User: olivier
+ * User: rectus_29
  * Date: 04/04/13
  * Time: 09:41
  * Project : mismacore

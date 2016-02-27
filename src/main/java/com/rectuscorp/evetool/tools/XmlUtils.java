@@ -11,7 +11,7 @@ import java.io.StringWriter;
 
 /**
  * Created by IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 08/04/11
  * Time: 09:48
  * To change this template use File | Settings | File Templates.

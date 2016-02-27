@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
- * User: ak4t0sh
+ * User: rectus_29
  * Date: 05/02/13
  * Time: 14:32
  */

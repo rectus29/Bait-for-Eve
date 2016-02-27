@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
- * User: olivier
+ * User: rectus_29
  * Date: 1 févr. 2011
  */
 

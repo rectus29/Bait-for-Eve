@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * User: olivier
+ * User: rectus_29
  * Date: 5 juil. 2010
  */
 

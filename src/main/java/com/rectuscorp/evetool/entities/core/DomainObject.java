@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.entities.core;
 
 /**
- * User: Olivier
+ * User: rectus_29
  * Date: 15 juin 2009
  */
 

@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
- * User: ak4t0sh
+ * User: rectus_29
  * Date: 4 févr. 2011
  * Time: 11:03:02
  */

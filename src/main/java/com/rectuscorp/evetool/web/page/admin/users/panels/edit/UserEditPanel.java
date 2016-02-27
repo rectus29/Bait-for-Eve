@@ -29,7 +29,7 @@ import java.util.Arrays;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Olivier
+ * User: rectus_29
  * Date: 20 janv. 2010
  * Time: 09:12:37
  */

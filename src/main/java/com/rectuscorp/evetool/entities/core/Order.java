@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * User: ak4t0sh
+ * User: rectus_29
  * Date: 17/01/13
  * Time: 15:13
  */

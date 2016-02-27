@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 9 avr. 2010
  * Time: 15:30:53
  */

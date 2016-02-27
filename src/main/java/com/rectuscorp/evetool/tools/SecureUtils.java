@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Created with IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 16/02/13
  * Time: 17:53
  * To change this template use File | Settings | File Templates.

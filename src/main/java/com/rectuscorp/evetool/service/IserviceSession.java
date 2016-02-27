@@ -6,7 +6,7 @@ import org.apache.shiro.subject.Subject;
 import java.util.List;
 
 /**
- * User: olivier
+ * User: rectus_29
  * Date: 9 févr. 2011
  */
 public interface IserviceSession {

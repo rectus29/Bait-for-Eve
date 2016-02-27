@@ -4,7 +4,7 @@ import com.rectuscorp.evetool.web.page.base.BasePage;
 
 /**
  * Created by IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 22/04/11
  * Time: 11:28
  */

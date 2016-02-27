@@ -7,12 +7,13 @@ import java.util.regex.Pattern;
 
 /**
  * Created by IntelliJ IDEA.
- * User: ak4t0sh
+ * User: rectus_29
  * Date: 8 déc. 2010
  * Time: 15:35:50
  * To change this template use File | Settings | File Templates.
  */
 public class WicketUtils {
+
     public static List<String> getWicketId(String txt){
        List<String> id= new ArrayList<String>();
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Olivier
+ * User: rectus_29
  * Date: 20 janv. 2010
  * Time: 10:50:30
  * To change this template use File | Settings | File Templates.

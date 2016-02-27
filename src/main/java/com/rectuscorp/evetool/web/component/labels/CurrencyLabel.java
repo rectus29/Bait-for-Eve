@@ -7,7 +7,7 @@ import org.apache.wicket.util.convert.IConverter;
 import java.math.BigDecimal;
 
 /**
- * User: olivier
+ * User: rectus_29
  * Date: 04/04/13
  * Time: 09:43
  * Project : mismacore

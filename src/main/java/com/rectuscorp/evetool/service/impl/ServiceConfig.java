@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Created by IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 16 mars 2010
  * Time: 11:25:42
  * To change this template use File | Settings | File Templates.

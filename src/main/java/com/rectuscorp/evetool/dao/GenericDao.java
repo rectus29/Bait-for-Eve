@@ -1,5 +1,5 @@
 package com.rectuscorp.evetool.dao;/**
- * User: Olivier
+ * User: rectus_29
  * Date: 20 mai 2009
  */
 

@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 /**
  * Created by IntelliJ IDEA.
- * User: olivier
+ * User: rectus_29
  * Date: 15 avr. 2010
  * Time: 16:21:07
  * To change this template use File | Settings | File Templates.

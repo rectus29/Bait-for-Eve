@@ -6,7 +6,7 @@ import org.apache.wicket.ajax.markup.html.AjaxLink;
 
 /**
  * Created by IntelliJ IDEA.
- * User: ak4t0sh
+ * User: rectus_29
  * Date: 16/01/13
  * Time: 18:48
  */

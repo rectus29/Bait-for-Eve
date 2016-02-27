@@ -5,7 +5,7 @@ import com.rectuscorp.evetool.service.GenericManager;
 
 /**
  *
- * User: olivier
+ * User: rectus_29
  * Date: 24/07/11
  * Time: 08:24
  */

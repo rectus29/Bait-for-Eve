@@ -6,7 +6,7 @@ import com.rectuscorp.evetool.entities.core.User;
 import java.util.List;
 
 /**
- * User: olivier
+ * User: rectus_29
  * Date: 5 juil. 2010
  */
 public interface IserviceRole extends GenericManager<Role, Long> {

@@ -1,7 +1,7 @@
 package com.rectuscorp.evetool.event;/**
 
  /*-----------------------------------------------------*/
-/* User: Olivier for         Date: 21/12/12 11:22 */
+/* User: rectus_29 for         Date: 21/12/12 11:22 */
 /*                                                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/

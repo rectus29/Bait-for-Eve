@@ -1,6 +1,6 @@
 package com.rectuscorp.evetool.service.factory; /**
  *
- * User: olivier
+ * User: rectus_29
  * Date: 24/07/11
  * Time: 08:22
  */

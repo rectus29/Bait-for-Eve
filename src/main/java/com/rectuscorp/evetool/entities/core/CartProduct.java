@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * User: ak4t0sh
+ * User: rectus_29
  * Date: 10/01/13
  * Time: 11:04
  */
