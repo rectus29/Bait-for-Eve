@@ -36,7 +36,7 @@ public class User extends GenericEntity {
 	private Date lastLogin;
 	@Column
 	private UserAuthentificationType userAuthentificationType = UserAuthentificationType.EMBED;
-	@OneToMany
+	@OneToMany(mappedBy = "user")
 	private List<ApiKey> apiKeyList = new ArrayList<ApiKey>();
 	@OneToOne
 	private Character mainCharacter;

@@ -2,7 +2,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <body>
 <wicket:extend>
+    <div class="row">
+        <div class="col-md-2">
+            <h1 class="page-header">
+                Profile
+            </h1>
+            <ul class="nav nav-sidebar blackelement">
+                <li wicket:id="account">
+                    <a href="#" wicket:id="accountLink">
+                        <i class="fa fa-cube"></i>&nbsp;<wicket:message key="account"/>
+                    </a>
+                </li>
+                <li wicket:id="character">
+                    <a href="#" wicket:id="characterLink">
+                        <i class="fa fa-male"></i>&nbsp;<wicket:message key="character"/>
+                    </a>
+                </li>
+                <li wicket:id="apiKey">
+                    <a href="#" wicket:id="apiKeyLink">
+                        <i class="fa fa-key"></i>&nbsp;<wicket:message key="APIKEY"/>
+                    </a>
+                </li>
 
+            </ul>
+        </div>
+        <div class="col-md-10" wicket:id="panel"/>
+    </div>
 </wicket:extend>
 </body>
 </html>

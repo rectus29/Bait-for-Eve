@@ -16,6 +16,7 @@ package com.rectuscorp.evetool.web.panel.toppanel;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.admin.AdminPage;
 import com.rectuscorp.evetool.web.page.crest.CrestPage;
+import com.rectuscorp.evetool.web.page.profile.ProfilePage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -84,6 +85,7 @@ public class TopPanel extends Panel {
 		////        friend.add(new Label("friendnumber", friendnumber)).setOutputMarkupId(true);
 		////        mailbox.add(new Label("mailNumber", mailNumber)).setOutputMarkupId(true);
 		//        add(new Label("name", serviceUser.getCurrentUser().getFormattedName()));
-		this.setOutputMarkupId(true);
+		add(new BookmarkablePageLink<ProfilePage>("profile", ProfilePage.class));
+
 	}
 }

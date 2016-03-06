@@ -64,7 +64,7 @@ public class UserListPanel extends Panel {
             protected List<User> load() {
                 List<User> out;
                 if (name != null && name.length() > 2)
-                    out = new ArrayList<User>(serviceUser.getAllByProperty("nom", name));
+                    out = new ArrayList<User>(serviceUser.getAllByProperty("userName", name));
                 else
                     out = serviceUser.getAll();
                 return out;
@@ -96,8 +96,7 @@ public class UserListPanel extends Panel {
             protected void populateItem(final ListItem<User> item) {
                 item.add(new AvatarImage("avatar", item.getModelObject()));
                 item.add(new Label("id", item.getModelObject().getId()+""));
-                //item.add(new Label("lastName", item.getModelObject().getLastName()));
-                //item.add(new Label("username", item.getModelObject().getUserName()));
+                item.add(new Label("username", item.getModelObject().getUserName()));
                 item.add(new Label("email", item.getModelObject().getEmail()));
                 item.add(new Label("role", item.getModelObject().getRole().getName()));
                 item.add(new EnumLabel<State>("state", item.getModelObject().getState()));

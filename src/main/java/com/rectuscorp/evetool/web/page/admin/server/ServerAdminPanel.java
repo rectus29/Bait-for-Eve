@@ -109,61 +109,7 @@ public class ServerAdminPanel extends Panel {
         };
         msgPostForm.add(msgPostSubmit);
 
-        Config supportConfig = serviceConfig.getByKey("assistanceDefaultMail");
-        if (supportConfig != null)
-            supportAdr = supportConfig.getValue();
-        add(new Form("emailForm")
-                .add(new TextField<String>("supportEmail", new PropertyModel<String>(this, "supportAdr")))
-                .add(new BootStrapFeedbackPanel("smf"))
-                .add(new AjaxSubmitLink("adrMailSubmit") {
-                    @Override
-                    protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
-                        Config c = serviceConfig.getByKey("assistanceDefaultMail");
-                        if (c == null) {
-                            c = new Config();
-                            c.setKey("assistanceDefaultMail");
-                        }
-                        c.setValue(supportAdr == null ? "" : supportAdr);
-                        serviceConfig.save(c);
-                        success(new ResourceModel("success").getObject());
-                        target.add(form);
-                    }
 
-                    @Override
-                    protected void onError(AjaxRequestTarget target, Form<?> form) {
-                        target.add(form);
-                    }
-                })
-                .setOutputMarkupId(true)
-        );
-
-        Config supportPhoneConfig = serviceConfig.getByKey("supportPhoneNumber");
-        if (supportPhoneConfig != null)
-            supportPhone = supportPhoneConfig.getValue();
-        add(new Form("supportPhoneForm")
-                .add(new TextField<String>("supportPhone", new PropertyModel<String>(this, "supportPhone")))
-                .add(new BootStrapFeedbackPanel("phonefeed"))
-                .add(new AjaxSubmitLink("phoneSubmit") {
-                    @Override
-                    protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
-                        Config c = serviceConfig.getByKey("supportPhoneNumber");
-                        if (c == null) {
-                            c = new Config();
-                            c.setKey("supportPhoneNumber");
-                        }
-                        c.setValue(supportPhone == null ? "" : supportPhone);
-                        serviceConfig.save(c);
-                        success(new ResourceModel("success").getObject());
-                        target.add(form);
-                    }
-
-                    @Override
-                    protected void onError(AjaxRequestTarget target, Form<?> form) {
-                        target.add(form);
-                    }
-                })
-                .setOutputMarkupId(true)
-        );
 
         Config serverUrlConfig = serviceConfig.getByKey("server_url");
         if (serverUrlConfig != null)

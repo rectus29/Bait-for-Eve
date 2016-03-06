@@ -11,9 +11,6 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "store_cart_product")
-@NamedQueries({
-        @NamedQuery(name = "cartproduct.countactiveproduct", query = "SELECT COUNT (cp) FROM CartProduct cp WHERE cp.cart=:cart AND cp.quantity!=0")
-})
 public class CartProduct extends GenericEntity {
 
 //    @ManyToOne
@@ -23,9 +20,6 @@ public class CartProduct extends GenericEntity {
 
     @Column
     private Long quantity = 1l;
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created = new Date();
 
 
     public CartProduct() {

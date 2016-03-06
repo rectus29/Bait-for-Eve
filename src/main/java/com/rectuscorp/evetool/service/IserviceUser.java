@@ -19,21 +19,6 @@ public interface IserviceUser extends GenericManager<User, Long> {
 
     public User getUserByUsername(String groupName);
 
-    public User getUserByName(String groupName);
-
-    public List<User> getUsersByFilter(String filter);
-
-    public List getUsers(int first, int count, String sortProperty, boolean sortAsc);
-
-    public List getUsers(int first, int count, String sortProperty, boolean sortAsc, String filterName);
-
     public User getUserByMail(String property);
 
-    public List<User> searchUser(String filter);
-
-    public void disable(User user);
-
-    int disablePhoneActivatedUsers();
-
-    User getByIdAndService(String accountID, String username, String service);
 }

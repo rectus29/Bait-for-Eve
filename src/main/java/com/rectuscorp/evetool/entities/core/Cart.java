@@ -13,7 +13,7 @@ import java.util.List;
  * User: rectus_29
  * Date: 10/01/13
  * Time: 11:04
- */
+*/
 @Entity
 @Table(name = "store_cart")
 public class Cart extends GenericEntity {
@@ -25,9 +25,6 @@ public class Cart extends GenericEntity {
     private User user;
     @Column
     private State state = State.ENABLE;
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created = new Date();
 
     public Cart() {
     }

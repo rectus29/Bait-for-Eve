@@ -4,6 +4,7 @@ import com.rectuscorp.evetool.event.OnEvent;
 import com.rectuscorp.evetool.event.RefreshEvent;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.session.EveToolSession;
+import com.rectuscorp.evetool.web.component.andilmodal.EveModal;
 import com.rectuscorp.evetool.web.panel.footerpanel.FooterPanel;
 import com.rectuscorp.evetool.web.panel.toppanel.TopPanel;
 import org.apache.wicket.markup.html.panel.Panel;

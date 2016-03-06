@@ -65,50 +65,18 @@ public class ServiceUser extends GenericManagerImpl<User, Long> implements Iserv
         }
     }
 
-    public List<User> getUsersByFilter(String filter) {
-        return daoUser.getUsersByFilter(filter);
-    }
-
-
     public User getUserByUsername(String username) {
         return daoUser.getUserByUsername(username);
-    }
-
-    public User getUserByName(String nomUser) {
-        return daoUser.getUserByName(nomUser);
-    }
-
-    public List getUsers(int first, int count, String sortProperty, boolean sortAsc, String nameFilter) {
-        return daoUser.getUsers(first, count, sortProperty, sortAsc, nameFilter);
-    }
-
-    public List getUsers(int first, int count, String sortProperty, boolean sortAsc) {
-        return daoUser.getUsers(first, count, sortProperty, sortAsc, "");
     }
 
     public User save(User c) {
         return daoUser.save(c);
     }
 
-    public void disable(User user) {
-        daoUser.disable(user);
-    }
-
-    public int disablePhoneActivatedUsers() {
-        return daoUser.disablePhoneActivatedUsers();
-    }
-
-    public User getByIdAndService(String accountID, String username, String service) {
-        return daoUser.getByIdAndService(accountID, username,service );
-    }
-
     public User getUserByMail(String property) {
         return daoUser.getUserByMail(property);
     }
 
-    public List<User> searchUser(String filter) {
-        return daoUser.searchUser(filter);
-    }
 
 
 }

@@ -22,8 +22,6 @@ public class Order extends GenericEntity {
     @ManyToOne
     private User user;
 
-
-
 //    @Column
 //    private OrderState state = OrderState.PENDING;
 
@@ -35,12 +33,6 @@ public class Order extends GenericEntity {
 
     @Column(columnDefinition = "MEDIUMTEXT")
     private String paymentResponse="";
-
-
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created = new Date();
-
 
     public User getUser() {
         return user;
@@ -106,13 +98,5 @@ public class Order extends GenericEntity {
     }
 
     public Order() {
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
     }
 }
