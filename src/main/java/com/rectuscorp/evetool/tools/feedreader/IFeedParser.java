@@ -25,5 +25,5 @@ public interface IFeedParser {
 	 * @param response the response
 	 * @return the array list
 	 */
-	public ArrayList<INode> parse(String response);
+	public ArrayList<IFeedNode> parse(String response);
 }

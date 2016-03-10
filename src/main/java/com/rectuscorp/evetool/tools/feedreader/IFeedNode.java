@@ -12,7 +12,7 @@ package com.rectuscorp.evetool.tools.feedreader;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-public interface INode {
+public interface IFeedNode {
 
 	public String getSubject();
 

@@ -1,15 +1,12 @@
 package com.rectuscorp.evetool.tools.feedreader;
 
-import com.rectuscorp.evetool.entities.crest.Region;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.wicket.ajax.json.JSONObject;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -50,8 +47,8 @@ public class FeedReader {
 	 * @param feedParser feedParser to use
 	 * @return list of parsed list
 	 */
-	public ArrayList<INode> read(URL url, IFeedParser feedParser){
-        ArrayList<INode> out = new ArrayList<INode>();
+	public ArrayList<IFeedNode> read(URL url, IFeedParser feedParser){
+        ArrayList<IFeedNode> out = new ArrayList<IFeedNode>();
         try {
             GetMethod get = new GetMethod(url.toString());
             client.executeMethod(get);
