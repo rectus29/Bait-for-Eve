@@ -55,7 +55,7 @@ public class FeedReader {
             String resp = get.getResponseBodyAsString();
             out = feedParser.parse(resp);
         } catch (Exception e) {
-            log.error("Error while CREST region getAll", e);
+            log.error("Error while feed reading", e);
         }
 
         return out;
