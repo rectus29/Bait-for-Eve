@@ -1,7 +1,10 @@
 package com.rectuscorp.evetool.tools.feedreader.impl.smf;
 
+import com.rectuscorp.evetool.tools.feedreader.IFeed;
 import com.rectuscorp.evetool.tools.feedreader.IFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.IFeedNode;
+import com.rectuscorp.evetool.tools.feedreader.impl.Feed;
+import com.rectuscorp.evetool.tools.feedreader.impl.FeedNode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.dom4j.DocumentException;
@@ -33,8 +36,8 @@ public class SMFFeedParser implements IFeedParser {
 
     private static final Logger log = LogManager.getLogger(SMFFeedParser.class);
 
-    public ArrayList<IFeedNode> parse(String response) {
-        ArrayList<IFeedNode> smfNodes = new ArrayList<IFeedNode>();
+    public IFeed parse(String response) {
+        Feed out = new Feed();
         try {
             SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
 			//strip faild dtd
@@ -42,17 +45,17 @@ public class SMFFeedParser implements IFeedParser {
 			response = response.replace("</smf:xml-feed>","</smf>");
             DOMDocument document = (DOMDocument) saxReader.read(new StringReader(response));
             for (DOMElement charElement : (List<DOMElement>) document.selectNodes("//recent-post ")) {
-                SMFFeedNode smfNode = new SMFFeedNode();
+                FeedNode smfNode = new FeedNode();
                 smfNode.setAuthor((charElement.selectSingleNode("poster")!= null)? charElement.selectSingleNode("poster/name").getText():null);
                 smfNode.setContent((charElement.selectSingleNode("body")!= null)? charElement.selectSingleNode("body").getText():null);
                 smfNode.setCreated((charElement.selectSingleNode("time")!= null)? charElement.selectSingleNode("time").getText():null);
                 smfNode.setLink((charElement.selectSingleNode("link")!= null)? charElement.selectSingleNode("link").getText():null);
 				smfNode.setSubject((charElement.selectSingleNode("subject")!= null)? charElement.selectSingleNode("subject").getText():null);
-				smfNodes.add(smfNode);
+				out.getFeedNodeList().add(smfNode);
             }
         } catch (DocumentException e) {
             log.error("Error while SMF parsing", e);
         }
-        return smfNodes;
+        return out;
     }
 }

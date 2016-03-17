@@ -12,7 +12,31 @@ package com.rectuscorp.evetool.tools.feedreader;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+import java.util.List;
+
+/**
+ * The interface Feed.
+ */
 public interface IFeed {
 
-	public String getURL();
+	/**
+	 * Gets url.
+	 *
+	 * @return the url
+	 */
+	String getURL();
+
+	/**
+	 * Gets name.
+	 *
+	 * @return the name
+	 */
+	String getName();
+
+	/**
+	 * Gets feed node list.
+	 *
+	 * @return the feed node list
+	 */
+	List<IFeedNode> getFeedNodeList();
 }

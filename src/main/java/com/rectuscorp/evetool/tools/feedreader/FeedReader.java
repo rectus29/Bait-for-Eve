@@ -47,17 +47,16 @@ public class FeedReader {
 	 * @param feedParser feedParser to use
 	 * @return list of parsed list
 	 */
-	public ArrayList<IFeedNode> read(URL url, IFeedParser feedParser){
-        ArrayList<IFeedNode> out = new ArrayList<IFeedNode>();
+	public IFeed read(URL url, IFeedParser feedParser){
         try {
             GetMethod get = new GetMethod(url.toString());
             client.executeMethod(get);
             String resp = get.getResponseBodyAsString();
-            out = feedParser.parse(resp);
+            return feedParser.parse(resp);
         } catch (Exception e) {
             log.error("Error while feed reading", e);
         }
 
-        return out;
+        return null;
     }
 }

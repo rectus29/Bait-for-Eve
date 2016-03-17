@@ -12,7 +12,7 @@ package com.rectuscorp.evetool.tools.feedreader;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-import java.util.ArrayList;
+import com.rectuscorp.evetool.tools.feedreader.impl.Feed;
 
 /**
  * The interface Feed parser.
@@ -25,5 +25,5 @@ public interface IFeedParser {
 	 * @param response the response
 	 * @return the array list
 	 */
-	public ArrayList<IFeedNode> parse(String response);
+	IFeed parse(String response);
 }

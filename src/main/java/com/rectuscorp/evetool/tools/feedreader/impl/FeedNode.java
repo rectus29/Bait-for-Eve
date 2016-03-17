@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.tools.feedreader.impl.smf;
+package com.rectuscorp.evetool.tools.feedreader.impl;
 
 import com.rectuscorp.evetool.tools.feedreader.IFeedNode;
 
@@ -15,9 +15,9 @@ import com.rectuscorp.evetool.tools.feedreader.IFeedNode;
 /*-----------------------------------------------------*/
 
 /**
- * The type Smf node.
+ * The default node.
  */
-public class SMFFeedNode implements IFeedNode {
+public class FeedNode implements IFeedNode {
 
     private String created;
     private String subject;
