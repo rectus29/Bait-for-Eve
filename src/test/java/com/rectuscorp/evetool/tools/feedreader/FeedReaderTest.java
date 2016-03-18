@@ -11,7 +11,7 @@ public class FeedReaderTest extends TestCase {
 
     @Test
     public void testRead() throws Exception {
-        ArrayList<IFeedNode> iNodes = FeedReader.get().read(new URL("http://forum.federatis.fr/index.php?action=.xml"), new SMFFeedParser());
-		System.out.println(iNodes.size());
+       // ArrayList<IFeedNode> iNodes = FeedReader.get().read(new URL("http://forum.federatis.fr/index.php?action=.xml"), new SMFFeedParser());
+		//System.out.println(iNodes.size());
 	}
 }

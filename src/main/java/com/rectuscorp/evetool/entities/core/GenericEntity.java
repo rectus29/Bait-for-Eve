@@ -16,9 +16,7 @@ import java.util.Date;
 public class GenericEntity implements DomainObject, Serializable {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-
-	@GeneratedValue(generator="EveGenerator")
+	@GeneratedValue(generator="EveGenerator",strategy = GenerationType.AUTO)
 	@GenericGenerator(name="EveGenerator", strategy="com.rectuscorp.evetool.dao.EveToolIDGenerator")
     private Long id;
 	@Column

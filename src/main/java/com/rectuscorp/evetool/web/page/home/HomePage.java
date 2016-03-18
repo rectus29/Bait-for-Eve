@@ -8,6 +8,8 @@ package com.rectuscorp.evetool.web.page.home;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.service.IserviceUser;
+import com.rectuscorp.evetool.tools.feedreader.impl.rss.RSSFeedParser;
+import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.feeddisplaypanel.FeedDisplayPanel;
 import com.rectuscorp.evetool.web.panel.lazyloadPanel.GigaLazyLoadPanel;
@@ -39,10 +41,16 @@ public class HomePage extends ProtectedPage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-		add(new GigaLazyLoadPanel("feedReader"){
+		add(new GigaLazyLoadPanel("feedReader") {
 			@Override
 			public Component getLoadingComponent(String markupId) {
-				return new FeedDisplayPanel(markupId, "http://forum.federatis.fr/index.php?action=.xml");
+				return new FeedDisplayPanel(markupId, "http://forum.federatis.fr/index.php?action=.xml", SMFFeedParser.class);
+			}
+		});
+		add(new GigaLazyLoadPanel("feedReader2"){
+			@Override
+			public Component getLoadingComponent(String markupId) {
+				return new FeedDisplayPanel(markupId, "https://www.themittani.com/feeds/all/rss.xml");
 			}
 		});
 
