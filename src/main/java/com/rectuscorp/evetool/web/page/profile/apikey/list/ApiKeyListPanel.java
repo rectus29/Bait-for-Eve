@@ -1,8 +1,10 @@
 package com.rectuscorp.evetool.web.page.profile.apikey.list;
 
-import com.rectuscorp.evetool.entities.core.ApiKey;
+import com.rectuscorp.evetool.entities.core.*;
+import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.IserviceUser;
+import com.rectuscorp.evetool.tools.EveXmlApi;
 import com.rectuscorp.evetool.web.component.andilmodal.EveModal;
 import com.rectuscorp.evetool.web.component.confirmation.ConfirmationLink;
 import com.rectuscorp.evetool.web.page.profile.apikey.edit.ApiKeyEditPanel;
@@ -60,6 +62,7 @@ public class ApiKeyListPanel extends Panel {
                                     @Override
                                     public void onFormSubmit(AjaxRequestTarget target, ApiKey apiKey) {
                                         target.add(wmc);
+										List<Character> characterList =  EveXmlApi.get().getCharacterList(apiKey);
                                         modal.close(target);
                                     }
 
@@ -71,7 +74,7 @@ public class ApiKeyListPanel extends Panel {
                                 modal.show(ajaxRequestTarget);
                             }
                         });
-                        listItem.add(new ConfirmationLink("remove", new ResourceModel("areyoushure").getObject()) {
+                        listItem.add(new ConfirmationLink("remove", new ResourceModel("confirmation").getObject()) {
                             @Override
                             public void onClick(AjaxRequestTarget ajaxRequestTarget) {
                                 //serviceGeneric.remove();
@@ -89,6 +92,7 @@ public class ApiKeyListPanel extends Panel {
                     @Override
                     public void onFormSubmit(AjaxRequestTarget target, ApiKey apiKey) {
                         target.add(wmc);
+						List<Character> characterList =  EveXmlApi.get().getCharacterList(apiKey);
                         modal.close(target);
                     }
 

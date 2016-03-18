@@ -7,6 +7,7 @@ import com.rectuscorp.evetool.spring.AppContext;
 import com.rectuscorp.evetool.web.page.home.HomePage;
 import com.rectuscorp.evetool.web.page.admin.*;
 import com.rectuscorp.evetool.web.page.prodplan.ProdPlanPage;
+import com.rectuscorp.evetool.web.page.profile.ProfilePage;
 import com.rectuscorp.evetool.web.security.error.ErrorPage;
 import com.rectuscorp.evetool.web.security.forgotpassword.ForgotPasssword;
 import com.rectuscorp.evetool.web.security.restorepassword.RestorePasswordPage;
@@ -63,6 +64,7 @@ public class EveToolApplication extends WebApplication {
 		config.set(getServletContext().getRealPath("/"));
 		mountPage("logout", SignoutPage.class);
 		mountPage("admin", AdminPage.class);
+		mountPage("ProfilePage", ProfilePage.class);
 		mountPage("unauthorized", UnauthorizedPage.class);
 		mountPage("prodplan", ProdPlanPage.class);
 		mountPage("restorepassword/${uid}", RestorePasswordPage.class);

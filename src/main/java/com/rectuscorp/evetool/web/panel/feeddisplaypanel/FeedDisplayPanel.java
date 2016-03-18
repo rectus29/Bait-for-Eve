@@ -5,29 +5,23 @@ import com.rectuscorp.evetool.tools.feedreader.IFeed;
 import com.rectuscorp.evetool.tools.feedreader.IFeedNode;
 import com.rectuscorp.evetool.tools.feedreader.IFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.impl.rss.RSSFeedParser;
-import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
-import com.rectuscorp.evetool.web.Config;
 import org.apache.logging.log4j.LogManager;
-import org.apache.wicket.datetime.markup.html.basic.DateLabel;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.LoadableDetachableModel;
 
-import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 public class FeedDisplayPanel extends Panel {
 	private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(FeedDisplayPanel.class);
 	private URL url;
 	private Class feedParserClass = RSSFeedParser.class;
+	private int numberofPost = 5;
 
 	public FeedDisplayPanel(String id, String url) {
 		super(id);
@@ -38,7 +32,7 @@ public class FeedDisplayPanel extends Panel {
 		}
 	}
 
-	public FeedDisplayPanel(String id, String url, Class feedParserClass ) {
+	public FeedDisplayPanel(String id, String url, Class feedParserClass) {
 		super(id);
 		try {
 			this.url = new URL(url);
@@ -57,15 +51,15 @@ public class FeedDisplayPanel extends Panel {
 				IFeedParser feedparser = new RSSFeedParser();
 				try {
 					feedparser = (IFeedParser) feedParserClass.getConstructor().newInstance();
-				}catch(Exception ex) {
+				} catch (Exception ex) {
 					log.error("Erro while feed parser instanciation use default RSS");
 				}
 				return FeedReader.get().read(url, feedparser);
 			}
 		};
 
-		add(new Label("title", ((feed.getObject() != null)?feed.getObject().getName():"")));
-		add(new ListView<IFeedNode>("lv", (feed.getObject() != null) ? feed.getObject().getFeedNodeList() : new ArrayList<IFeedNode>()) {
+		add(new Label("title", ((feed.getObject() != null) ? feed.getObject().getName() : "")));
+		add(new ListView<IFeedNode>("lv", (feed.getObject() != null) ? feed.getObject().getFeedNodeList().subList(0, (feed.getObject().getFeedNodeList().size() < numberofPost) ? feed.getObject().getFeedNodeList().size() : numberofPost) : new ArrayList<IFeedNode>()) {
 			@Override
 			protected void populateItem(ListItem<IFeedNode> item) {
 				item.add(new Label("date", item.getModelObject().getCreated()));

@@ -44,7 +44,7 @@ public class EveXmlApi {
 	 * @param apiKey
 	 * @return
 	 */
-	public static List<Character> getCharacterList(ApiKey apiKey) {
+	public List<Character> getCharacterList(ApiKey apiKey) {
 		List<Character> out = new ArrayList<Character>();
 		GetMethod get = new GetMethod(API_URL + "account/Characters.xml.aspx?keyID=" + apiKey.getKeyId() + "&vCode=" + apiKey.getVerificationCode());
 		try {
