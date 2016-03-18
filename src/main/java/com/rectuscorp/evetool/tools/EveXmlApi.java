@@ -8,6 +8,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.wicket.Application;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.dom4j.dom.DOMDocument;
 import org.dom4j.dom.DOMDocumentFactory;
@@ -48,6 +49,7 @@ public class EveXmlApi {
 		List<Character> out = new ArrayList<Character>();
 		GetMethod get = new GetMethod(API_URL + "account/Characters.xml.aspx?keyID=" + apiKey.getKeyId() + "&vCode=" + apiKey.getVerificationCode());
 		try {
+			client.executeMethod(get);
 			String xmlResponse = get.getResponseBodyAsString();
 			SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
 			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
@@ -55,6 +57,7 @@ public class EveXmlApi {
 				Character character = new Character();
 				character.setName(charElement.getAttribute("name"));
 				if (charElement.getAttribute("corporationID") != null) {
+					Application.get()
 					Corporation corpo = serviceCorporation.get(Long.parseLong(charElement.getAttribute("corporationID")));
 					character.setCorporation(corpo);
 				}
