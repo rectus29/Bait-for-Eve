@@ -28,8 +28,6 @@ public class HomePage extends ProtectedPage {
 	public HomePage() {
 	}
 
-
-
 	public HomePage(IModel model) {
 		super(model);
 	}
@@ -43,16 +41,17 @@ public class HomePage extends ProtectedPage {
 		super.onInitialize();
 		add(new GigaLazyLoadPanel("feedReader") {
 			@Override
-			public Component getLoadingComponent(String markupId) {
+			public Component getLazyLoadComponent(String markupId) {
 				return new FeedDisplayPanel(markupId, "http://forum.federatis.fr/index.php?action=.xml", SMFFeedParser.class);
 			}
-		});
+
+		}.setOutputMarkupId(true));
 		add(new GigaLazyLoadPanel("feedReader2"){
 			@Override
-			public Component getLoadingComponent(String markupId) {
+			public Component getLazyLoadComponent(String markupId) {
 				return new FeedDisplayPanel(markupId, "https://www.themittani.com/feeds/all/rss.xml");
 			}
-		});
+		}.setOutputMarkupId(true));
 
 	}
 

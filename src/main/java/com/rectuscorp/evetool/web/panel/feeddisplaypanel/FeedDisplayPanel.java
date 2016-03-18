@@ -3,6 +3,7 @@ package com.rectuscorp.evetool.web.panel.feeddisplaypanel;
 import com.rectuscorp.evetool.tools.feedreader.FeedReader;
 import com.rectuscorp.evetool.tools.feedreader.IFeed;
 import com.rectuscorp.evetool.tools.feedreader.IFeedNode;
+import com.rectuscorp.evetool.tools.feedreader.IFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.impl.rss.RSSFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
 import com.rectuscorp.evetool.web.Config;
@@ -16,6 +17,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.LoadableDetachableModel;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -49,11 +51,16 @@ public class FeedDisplayPanel extends Panel {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-
 		LoadableDetachableModel<IFeed> feed = new LoadableDetachableModel<IFeed>() {
 			@Override
 			protected IFeed load() {
-				return FeedReader.get().read(url, new SMFFeedParser());
+				IFeedParser feedparser = new RSSFeedParser();
+				try {
+					feedparser = (IFeedParser) feedParserClass.getConstructor().newInstance();
+				}catch(Exception ex) {
+					log.error("Erro while feed parser instanciation use default RSS");
+				}
+				return FeedReader.get().read(url, feedparser);
 			}
 		};
 
@@ -63,7 +70,7 @@ public class FeedDisplayPanel extends Panel {
 			protected void populateItem(ListItem<IFeedNode> item) {
 				item.add(new Label("date", item.getModelObject().getCreated()));
 				item.add(new Label("author", item.getModelObject().getAuthor()));
-				item.add(new Label("content", item.getModelObject().getContent()));
+				item.add(new Label("content", item.getModelObject().getContent()).setEscapeModelStrings(false));
 				item.add(new ExternalLink("link", item.getModelObject().getLink())
 								.add(new Label("subject", item.getModelObject().getSubject()))
 				);

@@ -12,7 +12,9 @@ package com.rectuscorp.evetool.tools.feedreader;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-public interface IFeedNode {
+import java.io.Serializable;
+
+public interface IFeedNode extends Serializable{
 
 	public String getSubject();
 
