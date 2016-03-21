@@ -20,4 +20,5 @@ public class ServiceCorporation extends GenericManagerImpl<Corporation, Long> im
 		super(dao);
 		this.daoCorporation = dao;
 	}
+
 }
