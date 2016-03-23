@@ -66,12 +66,14 @@ public class EveXmlApi {
 			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
 			for (DOMElement charElement : (List<DOMElement>) document.selectNodes("//row ")) {
 				Character character = new Character();
+				character.setId(Long.parseLong(charElement.getAttribute("characterID")));
 				character.setName(charElement.getAttribute("name"));
 				if (charElement.getAttribute("corporationID") != null) {
 					//Application.get()
 					Corporation corpo = serviceCorporation.get(Long.parseLong(charElement.getAttribute("corporationID")));
 					character.setCorporation(corpo);
 				}
+				character.setApiKey(apiKey);
 				out.add(character);
 			}
 		} catch (Exception e) {

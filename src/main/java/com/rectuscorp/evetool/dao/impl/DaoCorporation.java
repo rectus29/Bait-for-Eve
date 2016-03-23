@@ -19,10 +19,12 @@ public class DaoCorporation extends GenericDaoHibernate<Corporation, Long> imple
 	@Override
 	public Corporation get(Long id) {
 		Corporation out = super.get(id);
-		if(out == null)
+		if (out == null) {
 			out = EveXmlApi.get().getCorporation(id.toString());
-		if(out != null)
-			out = save(out);
-		return out ;
+			if (out != null) {
+				out = save(out);
+			}
+		}
+		return out;
 	}
 }
