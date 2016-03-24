@@ -24,6 +24,7 @@ public class FeedNode implements IFeedNode {
     private String content;
     private String link;
     private String author;
+	private String enclosure;
 
 	/**
 	 * Gets created.
@@ -113,5 +114,23 @@ public class FeedNode implements IFeedNode {
 	 */
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	/**
+	 * Gets enclosure.
+	 *
+	 * @return the enclosure
+	 */
+	public String getEnclosure() {
+		return enclosure;
+	}
+
+	/**
+	 * Sets enclosure.
+	 *
+	 * @param enclosure the enclosure
+	 */
+	public void setEnclosure(String enclosure) {
+		this.enclosure = enclosure;
 	}
 }

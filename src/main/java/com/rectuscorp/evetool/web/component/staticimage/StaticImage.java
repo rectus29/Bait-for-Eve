@@ -3,6 +3,7 @@ package com.rectuscorp.evetool.web.component.staticimage;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,7 +16,12 @@ public class StaticImage extends WebComponent {
     private IModel<String> context;
     private IModel<String> model;
 
-    public StaticImage(String id, IModel<String> model) {
+	public StaticImage(String id, String path) {
+		super(id);
+		this.model = new Model<String>(path);
+	}
+
+	public StaticImage(String id, IModel<String> model) {
         super(id, model);
         this.model = model;
     }

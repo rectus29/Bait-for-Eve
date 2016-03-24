@@ -5,11 +5,13 @@ import com.rectuscorp.evetool.tools.feedreader.IFeed;
 import com.rectuscorp.evetool.tools.feedreader.IFeedNode;
 import com.rectuscorp.evetool.tools.feedreader.IFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.impl.rss.RSSFeedParser;
+import com.rectuscorp.evetool.web.component.staticimage.StaticImage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.ExternalLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.markup.html.panel.EmptyPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
@@ -67,6 +69,11 @@ public class FeedDisplayPanel extends Panel {
 				item.add(new Label("content", item.getModelObject().getContent()).setEscapeModelStrings(false));
 				item.add(new ExternalLink("link", item.getModelObject().getLink())
 								.add(new Label("subject", item.getModelObject().getSubject()))
+				);
+				item.add(
+						(item.getModelObject().getEnclosure() != null)
+								? new StaticImage("enclosure", item.getModelObject().getEnclosure())
+								: new EmptyPanel("enclosure")
 				);
 			}
 		});

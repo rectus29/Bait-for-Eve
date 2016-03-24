@@ -26,4 +26,6 @@ public interface IFeedNode extends Serializable{
 
 	public String getAuthor();
 
+	public String getEnclosure();
+
 }

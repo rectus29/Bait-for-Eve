@@ -61,9 +61,11 @@ public class ApiKeyListPanel extends Panel {
                                 modal.setContent(new ApiKeyEditPanel(modal.getContentId(), listItem.getModel()) {
                                     @Override
                                     public void onFormSubmit(AjaxRequestTarget target, ApiKey apiKey) {
-                                        target.add(wmc);
 										List<Character> characterList =  EveXmlApi.get().getCharacterList(apiKey);
+										for(Character character: characterList)
+											serviceGeneric.save(character);
                                         modal.close(target);
+										target.add(wmc);
                                     }
 
                                     @Override
@@ -93,7 +95,10 @@ public class ApiKeyListPanel extends Panel {
                     public void onFormSubmit(AjaxRequestTarget target, ApiKey apiKey) {
                         target.add(wmc);
 						List<Character> characterList =  EveXmlApi.get().getCharacterList(apiKey);
-                        modal.close(target);
+						for(Character character: characterList)
+							serviceGeneric.save(character);
+						modal.close(target);
+						target.add(wmc);
                     }
 
                     @Override
@@ -105,4 +110,5 @@ public class ApiKeyListPanel extends Panel {
             }
         });
     }
+
 }

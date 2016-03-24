@@ -2,11 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <body>
 <wicket:panel>
-    <div class="feedparser">
+    <div class="feedParser">
         <h2 wicket:id="title"/>
         <div wicket:id="lv">
-            <div>
-                <a href="#" wicket:id="link" target="_blank">
+            <div class="titleHolder">
+                <img wicket:id="enclosure" class="nodeEnclosure img-responsive"/>
+                <a href="#" wicket:id="link" class="nodeTitle" target="_blank">
                     <span wicket:id="subject"/>
                 </a>
             </div>

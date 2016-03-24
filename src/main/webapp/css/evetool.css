@@ -1,5 +1,5 @@
 body{
-    background: url("/img/124080.jpeg") no-repeat black;
+    background: url("../img/124080.jpeg") no-repeat black;
     color:white;
     font-size:11px;
 }
@@ -14,8 +14,7 @@ body{
 
 .blackelement{
     background:rgba(13, 13, 13, 0.62);
-        border:1px solid #1C1C1C;
-    border-radius: 1px;
+        border:1px solid #4a4a4a;
     padding:15px;
 }
 
@@ -43,4 +42,25 @@ input{
 
 .wicket-modal{
     color: #3f3f3f;
+}
+
+.feedParser{
+
+}
+
+.feedParser .titleHolder{
+    position:relative;
+    clear:both;
+}
+
+.feedParser .titleHolder img.nodeEnclosure{
+    display: block;
+    max-width: 100%;
+}
+.feedParser .titleHolder a.nodeTitle{
+position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    font-size: 2em;
 }

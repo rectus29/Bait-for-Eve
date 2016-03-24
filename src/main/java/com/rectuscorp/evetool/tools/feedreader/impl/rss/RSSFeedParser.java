@@ -49,6 +49,7 @@ public class RSSFeedParser implements IFeedParser {
 				smfNode.setCreated((charElement.selectSingleNode("pubDate") != null) ? charElement.selectSingleNode("pubDate").getText() : null);
 				smfNode.setLink((charElement.selectSingleNode("link") != null) ? charElement.selectSingleNode("link").getText() : null);
 				smfNode.setSubject((charElement.selectSingleNode("title") != null) ? charElement.selectSingleNode("title").getText() : null);
+				smfNode.setEnclosure((charElement.selectSingleNode("enclosure") != null) ? ((DOMElement)charElement.selectSingleNode("enclosure")).getAttribute("url") : null);
 				out.getFeedNodeList().add(smfNode);
 			}
 		} catch (DocumentException e) {
