@@ -37,7 +37,7 @@ public class User extends GenericEntity {
 	@Column
 	private UserAuthentificationType userAuthentificationType = UserAuthentificationType.EMBED;
 	@OneToMany(mappedBy = "user")
-	private List<ApiKey> apiKeyList = new ArrayList<ApiKey>();
+	private List<XmlApiKey> xmlApiKeyList = new ArrayList<XmlApiKey>();
 	@OneToOne
 	private Character mainCharacter;
 
@@ -143,12 +143,12 @@ public class User extends GenericEntity {
 		this.userAuthentificationType = userAuthentificationType;
 	}
 
-	public List<ApiKey> getApiKeyList() {
-		return apiKeyList;
+	public List<XmlApiKey> getXmlApiKeyList() {
+		return xmlApiKeyList;
 	}
 
-	public void setApiKeyList(List<ApiKey> apiKeyList) {
-		this.apiKeyList = apiKeyList;
+	public void setXmlApiKeyList(List<XmlApiKey> xmlApiKeyList) {
+		this.xmlApiKeyList = xmlApiKeyList;
 	}
 
 	public Character getMainCharacter() {

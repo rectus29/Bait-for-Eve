@@ -10,13 +10,11 @@ import com.rectuscorp.evetool.web.component.confirmation.ConfirmationLink;
 import com.rectuscorp.evetool.web.page.profile.apikey.edit.ApiKeyEditPanel;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
-import org.apache.wicket.datetime.markup.html.basic.DateLabel;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -45,25 +43,24 @@ public class ApiKeyListPanel extends Panel {
             @Override
             protected void onInitialize() {
                 super.onInitialize();
-                add(new ListView<ApiKey>("lvKey", new LoadableDetachableModel<List<ApiKey>>() {
+                add(new ListView<XmlApiKey>("lvKey", new LoadableDetachableModel<List<XmlApiKey>>() {
                     @Override
-                    protected List<ApiKey> load() {
-                        return serviceUser.getCurrentUser().getApiKeyList();
+                    protected List<XmlApiKey> load() {
+                        return serviceUser.getCurrentUser().getXmlApiKeyList();
                     }
                 }) {
                     @Override
-                    protected void populateItem(final ListItem<ApiKey> listItem) {
+                    protected void populateItem(final ListItem<XmlApiKey> listItem) {
                         listItem.add(new Label("keyID", listItem.getModelObject().getKeyId()));
+                        listItem.add(new Label("paidUntil", com.rectuscorp.evetool.web.Config.get().dateFormat(listItem.getModelObject().getPaidUntil())));
                         listItem.add(new Label("nbChar", listItem.getModelObject().getCharacterList().size()));
                         listItem.add(new AjaxLink("edit") {
                             @Override
                             public void onClick(AjaxRequestTarget ajaxRequestTarget) {
                                 modal.setContent(new ApiKeyEditPanel(modal.getContentId(), listItem.getModel()) {
                                     @Override
-                                    public void onFormSubmit(AjaxRequestTarget target, ApiKey apiKey) {
-										List<Character> characterList =  EveXmlApi.get().getCharacterList(apiKey);
-										for(Character character: characterList)
-											serviceGeneric.save(character);
+                                    public void onFormSubmit(AjaxRequestTarget target, XmlApiKey xmlApiKey) {
+										serviceGeneric.save(EveXmlApi.get().getKeyInformation(xmlApiKey));
                                         modal.close(target);
 										target.add(wmc);
                                     }
@@ -92,9 +89,9 @@ public class ApiKeyListPanel extends Panel {
             public void onClick(AjaxRequestTarget ajaxRequestTarget) {
                 modal.setContent(new ApiKeyEditPanel(modal.getContentId()) {
                     @Override
-                    public void onFormSubmit(AjaxRequestTarget target, ApiKey apiKey) {
+                    public void onFormSubmit(AjaxRequestTarget target, XmlApiKey xmlApiKey) {
                         target.add(wmc);
-						List<Character> characterList =  EveXmlApi.get().getCharacterList(apiKey);
+						List<Character> characterList =  EveXmlApi.get().getCharacterList(xmlApiKey);
 						for(Character character: characterList)
 							serviceGeneric.save(character);
 						modal.close(target);

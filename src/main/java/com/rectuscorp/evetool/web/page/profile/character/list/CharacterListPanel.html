@@ -2,7 +2,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
 <body>
 <wicket:panel>
-
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>#</th>
+            <th>
+                <wicket:message key="name"/>
+            </th>
+            <th>
+                <wicket:message key="corporation"/>
+            </th>
+            <th>
+                <wicket:message key="action"/>
+                s
+            </th>
+        </tr>
+        </thead>
+        <tbody wicket:id="wmc">
+        <tr wicket:id="lv">
+            <td><img wicket:id="avatar" width="32px" height="32px"/></td>
+            <td wicket:id="id"></td>
+            <td wicket:id="name">[name]</td>
+            <td wicket:id="corp">[name]</td>
+            <td>
+                <div class="btn-group btn-default">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        <wicket:message key="action"/>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="#" wicket:id="makePrincipal">
+                                <i class="fa fa-star"/>&nbsp;<wicket:message key="makePrincipal"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" wicket:id="refresh">
+                                <i class="fa fa-refresh"/>&nbsp;<wicket:message key="refresh"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div wicket:id="navigator"/>
+    <div wicket:id="modal"/>
 </wicket:panel>
 </body>
 </html>

@@ -4,6 +4,7 @@ import com.rectuscorp.evetool.dao.IdaoGeneric;
 import com.rectuscorp.evetool.entities.core.GenericEntity;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,11 +14,15 @@ import java.util.List;
 @Repository("daoGeneric")
 public class DaoGeneric<T> extends GenericDaoHibernate<GenericEntity, Long> implements IdaoGeneric {
 
-
-    public DaoGeneric() {
+	public DaoGeneric() {
 		super(GenericEntity.class);
-    }
+	}
 
+	@Override
+	public GenericEntity save(GenericEntity object) {
+		object.setUpdated(new Date());
+		return super.save(object);
+	}
 
 	public List<T> getAll(Class<T> persistentClass) {
 		return hibernateTemplate.loadAll(persistentClass);

@@ -94,7 +94,6 @@ public class UserListPanel extends Panel {
         wmc.add(plv = new PageableListView<User>("sorting", ldm, NB_USERS_BY_PAGE) {
             @Override
             protected void populateItem(final ListItem<User> item) {
-                item.add(new AvatarImage("avatar", item.getModelObject()));
                 item.add(new Label("id", item.getModelObject().getId()+""));
                 item.add(new Label("username", item.getModelObject().getUserName()));
                 item.add(new Label("email", item.getModelObject().getEmail()));

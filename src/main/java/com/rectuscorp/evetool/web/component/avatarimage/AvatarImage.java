@@ -1,8 +1,8 @@
 package com.rectuscorp.evetool.web.component.avatarimage;
 
 
-import com.rectuscorp.evetool.entities.core.Individual;
-import com.rectuscorp.evetool.entities.core.User;
+import com.rectuscorp.evetool.entities.core.*;
+import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.Config;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
@@ -28,26 +28,26 @@ public class AvatarImage extends WebComponent {
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;
     private IModel<String> context;
-    private IModel<? extends User> model;
+    private IModel<? extends Character> model;
 
     public AvatarImage(String id) {
         super(id);
-        /*this.model = new Model<Individual>() {
+        this.model = new Model<Character>() {
             @Override
-            public Individual getObject() {
-                return serviceUser.getCurrentUser();
+            public Character getObject() {
+                return serviceUser.getCurrentUser().getMainCharacter();
             }
-        };*/
+        };
     }
 
-    public AvatarImage(String id, IModel<? extends User> model) {
+    public AvatarImage(String id, IModel<? extends Character> model) {
         super(id, model);
         this.model = model;
     }
 
-    public AvatarImage(String id, User model) {
+    public AvatarImage(String id, Character model) {
         super(id);
-        this.model = new Model<User>(model);
+        this.model = new Model<Character>(model);
     }
 
     protected void onComponentTag(ComponentTag tag) {
@@ -55,16 +55,10 @@ public class AvatarImage extends WebComponent {
         checkComponentTag(tag, "img");
 
         File file;
-        /*if (model.getObject() instanceof Puppet) {
-            file = new File(Config.get().getAvatarFolder() + File.separator + model.getObject().getId() + File.separator + model.getObject().getAvatarPath());
-            if (model.getObject().getAvatarPath() != null && file.exists())
-                tag.put("src", "/studentavatar/" + model.getObject().getId() + "/" + model.getObject().getAvatarPath());
-            else
-                tag.put("src", "/img/user.png");
-        } else*/ if (model.getObject() instanceof User) {
-            file = new File(Config.get().getAvatarFolder() + File.separator + model.getObject().getId() + File.separator + model.getObject().getAvatarPath());
-            if (model.getObject().getAvatarPath() != null && file.exists())
-                tag.put("src", "/avatar/" + model.getObject().getId() + "/" + model.getObject().getAvatarPath());
+        if (model.getObject() instanceof Character) {
+            file = new File(Config.get().getAvatarFolder() + File.separator + model.getObject().getId());
+            if (model.getObject().getId() != null && file.exists())
+                tag.put("src", "/avatar/" + model.getObject().getId() + "/"/* + model.getObject().getAvatarPath()*/);
             else
                 tag.put("src", "/img/user.png");
         } else {

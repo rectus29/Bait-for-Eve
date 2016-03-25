@@ -19,12 +19,11 @@ public class Character extends GenericEntity {
 	private Type ship;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date birthDay = new Date();
+	private Date dateOfBirth = new Date();
 	@ManyToOne
-	private ApiKey apiKey;
+	private XmlApiKey apiKey;
 	@ManyToOne
 	private Corporation corporation;
-
 
 	public String getName() {
 		return name;
@@ -50,20 +49,20 @@ public class Character extends GenericEntity {
 		this.ship = ship;
 	}
 
-	public Date getBirthDay() {
-		return birthDay;
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
+	public void setDateOfBirth(Date birthDay) {
+		this.dateOfBirth = birthDay;
 	}
 
-	public ApiKey getApiKey() {
+	public XmlApiKey getXmlApiKey() {
 		return apiKey;
 	}
 
-	public void setApiKey(ApiKey apiKey) {
-		this.apiKey = apiKey;
+	public void setXmlApiKey(XmlApiKey xmlApiKey) {
+		this.apiKey = xmlApiKey;
 	}
 
 	public Corporation getCorporation() {
