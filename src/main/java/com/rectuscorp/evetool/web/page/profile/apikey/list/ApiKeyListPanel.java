@@ -2,6 +2,7 @@ package com.rectuscorp.evetool.web.page.profile.apikey.list;
 
 import com.rectuscorp.evetool.entities.core.*;
 import com.rectuscorp.evetool.entities.core.Character;
+import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.tools.EveXmlApi;
@@ -11,6 +12,7 @@ import com.rectuscorp.evetool.web.page.profile.apikey.edit.ApiKeyEditPanel;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.basic.EnumLabel;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -54,13 +56,13 @@ public class ApiKeyListPanel extends Panel {
                         listItem.add(new Label("keyID", listItem.getModelObject().getKeyId()));
                         listItem.add(new Label("paidUntil", com.rectuscorp.evetool.web.Config.get().dateFormat(listItem.getModelObject().getPaidUntil())));
                         listItem.add(new Label("nbChar", listItem.getModelObject().getCharacterList().size()));
+                        listItem.add(new EnumLabel<State>("state", listItem.getModelObject().getState()));
                         listItem.add(new AjaxLink("edit") {
                             @Override
                             public void onClick(AjaxRequestTarget ajaxRequestTarget) {
                                 modal.setContent(new ApiKeyEditPanel(modal.getContentId(), listItem.getModel()) {
                                     @Override
                                     public void onFormSubmit(AjaxRequestTarget target, XmlApiKey xmlApiKey) {
-										serviceGeneric.save(EveXmlApi.get().getKeyInformation(xmlApiKey));
                                         modal.close(target);
 										target.add(wmc);
                                     }

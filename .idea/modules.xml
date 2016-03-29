@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/evetool.iml" filepath="$PROJECT_DIR$/evetool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../gentelella/gentelella.iml" filepath="$PROJECT_DIR$/../gentelella/gentelella.iml" />
     </modules>
   </component>
 </project>
-

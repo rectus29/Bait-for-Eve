@@ -13,20 +13,20 @@ import org.apache.wicket.model.IModel;
 /*                Date: 18/02/16 11:20                 */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-public class GigaLazyLoadPanel extends AjaxLazyLoadPanel {
+public class LazyLoadPanel extends AjaxLazyLoadPanel {
 
     private String htmlText = getString("current-computation") +"<br/>"+ getString("please-wait");
 
-    public GigaLazyLoadPanel(String id) {
+    public LazyLoadPanel(String id) {
         super(id);
     }
 
-    public GigaLazyLoadPanel(String id, String htmlText) {
+    public LazyLoadPanel(String id, String htmlText) {
         super(id);
         this.htmlText = htmlText;
     }
 
-    public GigaLazyLoadPanel(String id, IModel<?> model) {
+    public LazyLoadPanel(String id, IModel<?> model) {
         super(id, model);
     }
 

@@ -11,7 +11,10 @@
             <label wicket:for="verificationCode">Verification Code</label>
             <input type="text" class="form-control" wicket:id="verificationCode" >
         </div>
-
+        <div wicket:id="feed"/>
+        <a href="#" class="btn btn-primary" wicket:id="refresh">
+            <wicket:message key="refresh"/>
+        </a>
         <a href="#" class="btn btn-primary" wicket:id="submit">
             <wicket:message key="submit"/>
         </a>

@@ -8,5 +8,5 @@ package com.rectuscorp.evetool.enums;
 
 
 public enum State {
-    ENABLE, DISABLE, PENDING, DELETED
+    ENABLE, DISABLE, PENDING, DELETED, ERROR
 }

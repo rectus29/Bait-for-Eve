@@ -3,6 +3,7 @@ package com.rectuscorp.evetool.tools;
 import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.entities.core.XmlApiKey;
 import com.rectuscorp.evetool.entities.crest.Corporation;
+import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceCorporation;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.spring.AppContext;
@@ -87,15 +88,18 @@ public class EveXmlApi {
 			if (document.selectSingleNode("//result/logonMinutes") != null) {
 				xmlApiKey.setLogonMinutes(Long.parseLong(document.selectSingleNode("//result/logonMinutes").getText()));
 			}
-			xmlApiKey = (XmlApiKey) serviceGeneric.save(xmlApiKey);
+			xmlApiKey.setState(State.ENABLE);
 		}catch(Exception ex){
-			log.debug("Error while getting info for XMLAPIKEY " + xmlApiKey.getKeyId());
+			xmlApiKey.setState(State.ERROR);
+			log.debug("Error while getting info for XMLAPIKEY " + xmlApiKey.getKeyId(), ex);
 		}
+		xmlApiKey = (XmlApiKey) serviceGeneric.save(xmlApiKey);
 		try {
 			log.debug("Start get character for XMLAPIKEY " + xmlApiKey.getKeyId());
 			xmlApiKey.setCharacterList(getCharacterList(xmlApiKey));
 		} catch (Exception ex) {
-			log.debug("Error while getting character for XMLAPIKEY " + xmlApiKey.getKeyId());
+			xmlApiKey.setState(State.DISABLE);
+			log.debug("Error while getting character for XMLAPIKEY " + xmlApiKey.getKeyId(), ex);
 		}
 			return xmlApiKey;
 	}

@@ -1,5 +1,7 @@
 package com.rectuscorp.evetool.entities.core;
 
+import com.rectuscorp.evetool.enums.State;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,6 +32,8 @@ public class XmlApiKey extends GenericEntity {
 	private List<Character> characterList = new ArrayList<Character>();
 	@ManyToOne
 	private User user;
+	@Column
+	private State state = State.PENDING;
 
 	/**
 	 * Gets key id.
@@ -173,6 +177,14 @@ public class XmlApiKey extends GenericEntity {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 	@Override

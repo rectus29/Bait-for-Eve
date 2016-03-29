@@ -8,17 +8,14 @@ package com.rectuscorp.evetool.web.page.home;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.service.IserviceUser;
-import com.rectuscorp.evetool.tools.feedreader.impl.rss.RSSFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.feeddisplaypanel.FeedDisplayPanel;
-import com.rectuscorp.evetool.web.panel.lazyloadPanel.GigaLazyLoadPanel;
+import com.rectuscorp.evetool.web.panel.lazyloadPanel.LazyLoadPanel;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-
-import java.net.URL;
 
 public class HomePage extends ProtectedPage {
 
@@ -39,14 +36,14 @@ public class HomePage extends ProtectedPage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-		add(new GigaLazyLoadPanel("feedReader") {
+		add(new LazyLoadPanel("feedReader") {
 			@Override
 			public Component getLazyLoadComponent(String markupId) {
 				return new FeedDisplayPanel(markupId, "http://forum.federatis.fr/index.php?action=.xml", SMFFeedParser.class);
 			}
 
 		}.setOutputMarkupId(true));
-		add(new GigaLazyLoadPanel("feedReader2"){
+		add(new LazyLoadPanel("feedReader2"){
 			@Override
 			public Component getLazyLoadComponent(String markupId) {
 				return new FeedDisplayPanel(markupId, "https://www.themittani.com/feeds/all/rss.xml");
