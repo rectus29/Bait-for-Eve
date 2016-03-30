@@ -30,16 +30,15 @@ public class BootStrapFeedbackPanel extends FeedbackPanel{
             case 100:
                 return "alert alert-info";
             case 200:
-                return "alert alert-success";
-
+                return "alert alert-info";
             case 250:
                 return "alert alert-success";
             case 300:
-                return "alert";
+                return "alert alert-warning";
             case 400:
-                return "alert alert-error";
+                return "alert alert-danger";
             default:
-                return "alert";
+                return "alert alert-danger";
         }
     }
 }

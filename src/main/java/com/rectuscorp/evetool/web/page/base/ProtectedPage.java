@@ -4,9 +4,8 @@ import com.rectuscorp.evetool.event.OnEvent;
 import com.rectuscorp.evetool.event.RefreshEvent;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.session.EveToolSession;
-import com.rectuscorp.evetool.web.component.andilmodal.EveModal;
 import com.rectuscorp.evetool.web.panel.footerpanel.FooterPanel;
-import com.rectuscorp.evetool.web.panel.toppanel.TopPanel;
+import com.rectuscorp.evetool.web.panel.menupanel.MenuPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -20,8 +19,6 @@ public class ProtectedPage extends BasePage {
 
     @SpringBean(name = "serviceUser")
     private IserviceUser serviceUser;
-
-    private Panel topPanel;
 
     public ProtectedPage() {
         super();
@@ -45,13 +42,8 @@ public class ProtectedPage extends BasePage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-        add((topPanel = new TopPanel("topPanel")).setOutputMarkupId(true));
+        add((new MenuPanel("menuPanel")).setOutputMarkupId(true));
         add((new FooterPanel("footerPanel")).setOutputMarkupId(true));
     }
 
-
-    @OnEvent
-    public void onEvent(RefreshEvent event) {
-        event.getTarget().add(topPanel);
-    }
 }

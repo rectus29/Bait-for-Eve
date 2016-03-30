@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.web.panel.toppanel;
+package com.rectuscorp.evetool.web.panel.menupanel;
 
 
 /*-----------------------------------------------------*/
@@ -21,12 +21,12 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-public class TopPanel extends Panel {
+public class MenuPanel extends Panel {
 
 	@SpringBean(name = "serviceUser")
 	private IserviceUser serviceUser;
 
-	public TopPanel(String id) {
+	public MenuPanel(String id) {
 		super(id);
 	}
 
