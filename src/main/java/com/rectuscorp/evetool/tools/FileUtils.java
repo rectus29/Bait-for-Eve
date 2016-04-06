@@ -12,7 +12,7 @@ import java.util.Calendar;
  * Time: 16:21:07
  * To change this template use File | Settings | File Templates.
  */
-public class FileUtils {
+public class FileUtils extends org.apache.commons.io.FileUtils {
 
     private static final Logger log = LogManager.getLogger(FileUtils.class);
 
@@ -67,23 +67,6 @@ public class FileUtils {
 
         fis.close();
         fos.close();
-    }
-
-    static public boolean deleteDirectory(File path) {
-        boolean resultat = true;
-
-        if (path.exists()) {
-            File[] files = path.listFiles();
-            for (int i = 0; i < files.length; i++) {
-                if (files[i].isDirectory()) {
-                    resultat &= deleteDirectory(files[i]);
-                } else {
-                    resultat &= files[i].delete();
-                }
-            }
-        }
-        resultat &= path.delete();
-        return (resultat);
     }
 
 

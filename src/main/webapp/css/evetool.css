@@ -1,64 +1,66 @@
-body{
+body {
     background: url("../img/124080.jpeg") no-repeat black;
-    color:white;
-    font-size:11px;
+    color: white;
+    font-size: 11px;
 }
 
-#connectWrapper{
-    margin-top:20%;
-    color:white;
-    background:rgba(13, 13, 13, 0.62);
-    border:1px solid #1C1C1C;
+#connectWrapper {
+    margin-top: 20%;
+    color: white;
+    background: rgba(13, 13, 13, 0.62);
+    border: 1px solid #1C1C1C;
     text-align: center;
 }
 
-.blackelement{
-    background:rgba(13, 13, 13, 0.62);
-        border:1px solid #4a4a4a;
-    padding:15px;
+.blackelement {
+    background: rgba(13, 13, 13, 0.62);
+    border: 1px solid #4a4a4a;
+    padding: 15px;
 }
 
-nav.navbar{
-    border-bottom:1px solid #964516;
+#leftMenu {
+    background: #2D2D2D;
+    height: 100%;
+    border-right: solid 2px #964516;
 }
-
 
 .table-striped tbody tr:nth-child(2n+1) td, .table-striped tbody tr:nth-child(2n+1) th {
     background-color: rgba(249, 249, 249, 0.18);
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
+.nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none;
     background-color: rgba(151, 49, 4, 0.65);
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
+.table-striped > tbody > tr:nth-of-type(odd) {
     background-color: rgba(249, 249, 249, 0.11);
 }
 
-input{
-    color :black;
+input {
+    color: black;
 }
 
-.wicket-modal{
+.wicket-modal {
     color: #3f3f3f;
 }
 
-.feedParser{
+.feedParser {
 
 }
 
-.feedParser .titleHolder{
-    position:relative;
-    clear:both;
+.feedParser .titleHolder {
+    position: relative;
+    clear: both;
 }
 
-.feedParser .titleHolder img.nodeEnclosure{
+.feedParser .titleHolder img.nodeEnclosure {
     display: block;
     max-width: 100%;
 }
-.feedParser .titleHolder a.nodeTitle{
-position: absolute;
+
+.feedParser .titleHolder a.nodeTitle {
+    position: absolute;
     bottom: 0;
     left: 0;
     color: #fff;

@@ -71,7 +71,7 @@ public class CharacterListPanel extends Panel {
 				add(plv = new PageableListView<Character>("lv", ldm, 20) {
 					@Override
 					protected void populateItem(final ListItem<Character> item) {
-						item.add(new AvatarImage("avatar"));
+						item.add(new AvatarImage("avatar", item.getModelObject()));
 						item.add(new Label("id", item.getModelObject().getId() + ""));
 						item.add(new Label("name", item.getModelObject().getName()));
 						item.add(new Label("corp", (item.getModelObject().getCorporation() != null) ? item.getModelObject().getCorporation().getName() : "-"));

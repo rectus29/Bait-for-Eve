@@ -7,6 +7,7 @@ import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceCorporation;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.spring.AppContext;
+import com.rectuscorp.evetool.web.Config;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.http.client.utils.URIBuilder;
@@ -18,6 +19,8 @@ import org.dom4j.dom.DOMElement;
 import org.dom4j.io.SAXReader;
 import org.springframework.context.ApplicationContext;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +36,8 @@ public class EveXmlApi {
 	/**
 	 * The constant API_URL.
 	 */
-	public static String API_URL = "https://api.eveonline.com/";
+	private static String API_URL = "https://api.eveonline.com/";
+	private static String IMG_SERV_URL = "https://image.eveonline.com/";
 	private static EveXmlApi ourInstance;
 	private static IserviceCorporation serviceCorporation;
 	private static IserviceGeneric serviceGeneric;
@@ -60,6 +64,12 @@ public class EveXmlApi {
 		return ourInstance;
 	}
 
+	/**
+	 * Gets key information.
+	 *
+	 * @param xmlApiKey the xml api key
+	 * @return the key information
+	 */
 	public XmlApiKey getKeyInformation(XmlApiKey xmlApiKey) {
 		URIBuilder url = null;
 		try {
@@ -89,7 +99,7 @@ public class EveXmlApi {
 				xmlApiKey.setLogonMinutes(Long.parseLong(document.selectSingleNode("//result/logonMinutes").getText()));
 			}
 			xmlApiKey.setState(State.ENABLE);
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			xmlApiKey.setState(State.ERROR);
 			log.debug("Error while getting info for XMLAPIKEY " + xmlApiKey.getKeyId(), ex);
 		}
@@ -101,11 +111,11 @@ public class EveXmlApi {
 			xmlApiKey.setState(State.DISABLE);
 			log.debug("Error while getting character for XMLAPIKEY " + xmlApiKey.getKeyId(), ex);
 		}
-			return xmlApiKey;
+		return xmlApiKey;
 	}
 
 	/**
-	 * retreive character for an xmlApiKey
+	 * retreive characters for an xmlApiKey
 	 *
 	 * @param xmlApiKey the api key
 	 * @return character list
@@ -126,7 +136,7 @@ public class EveXmlApi {
 				try {
 					Character character = getCharacter(xmlApiKey, Long.parseLong(charElement.getAttribute("characterID")));
 					out.add(character);
-				}catch (Exception e){
+				} catch (Exception e) {
 					log.error("Error while getCharacter from XMLAPI", e);
 				}
 			}
@@ -142,8 +152,9 @@ public class EveXmlApi {
 	 * @param xmlApiKey   the api key
 	 * @param characterID the character id
 	 * @return the character
+	 * @throws Exception the exception
 	 */
-	public Character getCharacter(XmlApiKey xmlApiKey, Long characterID) throws Exception{
+	public Character getCharacter(XmlApiKey xmlApiKey, Long characterID) throws Exception {
 		try {
 			if (xmlApiKey == null || characterID == null) {
 				throw new Exception("apikey and character needed");
@@ -170,7 +181,10 @@ public class EveXmlApi {
 				character.setCorporation(corpo);
 			}
 			character.setXmlApiKey(xmlApiKey);
-			return (Character) serviceGeneric.save(character);
+			character = (Character) serviceGeneric.save(character);
+			//retreive image from server
+			getCharacterImage(character);
+			return character;
 		} catch (Exception e) {
 			log.error("Error while getCharacter from XMLAPI", e);
 			throw e;
@@ -240,6 +254,29 @@ public class EveXmlApi {
 			log.error("Error while api request", e);
 		}
 		return out;
+	}
+
+	/**
+	 * retreive Image from image server
+	 *
+	 * @param character character to import
+	 */
+	public void getCharacterImage(Character character) {
+		try {
+			URIBuilder url = new URIBuilder(IMG_SERV_URL + "Character/" + character.getId() + "_256.jpg");
+			GetMethod get = new GetMethod(url.toString());
+			File outAvatarFile = new File(Config.get().getCharacterFolder() + File.separator + character.getId() + "_256.jpg");
+			client.executeMethod(get);
+			if (get.getStatusCode() != 404) {
+				FileOutputStream outstream = new FileOutputStream(outAvatarFile);
+				FileUtils.writeByteArrayToFile(outAvatarFile, get.getResponseBody());
+				outstream.close();
+			} else {
+				log.warn("image not found on server");
+			}
+		} catch (Exception ex) {
+			log.error("Error while retreive image from server", ex);
+		}
 	}
 
 }
