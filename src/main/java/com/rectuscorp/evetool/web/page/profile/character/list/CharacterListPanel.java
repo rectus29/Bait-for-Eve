@@ -74,6 +74,7 @@ public class CharacterListPanel extends Panel {
 						item.add(new AvatarImage("avatar", item.getModelObject()));
 						item.add(new Label("id", item.getModelObject().getId() + ""));
 						item.add(new Label("name", item.getModelObject().getName()));
+						item.add(new AvatarImage("corpAvatar", (item.getModelObject().getCorporation() != null) ? item.getModelObject().getCorporation() : null));
 						item.add(new Label("corp", (item.getModelObject().getCorporation() != null) ? item.getModelObject().getCorporation().getName() : "-"));
 						item.add(new AjaxLink("refresh") {
 							@Override

@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
+import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.entities.core.XmlApiKey;
 import com.rectuscorp.evetool.entities.crest.Corporation;
@@ -13,6 +14,7 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.wicket.util.file.Folder;
 import org.dom4j.dom.DOMDocument;
 import org.dom4j.dom.DOMDocumentFactory;
 import org.dom4j.dom.DOMElement;
@@ -183,7 +185,7 @@ public class EveXmlApi {
 			character.setXmlApiKey(xmlApiKey);
 			character = (Character) serviceGeneric.save(character);
 			//retreive image from server
-			getCharacterImage(character);
+			getImage(character);
 			return character;
 		} catch (Exception e) {
 			log.error("Error while getCharacter from XMLAPI", e);
@@ -249,6 +251,8 @@ public class EveXmlApi {
 					corp.setShares(Integer.parseInt(document.selectSingleNode("//result/memberCount").getText()));
 				}
 				out = corp;
+				//retreive image from server
+				getImage(out);
 			}
 		} catch (Exception e) {
 			log.error("Error while api request", e);
@@ -257,15 +261,28 @@ public class EveXmlApi {
 	}
 
 	/**
-	 * retreive Image from image server
+	 * Gets image.
 	 *
-	 * @param character character to import
+	 * @param character the character
 	 */
-	public void getCharacterImage(Character character) {
+	public void getImage(DecorableElement character) {
 		try {
-			URIBuilder url = new URIBuilder(IMG_SERV_URL + "Character/" + character.getId() + "_256.jpg");
+			log.debug("get image from server for " + character.getId());
+			String path = null;
+			String filetype = null;
+			Folder outputFolder = null;
+			if(character instanceof Character){
+				path ="character";
+				filetype ="jpg";
+				outputFolder = Config.get().getCharacterFolder();
+			}else if (character instanceof Corporation) {
+				path = "corporation";
+				filetype ="png";
+				outputFolder = Config.get().getCorporationFolder();
+			}
+			URIBuilder url = new URIBuilder(IMG_SERV_URL + path +"/" + character.getId() + "_256." + filetype);
 			GetMethod get = new GetMethod(url.toString());
-			File outAvatarFile = new File(Config.get().getCharacterFolder() + File.separator + character.getId() + "_256.jpg");
+			File outAvatarFile = new File(outputFolder + File.separator + character.getId() + "_256." + filetype);
 			client.executeMethod(get);
 			if (get.getStatusCode() != 404) {
 				FileOutputStream outstream = new FileOutputStream(outAvatarFile);

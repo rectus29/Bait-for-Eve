@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.entities.core;
 
+import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.entities.crest.SolarSystem;
 import com.rectuscorp.evetool.entities.crest.Type;
@@ -9,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "avatar")
-public class Character extends GenericEntity {
+public class Character extends GenericEntity implements DecorableElement {
 
 	@Column(nullable = false)
 	private String name;

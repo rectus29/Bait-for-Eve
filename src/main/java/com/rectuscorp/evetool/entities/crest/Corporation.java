@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.entities.crest;
 
+import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.core.*;
 import com.rectuscorp.evetool.entities.core.Character;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name="corporation")
-public class Corporation extends GenericEntity{
+public class Corporation extends GenericEntity implements DecorableElement{
 
 	@Column(length = 65536)
 	private String name;
