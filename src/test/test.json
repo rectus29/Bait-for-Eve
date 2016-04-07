@@ -1,21 +1,104 @@
 {
-  "effectCategory_str": "4",
-  "preExpression_str": "439",
-  "postExpression_str": "440",
-  "id_str": "50",
-
-  "isAssistance": false,
-  "description": "",
-  "isOffensive": false,
-  "disallowAutoRepeat": false,
-  "isWarpSafe": false,
-  "electronicChance": false,
-  "rangeChance": false,
-  "effectCategory": 4,
-  "published": false,
-
-  "postExpression": 440,
-  "preExpression": 439,
-  "displayName": "",
-  "name": "modifyShieldRechargeRate"
+  "totalCount_str": "6",
+  "items": [
+    {
+      "marketGroup": {
+        "href": "https://public-crest.eveonline.com/market/groups/516/",
+        "id": 516,
+        "id_str": "516"
+      },
+      "type": {
+        "id_str": "18",
+        "href": "https://public-crest.eveonline.com/types/18/",
+        "id": 18,
+        "name": "Plagioclase",
+        "icon": {"href": "http://imageserver.eveonline.com/Type/18_64.png"}
+      },
+      "id": 18,
+      "id_str": "18"
+    },
+    {
+      "marketGroup": {
+        "href": "https://public-crest.eveonline.com/market/groups/516/",
+        "id": 516,
+        "id_str": "516"
+      },
+      "type": {
+        "id_str": "17455",
+        "href": "https://public-crest.eveonline.com/types/17455/",
+        "id": 17455,
+        "name": "Azure Plagioclase",
+        "icon": {"href": "http://imageserver.eveonline.com/Type/17455_64.png"}
+      },
+      "id": 17455,
+      "id_str": "17455"
+    },
+    {
+      "marketGroup": {
+        "href": "https://public-crest.eveonline.com/market/groups/516/",
+        "id": 516,
+        "id_str": "516"
+      },
+      "type": {
+        "id_str": "17456",
+        "href": "https://public-crest.eveonline.com/types/17456/",
+        "id": 17456,
+        "name": "Rich Plagioclase",
+        "icon": {"href": "http://imageserver.eveonline.com/Type/17456_64.png"}
+      },
+      "id": 17456,
+      "id_str": "17456"
+    },
+    {
+      "marketGroup": {
+        "href": "https://public-crest.eveonline.com/market/groups/516/",
+        "id": 516,
+        "id_str": "516"
+      },
+      "type": {
+        "id_str": "28421",
+        "href": "https://public-crest.eveonline.com/types/28421/",
+        "id": 28421,
+        "name": "Compressed Azure Plagioclase",
+        "icon": {"href": "http://imageserver.eveonline.com/Type/28421_64.png"}
+      },
+      "id": 28421,
+      "id_str": "28421"
+    },
+    {
+      "marketGroup": {
+        "href": "https://public-crest.eveonline.com/market/groups/516/",
+        "id": 516,
+        "id_str": "516"
+      },
+      "type": {
+        "id_str": "28422",
+        "href": "https://public-crest.eveonline.com/types/28422/",
+        "id": 28422,
+        "name": "Compressed Plagioclase",
+        "icon": {"href": "http://imageserver.eveonline.com/Type/28422_64.png"}
+      },
+      "id": 28422,
+      "id_str": "28422"
+    },
+    {
+      "marketGroup": {
+        "href": "https://public-crest.eveonline.com/market/groups/516/",
+        "id": 516,
+        "id_str": "516"
+      },
+      "type": {
+        "id_str": "28423",
+        "href": "https://public-crest.eveonline.com/types/28423/",
+        "id": 28423,
+        "name": "Compressed Rich Plagioclase",
+        "icon": {"href": "http://imageserver.eveonline.com/Type/28423_64.png"}
+      },
+      "id": 28423,
+      "id_str": "28423"
+    }
+  ],
+  "pageCount": 1,
+  "pageCount_str": "1",
+  "totalCount": 6
 }
