@@ -8,10 +8,14 @@ import com.rectuscorp.evetool.web.component.avatarimage.AvatarImage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
+import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.ajax.markup.html.form.AjaxButton;
+import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxButton;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PageableListView;
 import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
@@ -71,6 +75,12 @@ public class CharacterListPanel extends Panel {
 				add(plv = new PageableListView<Character>("lv", ldm, 20) {
 					@Override
 					protected void populateItem(final ListItem<Character> item) {
+						item.add(new WebMarkupContainer("default") {
+							@Override
+							public boolean isVisible() {
+								return item.getModelObject().equals(serviceUser.getCurrentUser().getMainCharacter());
+							}
+						});
 						item.add(new AvatarImage("avatar", item.getModelObject()));
 						item.add(new Label("id", item.getModelObject().getId() + ""));
 						item.add(new Label("name", item.getModelObject().getName()));
@@ -83,17 +93,13 @@ public class CharacterListPanel extends Panel {
 								modal.setContent(new EmptyPanel(modal.getContentId()));
 								modal.show(target);
 							}
-
-							@Override
-							public boolean isVisible() {
-								return SecurityUtils.getSubject().isPermitted("system:user:edit");
-							}
 						});
 						item.add(new AjaxLink("makePrincipal") {
 							@Override
 							public void onClick(AjaxRequestTarget target) {
 								serviceUser.getCurrentUser().setMainCharacter(item.getModelObject());
 								serviceUser.save(serviceUser.getCurrentUser());
+								target.add(wmc);
 							}
 						});
 					}
