@@ -90,3 +90,13 @@ tr.default{
     color:white;
     background-color: #964516;
 }
+
+.avatarPanel select{
+    color: black;
+}
+
+.nav_el{
+    padding: 12px 0 12px 0;
+    margin: 0 0 0px 0;
+    border-bottom: 1px solid #ADADAD;
+}

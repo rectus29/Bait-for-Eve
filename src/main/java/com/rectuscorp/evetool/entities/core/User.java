@@ -122,8 +122,9 @@ public class User extends GenericEntity {
 	}
 
 	public boolean isAdmin() {
-		if (this.role != null)
+		if (this.role != null) {
 			return this.role.getIsAdmin();
+		}
 		return false;
 	}
 
@@ -157,5 +158,20 @@ public class User extends GenericEntity {
 
 	public void setMainCharacter(Character mainCharacter) {
 		this.mainCharacter = mainCharacter;
+	}
+
+	/**
+	 * retreive all characterfor the current user
+	 *
+	 * @return
+	 */
+	public List<Character> getCharacterList() {
+		List<Character> out = new ArrayList<Character>();
+		for (XmlApiKey tempApiKey : this.getXmlApiKeyList()) {
+			if (tempApiKey.getState().equals(State.ENABLE)) {
+				out.addAll(tempApiKey.getCharacterList());
+			}
+		}
+		return out;
 	}
 }

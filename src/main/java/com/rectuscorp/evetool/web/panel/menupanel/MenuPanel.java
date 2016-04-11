@@ -17,6 +17,7 @@ import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.admin.AdminPage;
 import com.rectuscorp.evetool.web.page.crest.CrestPage;
 import com.rectuscorp.evetool.web.page.profile.ProfilePage;
+import com.rectuscorp.evetool.web.panel.characterpanel.CharacterPanel;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -33,6 +34,9 @@ public class MenuPanel extends Panel {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
+
+		add(new CharacterPanel("characterPanel"));
+
 
 		add(new BookmarkablePageLink("crest", CrestPage.class));
 		add(new BookmarkablePageLink("admin", AdminPage.class) {

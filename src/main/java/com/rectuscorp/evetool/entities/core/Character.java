@@ -73,4 +73,8 @@ public class Character extends GenericEntity implements DecorableElement {
 	public void setCorporation(Corporation corporation) {
 		this.corporation = corporation;
 	}
+
+	public String getFormatedName(){
+		return getName();
+	}
 }

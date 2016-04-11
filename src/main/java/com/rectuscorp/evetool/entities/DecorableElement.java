@@ -6,4 +6,6 @@ package com.rectuscorp.evetool.entities;
 public interface DecorableElement {
 
 	Long getId();
+
+	String getFormatedName();
 }

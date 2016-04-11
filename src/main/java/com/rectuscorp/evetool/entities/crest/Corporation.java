@@ -124,4 +124,8 @@ public class Corporation extends GenericEntity implements DecorableElement{
 	public void setMemberCount(int memberCount) {
 		this.memberCount = memberCount;
 	}
+
+	public String getFormatedName() {
+		return this.getName();
+	}
 }
