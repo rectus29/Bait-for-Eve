@@ -4,19 +4,23 @@
 <wicket:panel>
     <div class="feedParser">
         <h2 wicket:id="title"/>
-        <div wicket:id="lv">
-            <div class="titleHolder">
-                <img wicket:id="enclosure" class="nodeEnclosure img-responsive"/>
-                <a href="#" wicket:id="link" class="nodeTitle" target="_blank">
-                    <span wicket:id="subject"/>
-                </a>
+
+        <div wicket:id="lv" class="nodeItem row">
+            <div class="col-md-2">
+                <img wicket:id="enclosure" class="nodeEnclosure img-responsive "/>
             </div>
-            <div>
-                <div wicket:id="content"/>
-            </div>
-            <div>
-                <div wicket:id="date"/>
-                <div wicket:id="author"/>
+            <div class="col-md-10">
+                <div class="titleHolder">
+                    <a href="#" wicket:id="link" class="nodeTitle" target="_blank">
+                        <span wicket:id="subject"/>
+                    </a>
+                </div>
+                <div>
+                    <div wicket:id="content"/>
+                </div>
+                <div>
+                    <span wicket:id="date"/>&nbsp;|&nbsp;<span wicket:id="author"/>
+                </div>
             </div>
 
         </div>

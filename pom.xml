@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rectus.evetool</groupId>
     <artifactId>EveTool</artifactId>
-    <version>0.5-ALPHA</version>
+    <version>0.1-ALPHA</version>
 
     <build>
         <resources>
@@ -14,6 +14,12 @@
             </resource>
             <resource>
                 <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
             </resource>
         </resources>
     </build>
@@ -282,22 +288,5 @@
             <version>2.4.6</version>
             <scope>test</scope>
         </dependency>
-
-
-
-
     </dependencies>
-
-    <repositories>
-        <!--<repository>-->
-            <!--<id>Apache Nexus</id>-->
-            <!--<url>https://repository.apache.org/content/repositories/snapshots/</url>-->
-            <!--<releases>-->
-                <!--<enabled>false</enabled>-->
-            <!--</releases>-->
-            <!--<snapshots>-->
-                <!--<enabled>true</enabled>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
-    </repositories>
 </project>
