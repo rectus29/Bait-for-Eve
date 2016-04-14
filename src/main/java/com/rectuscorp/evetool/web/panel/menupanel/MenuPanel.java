@@ -21,6 +21,7 @@ import com.rectuscorp.evetool.web.panel.characterpanel.CharacterPanel;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.wicketstuff.shiro.page.LogoutPage;
 
 public class MenuPanel extends Panel {
 
@@ -89,6 +90,10 @@ public class MenuPanel extends Panel {
 		////        friend.add(new Label("friendnumber", friendnumber)).setOutputMarkupId(true);
 		////        mailbox.add(new Label("mailNumber", mailNumber)).setOutputMarkupId(true);
 		//        add(new Label("name", serviceUser.getCurrentUser().getFormattedName()));
+
+
+
+		add(new BookmarkablePageLink<LogoutPage>("logout", LogoutPage.class));
 		add(new BookmarkablePageLink<ProfilePage>("profile", ProfilePage.class));
 
 	}

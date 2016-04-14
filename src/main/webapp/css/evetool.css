@@ -1,5 +1,5 @@
 body {
-    background: url("../img/124080.jpeg") no-repeat black;
+    background: url("../img/124080.jpeg") no-repeat black fixed;
     color: white;
     font-size: 11px;
 }
@@ -50,20 +50,17 @@ input {
 
 }
 
-.feedParser .titleHolder {
-    position: relative;
-    clear: both;
+.feedParser .nodeItem{
+    border-bottom: 1px solid #ADADAD;
+    padding: 0 5px;
+    margin: 0 5px;
 }
 
-.feedParser .titleHolder img.nodeEnclosure {
-    display: block;
-    max-width: 100%;
+.feedParser img.nodeEnclosure {
+    height: 80px;
 }
 
-.feedParser .titleHolder a.nodeTitle {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.feedParser a.nodeTitle {
     color: #fff;
     font-size: 2em;
 }
@@ -83,7 +80,16 @@ tr.default{
     font-size: 20px;
     text-align: center;
     transition:ease-in-out, background-color 0.5s;
-    height: 25px;
+    padding: 4px 0 0 0;
+    height: 35px;
+}
+
+#navFooter div.footerButton a{
+    color:#ADADAD;
+}
+
+#navFooter div.footerButton:hover a{
+    color:white;
 }
 
 #navFooter div.footerButton:hover{
