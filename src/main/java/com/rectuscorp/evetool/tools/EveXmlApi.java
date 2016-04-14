@@ -2,6 +2,7 @@ package com.rectuscorp.evetool.tools;
 
 import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.core.Character;
+import com.rectuscorp.evetool.entities.core.Event;
 import com.rectuscorp.evetool.entities.core.XmlApiKey;
 import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.enums.State;
@@ -191,6 +192,12 @@ public class EveXmlApi {
 			log.error("Error while getCharacter from XMLAPI", e);
 			throw e;
 		}
+	}
+
+	public List<Event> getEvent(XmlApiKey xmlApiKey, Long characterID){
+		List<Event> out = new ArrayList<Event>();
+
+		return out;
 	}
 
 	/**
