@@ -21,6 +21,7 @@ import org.dom4j.dom.DOMDocumentFactory;
 import org.dom4j.dom.DOMElement;
 import org.dom4j.io.SAXReader;
 import org.springframework.context.ApplicationContext;
+import org.w3c.dom.Node;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -194,8 +195,54 @@ public class EveXmlApi {
 		}
 	}
 
-	public List<Event> getEvent(XmlApiKey xmlApiKey, Long characterID){
+	/**
+	 * get event for given character
+	 *
+	 * @param xmlApiKey   apikey to use
+	 * @param characterID the character id
+	 * @return list of event
+	 * @throws Exception
+	 */
+	public List<Event> getEvent(XmlApiKey xmlApiKey, Long characterID) throws Exception {
 		List<Event> out = new ArrayList<Event>();
+		if (xmlApiKey == null || characterID == null) {
+			throw new Exception("apikey and character needed");
+		}
+		URIBuilder url = null;
+		url = new URIBuilder(API_URL + "char/UpcomingCalendarEvents.xml.aspx");
+		url.addParameter("keyID", xmlApiKey.getKeyId());
+		url.addParameter("vCode", xmlApiKey.getVerificationCode());
+		url.addParameter("characterID", characterID.toString());
+		GetMethod get = new GetMethod(url.toString());
+		client.executeMethod(get);
+		if (get.getStatusCode() != 200) {
+			throw new Exception("Error while getting data from XMLAPI");
+		}
+		String xmlResponse = get.getResponseBodyAsString();
+		SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
+		DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
+
+		for (Node tempNode : (List<Node>) document.selectNodes("//result/rowset/row")) {
+			Event event = new Event();
+			event.setDate();
+			event.setDuration();
+			event.setImportance();
+			event.setResponse();
+			event.setText();
+			event.setTitle();
+			event.setId();
+			event.setCharacter()
+			event.setOwner();
+		}
+
+		character.setName(document.selectSingleNode("//result/name").getText());
+		character.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(document.selectSingleNode("//result/DoB").getText()));
+		if (document.selectSingleNode("//result/corporationID") != null) {
+			Corporation corpo = serviceCorporation.get(Long.parseLong(document.selectSingleNode("//result/corporationID").getText()));
+			character.setCorporation(corpo);
+		}
+		character.setXmlApiKey(xmlApiKey);
+		character = (Character) serviceGeneric.save(character);
 
 		return out;
 	}
@@ -278,16 +325,16 @@ public class EveXmlApi {
 			String path = null;
 			String filetype = null;
 			Folder outputFolder = null;
-			if(character instanceof Character){
-				path ="character";
-				filetype ="jpg";
+			if (character instanceof Character) {
+				path = "character";
+				filetype = "jpg";
 				outputFolder = Config.get().getCharacterFolder();
-			}else if (character instanceof Corporation) {
+			} else if (character instanceof Corporation) {
 				path = "corporation";
-				filetype ="png";
+				filetype = "png";
 				outputFolder = Config.get().getCorporationFolder();
 			}
-			URIBuilder url = new URIBuilder(IMG_SERV_URL + path +"/" + character.getId() + "_256." + filetype);
+			URIBuilder url = new URIBuilder(IMG_SERV_URL + path + "/" + character.getId() + "_256." + filetype);
 			GetMethod get = new GetMethod(url.toString());
 			File outAvatarFile = new File(outputFolder + File.separator + character.getId() + "_256." + filetype);
 			client.executeMethod(get);

@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.entities.crest;
 
+import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.core.GenericEntity;
 import com.rectuscorp.evetool.enums.State;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "alliance")
-public class Alliance extends GenericEntity {
+public class Alliance extends GenericEntity implements DecorableElement {
 
 	@Column(nullable = false)
 	private String name;
@@ -102,5 +103,9 @@ public class Alliance extends GenericEntity {
 
 	public void setCorporationList(List<Corporation> corporationList) {
 		this.corporationList = corporationList;
+	}
+
+	public String getFormatedName() {
+		return getName();
 	}
 }
