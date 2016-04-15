@@ -8,6 +8,7 @@ package com.rectuscorp.evetool.web.page.home;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.service.IserviceUser;
+import com.rectuscorp.evetool.tools.EveXmlApi;
 import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.feeddisplaypanel.FeedDisplayPanel;
@@ -50,6 +51,11 @@ public class HomePage extends ProtectedPage {
 			}
 		}.setOutputMarkupId(true));
 
+		try {
+			EveXmlApi.get().getEvent(serviceUser.getCurrentUser().getXmlApiKeyList().get(0), serviceUser.getCurrentUser().getXmlApiKeyList().get(0).getCharacterList().get(0).getId());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

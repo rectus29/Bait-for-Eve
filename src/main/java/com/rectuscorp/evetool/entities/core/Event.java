@@ -7,6 +7,7 @@ import com.rectuscorp.evetool.enums.EventResponse;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "event")
@@ -21,12 +22,10 @@ public class Event extends GenericEntity {
 	private int duration = 0;
 	@Column
 	private Boolean importance = false;
-	@Column
-	private EventResponse response;
 	@Column(length = 65536)
 	private String text;
-	@ManyToOne
-	private Character character;
+	@ManyToMany
+	private List<Character> characterList;
 	@ManyToOne
 	private Character characterOwner;
 	@ManyToOne
@@ -69,14 +68,6 @@ public class Event extends GenericEntity {
 		this.importance = importance;
 	}
 
-	public EventResponse getResponse() {
-		return response;
-	}
-
-	public void setResponse(EventResponse response) {
-		this.response = response;
-	}
-
 	public String getText() {
 		return text;
 	}
@@ -85,12 +76,12 @@ public class Event extends GenericEntity {
 		this.text = text;
 	}
 
-	public Character getCharacter() {
-		return character;
+	public List<Character> getCharacterList() {
+		return characterList;
 	}
 
-	public void setCharacter(Character character) {
-		this.character = character;
+	public void setCharacterList(List<Character> characterList) {
+		this.characterList = characterList;
 	}
 
 	public DecorableElement getOwner() {

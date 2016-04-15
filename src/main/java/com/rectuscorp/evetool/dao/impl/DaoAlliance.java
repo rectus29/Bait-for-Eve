@@ -1,6 +1,8 @@
 package com.rectuscorp.evetool.dao.impl;
 
+import com.rectuscorp.evetool.dao.IdaoAlliance;
 import com.rectuscorp.evetool.dao.IdaoCorporation;
+import com.rectuscorp.evetool.entities.crest.Alliance;
 import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.tools.EveCRESTApi;
 import com.rectuscorp.evetool.tools.EveXmlApi;
@@ -10,22 +12,23 @@ import org.springframework.stereotype.Repository;
  * User: Rectus_29
  * Date: 10/02/16
  */
-@Repository("daoCorporation")
-public class DaoCorporation extends GenericDaoHibernate<Corporation, Long> implements IdaoCorporation {
+@Repository("daoAlliance")
+public class DaoAlliance extends GenericDaoHibernate<Alliance, Long> implements IdaoAlliance {
 
-	public DaoCorporation() {
-		super(Corporation.class);
+	public DaoAlliance() {
+		super(Alliance.class);
 	}
 
 	@Override
-	public Corporation get(Long id) {
-		Corporation out = super.get(id);
+	public Alliance get(Long id) {
+		Alliance out = super.get(id);
 		if (out == null) {
-			out = EveCRESTApi.get().getCorporation(id.toString());
+			out = EveCRESTApi.get().getAlliance(id.toString());
 			if (out != null) {
 				out = save(out);
 			}
 		}
 		return out;
 	}
+
 }

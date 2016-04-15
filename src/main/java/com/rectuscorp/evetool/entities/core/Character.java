@@ -6,7 +6,9 @@ import com.rectuscorp.evetool.entities.crest.SolarSystem;
 import com.rectuscorp.evetool.entities.crest.Type;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "avatar")
@@ -25,6 +27,9 @@ public class Character extends GenericEntity implements DecorableElement {
 	private XmlApiKey apiKey;
 	@ManyToOne
 	private Corporation corporation;
+	@ManyToMany(mappedBy = "characterList", cascade = CascadeType.PERSIST)
+	private List<Event> eventList = new ArrayList<Event>();
+
 
 	public String getName() {
 		return name;

@@ -1,9 +1,6 @@
 package com.rectuscorp.evetool.tools;
 
-import com.rectuscorp.evetool.entities.crest.Constellation;
-import com.rectuscorp.evetool.entities.crest.Position;
-import com.rectuscorp.evetool.entities.crest.Region;
-import com.rectuscorp.evetool.entities.crest.SolarSystem;
+import com.rectuscorp.evetool.entities.crest.*;
 import com.rectuscorp.evetool.service.IserviceConstellation;
 import com.rectuscorp.evetool.service.IserviceRegion;
 import org.apache.commons.httpclient.HttpClient;
@@ -55,7 +52,7 @@ public class EveCRESTApi {
 	 *
 	 * @return list region
 	 */
-	private static List<Region> getAllRegions() {
+	public List<Region> getAllRegions() {
 		List<Region> out = new ArrayList<Region>();
 		try {
 			GetMethod get = new GetMethod(API_URL + "regions/");
@@ -82,7 +79,7 @@ public class EveCRESTApi {
 	 * @param regionID id to get
 	 * @return region object
 	 */
-	private static Region getRegion(String regionID) {
+	public Region getRegion(String regionID) {
 		Region tempRegion = null;
 		try {
 			GetMethod getDetail = new GetMethod(API_URL + "regions/" + regionID + "/");
@@ -103,7 +100,7 @@ public class EveCRESTApi {
 	 *
 	 * @return
 	 */
-	private static List<Constellation> getAllConstellations() {
+	public List<Constellation> getAllConstellations() {
 		List<Constellation> out = new ArrayList<Constellation>();
 		try {
 			GetMethod get = new GetMethod(API_URL + "constellations/");
@@ -130,7 +127,7 @@ public class EveCRESTApi {
 	 * @param constellationID id to retreive
 	 * @return constellation object
 	 */
-	private static Constellation getConstellation(String constellationID) {
+	public Constellation getConstellation(String constellationID) {
 		Constellation constellation = null;
 		try {
 			GetMethod getDetail = new GetMethod(API_URL + "constellation/" + constellationID + "/");
@@ -146,7 +143,7 @@ public class EveCRESTApi {
 		return constellation;
 	}
 
-	private static List<SolarSystem> getSolarSystems() {
+	public List<SolarSystem> getSolarSystems() {
 		List<SolarSystem> out = new ArrayList<SolarSystem>();
 		try {
 			GetMethod get = new GetMethod(API_URL + "solarsystems/");
@@ -173,7 +170,7 @@ public class EveCRESTApi {
 	 * @param solarsystemId id to find
 	 * @return solrsystem object
 	 */
-	private static SolarSystem getSolarSystem(String solarsystemId) {
+	public SolarSystem getSolarSystem(String solarsystemId) {
 		SolarSystem solarSystem = null;
 		try {
 			GetMethod getDetail = new GetMethod(API_URL + "solarsystems/" + solarsystemId + "/");
@@ -191,7 +188,50 @@ public class EveCRESTApi {
 			log.error("Error while get solarsytem from CREST", e);
 		}
 		return solarSystem;
+	}
 
+
+	/**
+	 * get alliance data from CREST
+	 *
+	 * @param allianceId id to find
+	 * @return allianceId object
+	 */
+	public Alliance getAlliance(String allianceId) {
+		Alliance alliance = null;
+		try {
+
+		} catch (Exception e) {
+			log.error("Error while get alliance from CREST", e);
+		}
+		return alliance;
+	}
+
+	/**
+	 * get type data from CREST
+	 *
+	 * @param typeId id to find
+	 * @return typeId object
+	 */
+	public Type getType(String typeId) {
+		Type type = null;
+		try {
+
+		} catch (Exception e) {
+			log.error("Error while get type from CREST", e);
+		}
+		return type;
+	}
+
+
+	/**
+	 * retreive free available corporation data from XML api
+	 *
+	 * @param corporationId id to request
+	 * @return Corporation object
+	 */
+	public Corporation getCorporation(String corporationId) {
+		return EveXmlApi.get().getCorporation(null, corporationId);
 	}
 }
 

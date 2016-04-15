@@ -21,6 +21,7 @@ import org.dom4j.dom.DOMDocumentFactory;
 import org.dom4j.dom.DOMElement;
 import org.dom4j.io.SAXReader;
 import org.springframework.context.ApplicationContext;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import java.io.File;
@@ -203,16 +204,16 @@ public class EveXmlApi {
 	 * @return list of event
 	 * @throws Exception
 	 */
-	public List<Event> getEvent(XmlApiKey xmlApiKey, Long characterID) throws Exception {
+	public List<Event> getEvent(XmlApiKey xmlApiKey, Character character) throws Exception {
 		List<Event> out = new ArrayList<Event>();
-		if (xmlApiKey == null || characterID == null) {
+		if (xmlApiKey == null || character == null) {
 			throw new Exception("apikey and character needed");
 		}
 		URIBuilder url = null;
 		url = new URIBuilder(API_URL + "char/UpcomingCalendarEvents.xml.aspx");
 		url.addParameter("keyID", xmlApiKey.getKeyId());
 		url.addParameter("vCode", xmlApiKey.getVerificationCode());
-		url.addParameter("characterID", characterID.toString());
+		url.addParameter("characterID", character.getId().toString());
 		GetMethod get = new GetMethod(url.toString());
 		client.executeMethod(get);
 		if (get.getStatusCode() != 200) {
@@ -223,26 +224,22 @@ public class EveXmlApi {
 		DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
 
 		for (Node tempNode : (List<Node>) document.selectNodes("//result/rowset/row")) {
+			NamedNodeMap nodeMap = tempNode.getAttributes();
 			Event event = new Event();
-			event.setDate();
-			event.setDuration();
-			event.setImportance();
-			event.setResponse();
-			event.setText();
-			event.setTitle();
-			event.setId();
-			event.setCharacter()
-			event.setOwner();
+			event.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(nodeMap.getNamedItem("eventDate").getNodeValue()));
+			event.setDuration(Integer.parseInt(nodeMap.getNamedItem("duration").getNodeValue()));
+			event.setImportance("1".equals(nodeMap.getNamedItem("importance").getNodeValue()));
+			event.setText(nodeMap.getNamedItem("eventText").getNodeValue());
+			event.setTitle(nodeMap.getNamedItem("eventTitle").getNodeValue());
+			event.setId(Long.parseLong(nodeMap.getNamedItem("eventID").getNodeValue()));
+			Long ownerCode = Long.parseLong(nodeMap.getNamedItem("ownerID").getNodeValue());
+//			serviceType.get
+//			event.setOwner();
+//			event.getCharacterList().add(character)
+//			out .add((Event)serviceGeneric.save(event));
 		}
 
-		character.setName(document.selectSingleNode("//result/name").getText());
-		character.setDateOfBirth(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(document.selectSingleNode("//result/DoB").getText()));
-		if (document.selectSingleNode("//result/corporationID") != null) {
-			Corporation corpo = serviceCorporation.get(Long.parseLong(document.selectSingleNode("//result/corporationID").getText()));
-			character.setCorporation(corpo);
-		}
-		character.setXmlApiKey(xmlApiKey);
-		character = (Character) serviceGeneric.save(character);
+
 
 		return out;
 	}
