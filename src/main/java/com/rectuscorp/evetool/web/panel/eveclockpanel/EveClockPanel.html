@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<body>
+<wicket:head>
+    <script type="text/javascript">
+        //        $(function () {
+        setInterval(function () {
+            clock();
+        }, 1000);
+
+        function clock() {
+            var realTime = new Date();
+            var offset = realTime.getTimezoneOffset();
+            var eveTime = new Date(realTime.getTime() + offset * 60000);
+            $('#eveTime').html(pad(eveTime.getHours(),2) + ":" + pad(eveTime.getMinutes(),2) + ":" + pad(eveTime.getSeconds(),2));
+            $('#realTime').html(pad(realTime.getHours(),2) + ":" + pad(realTime.getMinutes(),2) + ":" + pad(realTime.getSeconds(),2));
+        }
+        ;
+
+        function pad(str, max) {
+            str = str.toString();
+            return str.length < max ? pad("0" + str, max) : str;
+        }
+
+        //        });
+    </script>
+</wicket:head>
+<wicket:panel>
+    <div class="EveClock row">
+        <div class="col-md-6">
+            <span>EvE-Time</span>
+            <span id="eveTime">--:--</span>
+        </div>
+        <div class="col-md-6">
+            <span>Real-Time</span>
+            <span id="realTime">--:--</span>
+        </div>
+    </div>
+</wicket:panel>
+</body>
+</html>
