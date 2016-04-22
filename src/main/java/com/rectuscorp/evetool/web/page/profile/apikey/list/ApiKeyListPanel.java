@@ -5,7 +5,7 @@ import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.IserviceUser;
-import com.rectuscorp.evetool.tools.EveXmlApi;
+import com.rectuscorp.evetool.api.EveXmlApi;
 import com.rectuscorp.evetool.web.component.andilmodal.EveModal;
 import com.rectuscorp.evetool.web.component.confirmation.ConfirmationLink;
 import com.rectuscorp.evetool.web.page.profile.apikey.edit.ApiKeyEditPanel;

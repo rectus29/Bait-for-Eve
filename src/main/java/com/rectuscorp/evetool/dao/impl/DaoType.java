@@ -1,16 +1,9 @@
 package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoType;
-import com.rectuscorp.evetool.entities.core.Config;
-import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.entities.crest.Type;
-import com.rectuscorp.evetool.tools.EveCRESTApi;
-import com.rectuscorp.evetool.tools.EveXmlApi;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
+import com.rectuscorp.evetool.api.EveCRESTApi;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.

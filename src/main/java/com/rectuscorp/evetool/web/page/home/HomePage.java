@@ -8,7 +8,6 @@ package com.rectuscorp.evetool.web.page.home;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.service.IserviceUser;
-import com.rectuscorp.evetool.tools.EveXmlApi;
 import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.feeddisplaypanel.FeedDisplayPanel;
@@ -48,6 +47,12 @@ public class HomePage extends ProtectedPage {
 			@Override
 			public Component getLazyLoadComponent(String markupId) {
 				return new FeedDisplayPanel(markupId, "https://www.themittani.com/feeds/all/rss.xml");
+			}
+		}.setOutputMarkupId(true));
+		add(new LazyLoadPanel("feedReader3"){
+			@Override
+			public Component getLazyLoadComponent(String markupId) {
+				return new FeedDisplayPanel(markupId, "https://newsfeed.eveonline.com/en-US/95/articles");
 			}
 		}.setOutputMarkupId(true));
 

@@ -4,7 +4,7 @@ import com.rectuscorp.evetool.entities.crest.*;
 import com.rectuscorp.evetool.service.IserviceConstellation;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.IserviceRegion;
-import com.rectuscorp.evetool.tools.EveCRESTApi;
+import com.rectuscorp.evetool.api.EveCRESTApi;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;

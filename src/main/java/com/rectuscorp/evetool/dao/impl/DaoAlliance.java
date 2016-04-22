@@ -1,11 +1,8 @@
 package com.rectuscorp.evetool.dao.impl;
 
 import com.rectuscorp.evetool.dao.IdaoAlliance;
-import com.rectuscorp.evetool.dao.IdaoCorporation;
 import com.rectuscorp.evetool.entities.crest.Alliance;
-import com.rectuscorp.evetool.entities.crest.Corporation;
-import com.rectuscorp.evetool.tools.EveCRESTApi;
-import com.rectuscorp.evetool.tools.EveXmlApi;
+import com.rectuscorp.evetool.api.EveCRESTApi;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -4,7 +4,7 @@ import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.service.IserviceUser;
-import com.rectuscorp.evetool.tools.EveXmlApi;
+import com.rectuscorp.evetool.api.EveXmlApi;
 import com.rectuscorp.evetool.web.Config;
 import com.rectuscorp.evetool.web.EveToolApplication;
 import org.apache.logging.log4j.LogManager;
@@ -14,8 +14,6 @@ import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 import java.io.File;
 

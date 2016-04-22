@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.tools;
+package com.rectuscorp.evetool.api;
 
 import com.rectuscorp.evetool.entities.DecorableElement;
 import com.rectuscorp.evetool.entities.core.Character;
@@ -9,6 +9,7 @@ import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceCorporation;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.spring.AppContext;
+import com.rectuscorp.evetool.tools.FileUtils;
 import com.rectuscorp.evetool.web.Config;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;

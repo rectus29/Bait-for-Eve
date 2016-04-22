@@ -1,4 +1,4 @@
-import com.rectuscorp.evetool.tools.EveCRESTApi;
+import com.rectuscorp.evetool.api.EveCRESTApi;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.logging.log4j.LogManager;

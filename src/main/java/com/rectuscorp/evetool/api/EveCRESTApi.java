@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.tools;
+package com.rectuscorp.evetool.api;
 
 import com.rectuscorp.evetool.entities.crest.*;
 import com.rectuscorp.evetool.service.IserviceConstellation;
@@ -28,7 +28,7 @@ import java.util.List;
 public class EveCRESTApi {
 
 	private static final Logger log = LogManager.getLogger(EveCRESTApi.class);
-	public static String API_URL = "https://public-crest.eveonline.com/";
+	public static String API_URL = "https://public-crest.eveonline.com/";//http://crest-tq.eveonline.com/
 	@SpringBean(name = "serviceRegion")
 	private static IserviceRegion serviceRegion;
 	@SpringBean(name = "serviceConstellation")
