@@ -38,7 +38,6 @@ public class MenuPanel extends Panel {
 		super.onInitialize();
 
 		add(new CharacterPanel("characterPanel"));
-		add(new EveClockPanel("clock"));
 
 
 		add(new BookmarkablePageLink("crest", CrestPage.class));

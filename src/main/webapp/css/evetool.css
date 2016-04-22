@@ -106,3 +106,10 @@ tr.default{
     margin: 0 0 0px 0;
     border-bottom: 1px solid #ADADAD;
 }
+
+#topPanel{
+    height: 40px;
+    background: #2D2D2D;
+    border-bottom: 1px solid grey;
+    margin-bottom: 15px;
+}

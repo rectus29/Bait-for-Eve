@@ -1,7 +1,10 @@
 package com.rectuscorp.evetool.web.panel.eveclockpanel;
 
+import com.rectuscorp.evetool.web.Config;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -26,4 +29,15 @@ public class EveClockPanel extends Panel {
 		super(id);
 	}
 
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
+
+		SimpleDateFormat sdfUTC = new SimpleDateFormat("HH:mm:ss");
+		sdfUTC.setTimeZone(TimeZone.getTimeZone("UTC"));
+		String dateUTC = sdfUTC.format(new Date());
+
+		add(new Label("eveTime", dateUTC));
+		add(new Label("realTime", Config.get().dateFormat("HH:mm:ss", new Date())).setOutputMarkupId(true));
+	}
 }

@@ -12,8 +12,8 @@
             var realTime = new Date();
             var offset = realTime.getTimezoneOffset();
             var eveTime = new Date(realTime.getTime() + offset * 60000);
-            $('#eveTime').html(pad(eveTime.getHours(),2) + ":" + pad(eveTime.getMinutes(),2) + ":" + pad(eveTime.getSeconds(),2));
-            $('#realTime').html(pad(realTime.getHours(),2) + ":" + pad(realTime.getMinutes(),2) + ":" + pad(realTime.getSeconds(),2));
+            $('.eveTime').html(pad(eveTime.getHours(),2) + ":" + pad(eveTime.getMinutes(),2) + ":" + pad(eveTime.getSeconds(),2));
+            $('.realTime').html(pad(realTime.getHours(),2) + ":" + pad(realTime.getMinutes(),2) + ":" + pad(realTime.getSeconds(),2));
         }
         ;
 
@@ -29,11 +29,11 @@
     <div class="EveClock row">
         <div class="col-md-6">
             <span>EvE-Time</span>
-            <span id="eveTime">--:--</span>
+            <span wicket:id="eveTime" class="eveTime">--:--</span>
         </div>
         <div class="col-md-6">
             <span>Real-Time</span>
-            <span id="realTime">--:--</span>
+            <span wicket:id="realTime" class="realTime">--:--</span>
         </div>
     </div>
 </wicket:panel>

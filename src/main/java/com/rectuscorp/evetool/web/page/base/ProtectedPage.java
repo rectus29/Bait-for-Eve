@@ -4,8 +4,10 @@ import com.rectuscorp.evetool.event.OnEvent;
 import com.rectuscorp.evetool.event.RefreshEvent;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.session.EveToolSession;
+import com.rectuscorp.evetool.web.panel.eveclockpanel.EveClockPanel;
 import com.rectuscorp.evetool.web.panel.footerpanel.FooterPanel;
 import com.rectuscorp.evetool.web.panel.menupanel.MenuPanel;
+import org.apache.wicket.markup.html.panel.EmptyPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -43,6 +45,8 @@ public class ProtectedPage extends BasePage {
     protected void onInitialize() {
         super.onInitialize();
         add((new MenuPanel("menuPanel")).setOutputMarkupId(true));
+		add(new EveClockPanel("clock"));
+        add((new EmptyPanel("topPanel")).setOutputMarkupId(true));
         add((new FooterPanel("footerPanel")).setOutputMarkupId(true));
     }
 
