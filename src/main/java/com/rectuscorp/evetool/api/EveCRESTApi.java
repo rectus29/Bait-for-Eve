@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.api;
 
 import com.rectuscorp.evetool.entities.crest.*;
+import com.rectuscorp.evetool.service.IserviceAttribute;
 import com.rectuscorp.evetool.service.IserviceConstellation;
 import com.rectuscorp.evetool.service.IserviceRegion;
 import org.apache.commons.httpclient.HttpClient;
@@ -33,6 +34,8 @@ public class EveCRESTApi {
 	private static IserviceRegion serviceRegion;
 	@SpringBean(name = "serviceConstellation")
 	private static IserviceConstellation serviceConstellation;
+	@SpringBean(name = "serviceAttribute")
+	private static IserviceAttribute serviceAttribute;
 	private static EveCRESTApi ourInstance;
 	private static HttpClient client = new HttpClient();
 
@@ -42,8 +45,9 @@ public class EveCRESTApi {
 	 * @return EveCRESTApi
 	 */
 	public static EveCRESTApi get() {
-		if (ourInstance == null)
+		if (ourInstance == null) {
 			return new EveCRESTApi();
+		}
 		return ourInstance;
 	}
 
@@ -63,8 +67,9 @@ public class EveCRESTApi {
 				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
 				if (temp.has("href")) {
 					Region tempRegion = getRegion(temp.getString("id"));
-					if (tempRegion != null)
+					if (tempRegion != null) {
 						out.add(tempRegion);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -111,8 +116,9 @@ public class EveCRESTApi {
 				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
 				if (temp.has("id")) {
 					Constellation constellation = getConstellation(temp.getString("id"));
-					if (constellation != null)
+					if (constellation != null) {
 						out.add(constellation);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -132,6 +138,7 @@ public class EveCRESTApi {
 		try {
 			GetMethod getDetail = new GetMethod(API_URL + "constellation/" + constellationID + "/");
 			client.executeMethod(getDetail);
+			constellation = new Constellation();
 			JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
 			constellation.setName(elJsonObj.getString("name"));
 			constellation.setPosition(new Position((elJsonObj.getJSONObject("position")).getDouble("x"), (elJsonObj.getJSONObject("position")).getDouble("y"), (elJsonObj.getJSONObject("position")).getDouble("z")));
@@ -154,8 +161,9 @@ public class EveCRESTApi {
 				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
 				if (temp.has("id")) {
 					SolarSystem solarSystem = getSolarSystem(temp.getString("id"));
-					if (solarSystem != null)
+					if (solarSystem != null) {
 						out.add(solarSystem);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -190,7 +198,6 @@ public class EveCRESTApi {
 		return solarSystem;
 	}
 
-
 	/**
 	 * get alliance data from CREST
 	 *
@@ -216,13 +223,67 @@ public class EveCRESTApi {
 	public Type getType(String typeId) {
 		Type type = null;
 		try {
-
+			log.debug("Crest Import : " + typeId);
+			GetMethod getDetail = new GetMethod(API_URL + "types/" + typeId + "/");
+			client.executeMethod(getDetail);
+			JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+			log.debug(elJsonObj.getString("name"));
+			type = new Type();
+			type.setId(elJsonObj.getLong("id"));
+			type.setName(elJsonObj.getString("name"));
+			type.setCapacity(elJsonObj.getLong("capacity"));
+			type.setDescription(elJsonObj.getString("description"));
+			type.setPortionSize(elJsonObj.getLong("portionSize"));
+			type.setIconID(elJsonObj.getLong("iconID"));
+			type.setVolume(elJsonObj.getLong("volume"));
+			type.setRadius(elJsonObj.getLong("radius"));
+			type.setPublished(elJsonObj.getBoolean("published"));
+			type.setMass(elJsonObj.getLong("mass"));
+			//work on attributes
+			for (int i = 0; i < elJsonObj.getJSONObject("dogma").getJSONArray("attributes").length(); i++) {
+				JSONObject temp = (JSONObject) elJsonObj.getJSONObject("dogma").getJSONArray("attributes").get(i);
+				if (temp != null) {
+					Long attrId = temp.getJSONObject("attribute").getLong("id");
+					Attribute attribute =getAttribute(attrId.toString());
+					if (attribute != null) {
+						long value = temp.getLong("value");
+						type.getAttributesList().add(new Dogma(value, attribute, type));
+					}
+				}
+			}
 		} catch (Exception e) {
 			log.error("Error while get type from CREST", e);
 		}
 		return type;
 	}
 
+	public Attribute getAttribute(String attributeID) {
+
+		try {
+			log.debug("Crest Import : " + attributeID);
+			GetMethod getDetail = new GetMethod(API_URL + "dogma/attributes/" + attributeID + "/");
+			client.executeMethod(getDetail);
+			JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+			log.debug("Crest Import : " + elJsonObj.getString("name"));
+			Attribute attribute = new Attribute();
+			attribute.setId(elJsonObj.getLong("id"));
+			attribute.setName(elJsonObj.getString("name"));
+			attribute.setDisplayName(elJsonObj.getString("displayName"));
+			attribute.setDescription(elJsonObj.getString("description"));
+			attribute.setUnit(elJsonObj.getLong("unitID"));
+			attribute.setHighIsGood(elJsonObj.getBoolean("highIsGood"));
+			attribute.setStackable(elJsonObj.getBoolean("stackable"));
+			attribute.setDefaultValue(elJsonObj.getLong("defaultValue"));
+			attribute.setPublished(elJsonObj.getBoolean("published"));
+			return attribute;
+		} catch (Exception e) {
+			log.error("Error while get type from CREST", e);
+			return null;
+		}
+
+	}
+
+	;
 
 	/**
 	 * retreive free available corporation data from XML api

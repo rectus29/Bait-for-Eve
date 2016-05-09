@@ -1,145 +1,15 @@
 {
-  "startDate": "2008-03-30T13:06:00",
-  "corporationsCount": 7,
-  "description": "<font size=\"12\" color=\"#bfffffff\">Federatis est une Alliance industrielle avec une protection militaire interne op\u00e9rant dans les syst\u00e8mes Gallente de la Galaxie.<br><br>Le carnaval avant tout.<br><br>Leadership : </font><font size=\"12\" color=\"#ffffa600\"><loc><a href=\"showinfo:1380//1365782727\">Barmy Failure</a></loc></font><font size=\"12\" color=\"#bfffffff\"> (A-M), </font><font size=\"12\" color=\"#ffffa600\"><a href=\"showinfo:1377//1662056138\">Jognu</a></font><font size=\"12\" color=\"#bfffffff\"> (FKS).<br><br>Diplomat : </font><font size=\"12\" color=\"#ffffa600\"><loc><a href=\"showinfo:1377//1662056138\">Jognu</a></loc></font><font size=\"12\" color=\"#bfffffff\"> (FKS).</font>",
-  "executorCorporation": {
-    "name": "Astromechanica Minima",
-    "isNPC": false,
-    "href": "https://public-crest.eveonline.com/corporations/1873670570/",
-    "id_str": "1873670570",
-    "logo": {
-      "32x32": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_32.png"},
-      "64x64": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_64.png"},
-      "128x128": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_128.png"},
-      "256x256": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_256.png"}
-    },
-    "id": 1873670570
-  },
-  "corporationsCount_str": "7",
-  "deleted": false,
-  "creatorCorporation": {
-    "name": "Astromechanica Minima",
-    "isNPC": false,
-    "href": "https://public-crest.eveonline.com/corporations/1873670570/",
-    "id_str": "1873670570",
-    "logo": {
-      "32x32": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_32.png"},
-      "64x64": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_64.png"},
-      "128x128": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_128.png"},
-      "256x256": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_256.png"}
-    },
-    "id": 1873670570
-  },
-  "url": "http://federatis.fr",
-  "id_str": "1134020769",
-  "creatorCharacter": {
-    "name": "Jamper Toulten",
-    "isNPC": false,
-    "href": "https://public-crest.eveonline.com/characters/754802656/",
-    "capsuleer": {"href": "https://public-crest.eveonline.com/characters/754802656/capsuleer/"},
-    "portrait": {
-      "32x32": {"href": "http://imageserver.eveonline.com/Character/754802656_32.jpg"},
-      "64x64": {"href": "http://imageserver.eveonline.com/Character/754802656_64.jpg"},
-      "128x128": {"href": "http://imageserver.eveonline.com/Character/754802656_128.jpg"},
-      "256x256": {"href": "http://imageserver.eveonline.com/Character/754802656_256.jpg"}
-    },
-    "id": 754802656,
-    "id_str": "754802656"
-  },
-  "corporations": [
-    {
-      "name": "Cypky Furious Corp.",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/98048445/",
-      "id_str": "98048445",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/98048445_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/98048445_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/98048445_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/98048445_256.png"}
-      },
-      "id": 98048445
-    },
-    {
-      "name": "Industrial Project",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/98075415/",
-      "id_str": "98075415",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/98075415_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/98075415_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/98075415_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/98075415_256.png"}
-      },
-      "id": 98075415
-    },
-    {
-      "name": "3 0 3",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/98306495/",
-      "id_str": "98306495",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/98306495_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/98306495_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/98306495_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/98306495_256.png"}
-      },
-      "id": 98306495
-    },
-    {
-      "name": "Crazydiamond The Works",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/98349199/",
-      "id_str": "98349199",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/98349199_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/98349199_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/98349199_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/98349199_256.png"}
-      },
-      "id": 98349199
-    },
-    {
-      "name": "Astromechanica Maxima",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/592707514/",
-      "id_str": "592707514",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/592707514_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/592707514_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/592707514_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/592707514_256.png"}
-      },
-      "id": 592707514
-    },
-    {
-      "name": "French Kiss Singularity",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/919000778/",
-      "id_str": "919000778",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/919000778_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/919000778_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/919000778_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/919000778_256.png"}
-      },
-      "id": 919000778
-    },
-    {
-      "name": "Astromechanica Minima",
-      "isNPC": false,
-      "href": "https://public-crest.eveonline.com/corporations/1873670570/",
-      "id_str": "1873670570",
-      "logo": {
-        "32x32": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_32.png"},
-        "64x64": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_64.png"},
-        "128x128": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_128.png"},
-        "256x256": {"href": "http://imageserver.eveonline.com/Corporation/1873670570_256.png"}
-      },
-      "id": 1873670570
-    }
-  ],
-  "shortName": "A-F",
-  "id": 1134020769,
-  "name": "Astromechanica Federatis"
+  "description": "Integer that describes the types mass",
+  "unitID_str": "2",
+  "displayName": "Masse",
+  "name": "mass",
+  "iconID": 76,
+  "unitID": 2,
+  "iconID_str": "76",
+  "id": 4,
+  "id_str": "4",
+  "highIsGood": true,
+  "stackable": false,
+  "defaultValue": 0.0,
+  "published": true
 }

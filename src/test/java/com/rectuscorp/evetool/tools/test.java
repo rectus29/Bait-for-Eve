@@ -1,3 +1,5 @@
+package com.rectuscorp.evetool.tools;
+
 import com.rectuscorp.evetool.api.EveCRESTApi;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;

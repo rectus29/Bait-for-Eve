@@ -1,7 +1,9 @@
+import com.rectuscorp.evetool.api.EveCRESTApi;
+
 public class crestTest {
 
-	public void testCrest(){
-
+	public static void main(String[] args){
+		EveCRESTApi.get().getType("2040");
 	}
 
 
