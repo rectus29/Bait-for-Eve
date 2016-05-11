@@ -8,6 +8,7 @@ package com.rectuscorp.evetool.web.page.home;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.service.IserviceUser;
+import com.rectuscorp.evetool.tools.feedreader.impl.mrss.MRSSFeedParser;
 import com.rectuscorp.evetool.tools.feedreader.impl.smf.SMFFeedParser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.feeddisplaypanel.FeedDisplayPanel;
@@ -52,7 +53,7 @@ public class HomePage extends ProtectedPage {
 		add(new LazyLoadPanel("feedReader3"){
 			@Override
 			public Component getLazyLoadComponent(String markupId) {
-				return new FeedDisplayPanel(markupId, "https://newsfeed.eveonline.com/en-US/95/articles");
+				return new FeedDisplayPanel(markupId, "https://newsfeed.eveonline.com/en-US/44/articles/", MRSSFeedParser.class);
 			}
 		}.setOutputMarkupId(true));
 
