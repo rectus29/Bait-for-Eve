@@ -18,8 +18,8 @@ public class Group extends GenericEntity {
 	private Boolean published = true;
 	@OneToMany
 	private List<Type> typeList = new ArrayList<Type>();
-	@ManyToOne
-	private Category categorie;
+	@Column
+	private GroupType groupType;
 
 	public String getName() {
 		return name;
@@ -53,11 +53,15 @@ public class Group extends GenericEntity {
 		this.typeList = typeList;
 	}
 
-	public Category getCategorie() {
-		return categorie;
+	public Boolean isPublished() {
+		return published;
 	}
 
-	public void setCategorie(Category categorie) {
-		this.categorie = categorie;
+	public GroupType getGroupType() {
+		return groupType;
+	}
+
+	public void setGroupType(GroupType groupType) {
+		this.groupType = groupType;
 	}
 }

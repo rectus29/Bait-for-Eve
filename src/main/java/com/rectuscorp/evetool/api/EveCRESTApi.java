@@ -26,9 +26,15 @@ import java.util.List;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+/**
+ * The type Eve crest api.
+ */
 public class EveCRESTApi {
 
 	private static final Logger log = LogManager.getLogger(EveCRESTApi.class);
+	/**
+	 * The constant API_URL.
+	 */
 	public static String API_URL = "https://public-crest.eveonline.com/";//http://crest-tq.eveonline.com/
 	@SpringBean(name = "serviceRegion")
 	private static IserviceRegion serviceRegion;
@@ -42,7 +48,7 @@ public class EveCRESTApi {
 	/**
 	 * Singleton Getter
 	 *
-	 * @return EveCRESTApi
+	 * @return EveCRESTApi eve crest api
 	 */
 	public static EveCRESTApi get() {
 		if (ourInstance == null) {
@@ -103,7 +109,7 @@ public class EveCRESTApi {
 	/**
 	 * Get all constelations from CREST API
 	 *
-	 * @return
+	 * @return all constellations
 	 */
 	public List<Constellation> getAllConstellations() {
 		List<Constellation> out = new ArrayList<Constellation>();
@@ -150,6 +156,11 @@ public class EveCRESTApi {
 		return constellation;
 	}
 
+	/**
+	 * Gets solar systems.
+	 *
+	 * @return the solar systems
+	 */
 	public List<SolarSystem> getSolarSystems() {
 		List<SolarSystem> out = new ArrayList<SolarSystem>();
 		try {
@@ -257,6 +268,12 @@ public class EveCRESTApi {
 		return type;
 	}
 
+	/**
+	 * Gets attribute.
+	 *
+	 * @param attributeID the attribute id
+	 * @return the attribute
+	 */
 	public Attribute getAttribute(String attributeID) {
 
 		try {
@@ -283,7 +300,6 @@ public class EveCRESTApi {
 
 	}
 
-	;
 
 	/**
 	 * retreive free available corporation data from XML api
@@ -293,6 +309,20 @@ public class EveCRESTApi {
 	 */
 	public Corporation getCorporation(String corporationId) {
 		return EveXmlApi.get().getCorporation(null, corporationId);
+	}
+
+
+	public List<Group> getAllGroup(){
+
+
+	}
+
+
+	/**
+	 *
+	 */
+	public Group getGroup(String id){
+		Group out = new Group();
 	}
 }
 
