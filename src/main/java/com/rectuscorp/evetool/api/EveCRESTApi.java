@@ -275,7 +275,6 @@ public class EveCRESTApi {
 	 * @return the attribute
 	 */
 	public Attribute getAttribute(String attributeID) {
-
 		try {
 			log.debug("Crest Import : " + attributeID);
 			GetMethod getDetail = new GetMethod(API_URL + "dogma/attributes/" + attributeID + "/");
@@ -321,8 +320,26 @@ public class EveCRESTApi {
 	/**
 	 *
 	 */
-	public Group getGroup(String id){
-		Group out = new Group();
+	public Group getMarketGroup(String id){
+		try {
+			log.debug("Crest Import : " + id);
+			GetMethod getDetail = new GetMethod(API_URL + "market/groups/" + id + "/");
+			client.executeMethod(getDetail);
+			JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
+			log.debug("Crest Import : " + elJsonObj.getString("name"));
+			Group group = new Group();
+			group.setId(elJsonObj.getLong("id"));
+			group.setName(elJsonObj.getString("name"));
+			group.setDescription(elJsonObj.getString("description"));
+			if(elJsonObj.has("parentGroup"))
+				group.setParentGroup(getMarketGroup(elJsonObj.getJSONObject("parentGroup").getString("href")));
+				group.setPublished(elJsonObj.getBoolean("published"));
+			return group;
+		} catch (Exception e) {
+			log.error("Error while get type from CREST", e);
+			return null;
+		}
+
 	}
 }
 

@@ -20,6 +20,10 @@ public class Group extends GenericEntity {
 	private List<Type> typeList = new ArrayList<Type>();
 	@Column
 	private GroupType groupType;
+	@ManyToOne
+	private Group parentGroup;
+	@OneToMany(mappedBy = "parentGroup")
+	private List<Group> groupList = new ArrayList<Group>();
 
 	public String getName() {
 		return name;
@@ -63,5 +67,21 @@ public class Group extends GenericEntity {
 
 	public void setGroupType(GroupType groupType) {
 		this.groupType = groupType;
+	}
+
+	public Group getParentGroup() {
+		return parentGroup;
+	}
+
+	public void setParentGroup(Group parentGroup) {
+		this.parentGroup = parentGroup;
+	}
+
+	public List<Group> getGroupList() {
+		return groupList;
+	}
+
+	public void setGroupList(List<Group> groupList) {
+		this.groupList = groupList;
 	}
 }
