@@ -311,10 +311,10 @@ public class EveCRESTApi {
 	}
 
 
-	public List<Group> getAllGroup(){
-
-
-	}
+//	public List<Group> getAllGroup(){
+//
+//
+//	}
 
 
 	/**

@@ -17,8 +17,6 @@ public class Category extends GenericEntity {
     private String name;
     @Column
     private Boolean published = true;
-    @OneToMany(mappedBy = "categorie")
-    private List<Group> groupList = new ArrayList<Group>();
 
     public String getName() {
         return name;
@@ -38,13 +36,5 @@ public class Category extends GenericEntity {
 
     public Boolean getPublished() {
         return published;
-    }
-
-    public List<Group> getGroupList() {
-        return groupList;
-    }
-
-    public void setGroupList(List<Group> groupList) {
-        this.groupList = groupList;
     }
 }

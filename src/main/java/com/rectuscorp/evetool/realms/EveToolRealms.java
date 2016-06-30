@@ -23,49 +23,57 @@ import org.springframework.beans.factory.annotation.Autowired;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-
+/**
+ * The type Eve tool realms.
+ */
 public class EveToolRealms extends AuthorizingRealm {
 
     private static final Logger log = LogManager.getLogger(EveToolRealms.class);
 
-    protected IserviceUser serviceUser;
+	/**
+	 * The Service user.
+	 */
+	protected IserviceUser serviceUser;
 
-    public EveToolRealms() {
-        setName("EveToolRealms"); //This name must match the name in the User class's getPrincipals() method
-
-        //Sha256CredentialsMatcher matcher = new Sha256CredentialsMatcher();
+	/**
+	 * Instantiates a new Eve tool realms.
+	 */
+	public EveToolRealms() {
+        setName("EveToolRealms");
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
         matcher.setHashAlgorithmName(Sha256Hash.ALGORITHM_NAME);
         matcher.setHashIterations(1024);
         matcher.setStoredCredentialsHexEncoded(false);
         setCredentialsMatcher(matcher);
-        //setCredentialsMatcher(new SimpleCredentialsMatcher());
     }
 
-    @Autowired
+	/**
+	 * Sets service user.
+	 *
+	 * @param serviceUser the service user
+	 */
+	@Autowired
     public void setServiceUser(IserviceUser serviceUser) {
         this.serviceUser = serviceUser;
     }
 
-
+   	@Override
     protected SaltedAuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         User user = serviceUser.getByProperty("userName",token.getUsername(),true);
         if (user != null) {
-            SimpleAuthenticationInfo auth = new SimpleAuthenticationInfo(user.getId(), user.getPassword(), new SimpleByteSource(Base64.decode(user.getSalt())), getName());
-            return auth;
+			return  new SimpleAuthenticationInfo(user.getId(), user.getPassword(), new SimpleByteSource(Base64.decode(user.getSalt())), getName());
         } else {
             return null;
         }
     }
 
+	@Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         Long userId;
         try {
             userId = (Long) principals.fromRealm(getName()).iterator().next();
-
             User user = serviceUser.get(userId);
-
             if (user != null) {
                 SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
                 //apply permission for core only
