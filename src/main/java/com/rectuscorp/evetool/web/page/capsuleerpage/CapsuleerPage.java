@@ -6,6 +6,7 @@ import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
 import org.apache.wicket.Page;
 import org.apache.wicket.model.IModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*-----------------------------------------------------*/
@@ -35,6 +36,6 @@ public class CapsuleerPage extends ProtectedPage implements IMenuContributor{
 	@Override
 	public List<MenuElement> getMenuContribution() {
 
-		return null;
+		return new ArrayList<MenuElement>();
 	}
 }

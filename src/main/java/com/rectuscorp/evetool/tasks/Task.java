@@ -1,4 +1,4 @@
-package com.rectuscorp.evetool.web.panel.menucontributionpanel;
+package com.rectuscorp.evetool.tasks;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -8,17 +8,14 @@ package com.rectuscorp.evetool.web.panel.menucontributionpanel;
 /*     | | \ \  __/ (__| |_| |_| \__ \  / /_   / /     */
 /*     |_|  \_\___|\___|\__|\__,_|___/ |____| /_/      */
 /*                                                     */
-/*                Date: 30/06/2016 12:11               */
+/*                Date: 30/06/2016 15:21               */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-public class MenuElement {
+/**
+ * Task class abastract parent
+ */
+public abstract class Task {
 
-
-	private String title;
-	private String link;
-
-
-
-
+	public abstract void process();
 }

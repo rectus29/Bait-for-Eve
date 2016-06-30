@@ -28,10 +28,9 @@ import org.w3c.dom.Node;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.StringReader;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * The type Eve xml api.
@@ -346,6 +345,35 @@ public class EveXmlApi {
 		} catch (Exception ex) {
 			log.error("Error while retreive image from server", ex);
 		}
+	}
+
+
+	/**
+	 * Get server state.
+	 *
+	 * @return the map
+	 */
+	public Map<String, Object> getServerState(){
+		HashMap<String, Object> out = new HashMap<>();
+		try {
+			URIBuilder url = new URIBuilder(API_URL + "/server/ServerStatus.xml.aspx");
+			GetMethod get = new GetMethod(url.toString());
+			client.executeMethod(get);
+			String xmlResponse = get.getResponseBodyAsString();
+			SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
+			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
+			if (document.selectSingleNode("//result") != null) {
+				if (document.selectSingleNode("//result/serverOpen") != null) {
+					out.put("serverOpen", document.selectSingleNode("//result/serverOpen").getText());
+				}
+				if (document.selectSingleNode("//result/onlinePlayers") != null) {
+					out.put("onlinePlayers", document.selectSingleNode("//result/onlinePlayers").getText());
+				}
+			}
+		} catch (Exception e) {
+			log.error("Error while retreive server Status",e);
+		}
+		return out;
 	}
 
 }
