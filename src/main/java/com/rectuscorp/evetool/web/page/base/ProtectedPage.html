@@ -11,7 +11,12 @@
             <div class="col-md-11">
                 <div id="topPanel" class="row">
                     <div wicket:id="topPanel" class="col-md-10"></div>
-                    <div style="border-left: 1px solid grey;padding-top: 11px;height: 40px;font-size: 12px;" wicket:id="clock" class="col-md-2 pull-right"/>
+                    <div style="border-left: 1px solid grey;padding-top: 4px;height: 40px;font-size: 12px;" class="col-md-2 pull-right">
+                        <div class="row" style="padding-left: 15px;">
+                        <div class="col-md-6" wicket:id="serverState"/>
+                        <div class="col-md-6" wicket:id="clock"/>
+                        </div>
+                    </div>
                 </div>
                 <wicket:child/>
             </div>

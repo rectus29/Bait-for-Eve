@@ -12,42 +12,44 @@ package com.rectuscorp.evetool.tasks.schedulde;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-import java.util.Map;
-
+import com.rectuscorp.evetool.api.EveXmlApi;
+import com.rectuscorp.evetool.entities.core.Config;
+import com.rectuscorp.evetool.service.IserviceConfig;
+import com.rectuscorp.evetool.tasks.Task;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.rectuscorp.evetool.api.EveXmlApi;
-import com.rectuscorp.evetool.entities.core.Config;
-import com.rectuscorp.evetool.service.impl.ServiceGeneric;
-import com.rectuscorp.evetool.tasks.Task;
+import java.util.Map;
 
 /**
  * this task check server state every 3 minute
  * and set config with it
  */
+@Transactional
+@Service
 public class ServerStateTask extends Task {
 
 	private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(ServerStateTask.class);
-	private static String serverOpen = "serverOpen";
-	private static String onlinePlayers = "onlinePlayers";
-
+	public static final String SERVEROPEN = "SERVEROPEN";
+	public static final String ONLINEPLAYERS = "ONLINEPLAYERS";
 	@Autowired
-	@Qualifier("serviceGeneric")
-	private ServiceGeneric serviceGeneric;
+	@Qualifier("serviceConfig")
+	private IserviceConfig serviceConfig;
 
 	@Override
-	@Scheduled(cron = "0/3 * * * * *")
+	@Scheduled(cron = "0 0/1 * * * *")
 	public void process() {
 		log.debug("start task");
 		Map<String, Object> out = EveXmlApi.get().getServerState();
-		if (out.get(serverOpen) != null) {
-			serviceGeneric.save(new Config(serverOpen, (String) out.get(serverOpen)));
+		if (out.get(SERVEROPEN) != null) {
+			serviceConfig.save(new Config(SERVEROPEN, (String) out.get(SERVEROPEN)));
 		}
-		if (out.get(onlinePlayers) != null) {
-			serviceGeneric.save(new Config(onlinePlayers, (String) out.get(onlinePlayers)));
+		if (out.get(ONLINEPLAYERS) != null) {
+			serviceConfig.save(new Config(ONLINEPLAYERS, (String) out.get(ONLINEPLAYERS)));
 		}
 		log.debug("task done");
 	}

@@ -6,6 +6,7 @@ import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuContributionPa
 import com.rectuscorp.evetool.web.panel.eveclockpanel.EveClockPanel;
 import com.rectuscorp.evetool.web.panel.footerpanel.FooterPanel;
 import com.rectuscorp.evetool.web.panel.menupanel.MenuPanel;
+import com.rectuscorp.evetool.web.panel.serverstatepanel.ServerStatePanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -42,6 +43,7 @@ public class ProtectedPage extends BasePage {
     protected void onInitialize() {
         super.onInitialize();
         add((new MenuPanel("menuPanel")).setOutputMarkupId(true));
+		add(new ServerStatePanel("serverState"));
 		add(new EveClockPanel("clock"));
         add((new MenuContributionPanel("topPanel")).setOutputMarkupId(true));
         add((new FooterPanel("footerPanel")).setOutputMarkupId(true));

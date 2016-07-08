@@ -1,14 +1,19 @@
 package com.rectuscorp.evetool.web.page.profile;
 
+import com.rectuscorp.evetool.web.page.IMenuContributor;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.page.profile.account.AccountPanel;
 import com.rectuscorp.evetool.web.page.profile.apikey.list.ApiKeyListPanel;
 import com.rectuscorp.evetool.web.page.profile.character.list.CharacterListPanel;
+import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -21,7 +26,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 /*                Date: 28/02/2016                     */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-public class ProfilePage extends ProtectedPage {
+public class ProfilePage extends ProtectedPage implements IMenuContributor {
 
 	public static String PANEL = "panel";
 	public static String APIKEY = "apikey";
@@ -74,5 +79,12 @@ public class ProfilePage extends ProtectedPage {
 	@Override
 	public String getTitleContribution() {
 		return "Account management";
+	}
+
+	@Override
+	public List<MenuElement> getMenuContribution() {
+		List<MenuElement> out = new ArrayList<MenuElement>();
+		out.add(new MenuElement("account",new BookmarkablePageLink<ProfilePage>("characterLink", ProfilePage.class, new PageParameters().add(PANEL, CHARACTER))));
+		return out;
 	}
 }

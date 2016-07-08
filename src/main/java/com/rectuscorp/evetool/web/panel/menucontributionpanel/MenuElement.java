@@ -12,13 +12,59 @@ package com.rectuscorp.evetool.web.panel.menucontributionpanel;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+import org.apache.wicket.markup.html.link.Link;
+
+/**
+ * The type Menu element.
+ */
 public class MenuElement {
+	private String text;
+	private Link link;
 
+	/**
+	 * Instantiates a new Menu element.
+	 *
+	 * @param text the text
+	 * @param link the link
+	 */
+	public MenuElement(String text, Link link) {
+		this.text = text;
+		this.link = link;
+	}
 
-	private String title;
-	private String link;
+	/**
+	 * Gets text.
+	 *
+	 * @return the text
+	 */
+	public String getText() {
+		return text;
+	}
 
+	/**
+	 * Sets text.
+	 *
+	 * @param text the text
+	 */
+	public void setText(String text) {
+		this.text = text;
+	}
 
+	/**
+	 * Gets link.
+	 *
+	 * @return the link
+	 */
+	public Link getLink() {
+		return link;
+	}
 
-
+	/**
+	 * Sets link.
+	 *
+	 * @param link the link
+	 */
+	public void setLink(Link link) {
+		this.link = link;
+	}
 }

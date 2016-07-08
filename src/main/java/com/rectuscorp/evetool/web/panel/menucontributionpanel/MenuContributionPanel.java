@@ -28,6 +28,10 @@ public class MenuContributionPanel extends Panel {
 		super.onInitialize();
 		if(getPage() instanceof IMenuContributor){
 			List<MenuElement> menuElements = ((IMenuContributor) getPage()).getMenuContribution();
+			for(MenuElement el : menuElements){
+
+			}
+
 		}
 	}
 }
