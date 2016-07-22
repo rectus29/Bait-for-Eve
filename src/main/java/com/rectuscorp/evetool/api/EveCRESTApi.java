@@ -6,11 +6,19 @@ import com.rectuscorp.evetool.service.IserviceConstellation;
 import com.rectuscorp.evetool.service.IserviceRegion;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.wicket.ajax.json.JSONObject;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.dom4j.DocumentException;
+import org.dom4j.dom.DOMDocument;
+import org.dom4j.dom.DOMDocumentFactory;
+import org.dom4j.io.SAXReader;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -311,10 +319,26 @@ public class EveCRESTApi {
 	}
 
 
-//	public List<Group> getAllGroup(){
-//
-//
-//	}
+	public List<Group> getAllMarketGroup(){
+
+		try {
+			URIBuilder url = new URIBuilder(API_URL + "/market/groups/");
+			GetMethod get = new GetMethod(url.toString());
+			client.executeMethod(get);
+			String jsonResponse = get.getResponseBodyAsString();
+			SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
+			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(jsonResponse));
+			if (document.selectSingleNode("//result/paidUntil") != null) {
+
+			}
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 	/**

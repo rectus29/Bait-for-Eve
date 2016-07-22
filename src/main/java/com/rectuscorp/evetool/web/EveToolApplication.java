@@ -6,6 +6,7 @@ import com.rectuscorp.evetool.session.EveToolSession;
 import com.rectuscorp.evetool.spring.AppContext;
 import com.rectuscorp.evetool.web.page.home.HomePage;
 import com.rectuscorp.evetool.web.page.admin.*;
+import com.rectuscorp.evetool.web.page.market.MarketPage;
 import com.rectuscorp.evetool.web.page.prodplan.ProdPlanPage;
 import com.rectuscorp.evetool.web.page.profile.ProfilePage;
 import com.rectuscorp.evetool.web.security.error.ErrorPage;
@@ -41,6 +42,7 @@ import javax.servlet.ServletContext;
 
 public class EveToolApplication extends WebApplication {
 	private Config config;
+	private String realmsName = EveToolRealms.class.getSimpleName();
 
 	@Override
 	public void init() {
@@ -69,6 +71,7 @@ public class EveToolApplication extends WebApplication {
 		mountPage("prodplan", ProdPlanPage.class);
 		mountPage("restorepassword/${uid}", RestorePasswordPage.class);
 		mountPage("forgotPasssword", ForgotPasssword.class);
+		mountPage("market", MarketPage.class);
 
 		ApplicationSettings settings = getApplicationSettings();
 		settings.setAccessDeniedPage(UnauthorizedPage.class);
@@ -86,15 +89,15 @@ public class EveToolApplication extends WebApplication {
 	}
 
 	public EveToolRealms getRealms() {
-		return (EveToolRealms) WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext()).getBean("EveToolRealms");
+		return (EveToolRealms) WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext()).getBean(realmsName);
 	}
 
 	public void updateRights() {
-		((EveToolRealms) WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext()).getBean("EveToolRealms")).clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
+		((EveToolRealms) WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext()).getBean(realmsName)).clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
 	}
 
 	public boolean isDevMode() {
-		return getConfigurationType().toString().equals("DEVELOPMENT");
+		return getConfigurationType().equals(RuntimeConfigurationType.DEVELOPMENT);
 	}
 
 	@Override

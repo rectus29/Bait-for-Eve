@@ -8,8 +8,10 @@ import com.rectuscorp.evetool.web.page.profile.character.list.CharacterListPanel
 import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import java.util.ArrayList;
@@ -73,6 +75,7 @@ public class ProfilePage extends ProtectedPage implements IMenuContributor {
 				add(new AttributeAppender("class", (ApiKeyListPanel.class.equals(panel.getClass()) ? "active" : "")));
 			}
 		});
+
 
 	}
 
