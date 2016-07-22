@@ -320,24 +320,27 @@ public class EveCRESTApi {
 
 
 	public List<Group> getAllMarketGroup(){
-
+		List<Group> out = new ArrayList<Group>();
 		try {
 			URIBuilder url = new URIBuilder(API_URL + "/market/groups/");
 			GetMethod get = new GetMethod(url.toString());
 			client.executeMethod(get);
 			String jsonResponse = get.getResponseBodyAsString();
-			SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
-			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(jsonResponse));
-			if (document.selectSingleNode("//result/paidUntil") != null) {
-
+			JSONObject jsonObj = new JSONObject(jsonResponse);
+			for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+				if (temp.has("id")) {
+					Group group = getMarketGroup(temp.getString("id"));
+					if (group != null) {
+						out.add(group);
+					}
+				}
 			}
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (DocumentException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			log.error("Error while get group from CREST", e);
+			return null;
 		}
+		return out;
 	}
 
 
