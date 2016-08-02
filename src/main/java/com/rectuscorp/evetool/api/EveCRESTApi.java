@@ -43,7 +43,7 @@ public class EveCRESTApi {
 	/**
 	 * The constant API_URL.
 	 */
-	public static String API_URL = "https://public-crest.eveonline.com/";//http://crest-tq.eveonline.com/
+	public static String API_URL = "https://crest-tq.eveonline.com/";//http://crest-tq.eveonline.com/
 	@SpringBean(name = "serviceRegion")
 	private static IserviceRegion serviceRegion;
 	@SpringBean(name = "serviceConstellation")
