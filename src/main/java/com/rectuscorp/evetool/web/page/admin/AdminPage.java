@@ -6,19 +6,27 @@ package com.rectuscorp.evetool.web.page.admin;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
+import com.rectuscorp.evetool.web.page.IMenuContributor;
 import com.rectuscorp.evetool.web.page.admin.server.ServerAdminPanel;
 import com.rectuscorp.evetool.web.page.admin.users.UserAdminPanel;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
+import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.wicketstuff.shiro.ShiroConstraint;
+import org.wicketstuff.shiro.annotation.ShiroSecurityConstraint;
 
-//@ShiroSecurityConstraint(
-//        constraint = ShiroConstraint.HasPermission, value = "admin:access"
-//)
-public class AdminPage extends ProtectedPage {
+import java.util.ArrayList;
+import java.util.List;
+
+@ShiroSecurityConstraint(
+        constraint = ShiroConstraint.HasPermission, value = "admin:access"
+)
+public class AdminPage extends ProtectedPage implements IMenuContributor{
 
     public static String SERVER = "server";
     public static String USER = "user";
@@ -38,27 +46,28 @@ public class AdminPage extends ProtectedPage {
             add(panel = new UserAdminPanel("panel"));
         }else
             add(panel = new ServerAdminPanel("panel"));
-
-        add(new WebMarkupContainer("serverCont") {
-            @Override
-            protected void onInitialize() {
-                super.onInitialize();
-                add(new BookmarkablePageLink<AdminPage>("serverLink", AdminPage.class, new PageParameters().add(PANEL, SERVER)));
-                add(new AttributeAppender("class", (ServerAdminPanel.class.equals(panel.getClass()) ? "active" : "")));
-            }
-        });
-        add(new WebMarkupContainer("userCont") {
-            @Override
-            protected void onInitialize() {
-                super.onInitialize();
-                add(new BookmarkablePageLink<AdminPage>("userLink", AdminPage.class, new PageParameters().add(PANEL, USER)));
-                add(new AttributeAppender("class", (UserAdminPanel.class.equals(panel.getClass()) ? "active" : "")));
-            }
-        });
     }
 
     @Override
     public String getTitleContribution() {
         return "Administration";
     }
+
+	@Override
+	public List<MenuElement> getMenuContribution() {
+		List<MenuElement> out = new ArrayList<>();
+		out.add(new MenuElement("User"){
+			@Override
+			public Link getLink() {
+				return new BookmarkablePageLink<AdminPage>(getMenuElementMarkupID(), AdminPage.class, new PageParameters().add(PANEL, USER));
+			}
+		});
+		out.add(new MenuElement("Server"){
+			@Override
+			public Link getLink() {
+				return new BookmarkablePageLink<AdminPage>(getMenuElementMarkupID(), AdminPage.class, new PageParameters().add(PANEL, SERVER));
+			}
+		});
+		return out;
+	}
 }

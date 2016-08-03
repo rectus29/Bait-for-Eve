@@ -14,12 +14,14 @@ package com.rectuscorp.evetool.web.panel.menucontributionpanel;
 
 import org.apache.wicket.markup.html.link.Link;
 
+import java.util.UUID;
+
 /**
  * The type Menu element.
  */
-public class MenuElement {
+public abstract class MenuElement {
 	private String text;
-	private Link link;
+	private String markupID;
 
 	/**
 	 * Instantiates a new Menu element.
@@ -27,9 +29,9 @@ public class MenuElement {
 	 * @param text the text
 	 * @param link the link
 	 */
-	public MenuElement(String text, Link link) {
+	public MenuElement(String text) {
 		this.text = text;
-		this.link = link;
+		this.markupID = UUID.randomUUID().toString();
 	}
 
 	/**
@@ -55,16 +57,10 @@ public class MenuElement {
 	 *
 	 * @return the link
 	 */
-	public Link getLink() {
-		return link;
-	}
+	public abstract Link getLink();
 
-	/**
-	 * Sets link.
-	 *
-	 * @param link the link
-	 */
-	public void setLink(Link link) {
-		this.link = link;
+
+	protected String getMenuElementMarkupID() {
+		return markupID;
 	}
 }

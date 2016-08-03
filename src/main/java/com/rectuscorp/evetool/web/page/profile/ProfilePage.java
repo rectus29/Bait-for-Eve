@@ -10,6 +10,7 @@ import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -87,7 +88,12 @@ public class ProfilePage extends ProtectedPage implements IMenuContributor {
 	@Override
 	public List<MenuElement> getMenuContribution() {
 		List<MenuElement> out = new ArrayList<MenuElement>();
-		out.add(new MenuElement("account",new BookmarkablePageLink<ProfilePage>("characterLink", ProfilePage.class, new PageParameters().add(PANEL, CHARACTER))));
+		out.add(new MenuElement("account"){
+			@Override
+			public Link getLink() {
+				return new BookmarkablePageLink<ProfilePage>(getMenuElementMarkupID(), ProfilePage.class, new PageParameters().add(PANEL, CHARACTER));
+			}
+		});
 		return out;
 	}
 }

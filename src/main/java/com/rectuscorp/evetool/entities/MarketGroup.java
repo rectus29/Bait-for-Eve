@@ -37,8 +37,6 @@ public class MarketGroup {
     @Column(name = "hasTypes")
     private int hasTypes;
 
-    @OneToMany(mappedBy = "marketGroupID")
-    private List<Invtypes> childrenType = new ArrayList<Invtypes>();
 
 
 

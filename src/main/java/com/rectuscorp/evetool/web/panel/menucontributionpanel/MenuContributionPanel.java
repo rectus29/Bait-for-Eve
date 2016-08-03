@@ -1,9 +1,12 @@
 package com.rectuscorp.evetool.web.panel.menucontributionpanel;
 
 import com.rectuscorp.evetool.web.page.IMenuContributor;
+import org.apache.wicket.markup.html.WebMarkupContainer;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.repeater.RepeatingView;
+import org.apache.wicket.model.LoadableDetachableModel;
 
-import javax.swing.*;
 import java.util.List;
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -26,12 +29,18 @@ public class MenuContributionPanel extends Panel {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-		if(getPage() instanceof IMenuContributor){
-			List<MenuElement> menuElements = ((IMenuContributor) getPage()).getMenuContribution();
-			for(MenuElement el : menuElements){
-
+		add((new WebMarkupContainer("wmc") {
+			@Override
+			protected void onInitialize() {
+				super.onInitialize();
+				RepeatingView rv = new RepeatingView("rvLink");
+				if (getPage() instanceof IMenuContributor) {
+					for (MenuElement el : ((IMenuContributor) getPage()).getMenuContribution()) {
+						rv.add(new MenuElementPanel(rv.newChildId(), el));
+					}
+				}
+				add(rv);
 			}
-
-		}
+		}).setOutputMarkupId(true));
 	}
 }
