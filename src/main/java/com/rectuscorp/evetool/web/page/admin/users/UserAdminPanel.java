@@ -19,7 +19,6 @@ public class UserAdminPanel extends Panel {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-
         add(new UserListPanel("tabbed"));
     }
 }

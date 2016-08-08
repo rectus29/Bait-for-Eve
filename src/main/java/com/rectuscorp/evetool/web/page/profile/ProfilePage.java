@@ -8,11 +8,9 @@ import com.rectuscorp.evetool.web.page.profile.character.list.CharacterListPanel
 import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import java.util.ArrayList;
@@ -51,33 +49,6 @@ public class ProfilePage extends ProtectedPage implements IMenuContributor {
 		} else {
 			add(panel = new AccountPanel("panel"));
 		}
-
-		add(new WebMarkupContainer("character") {
-			@Override
-			protected void onInitialize() {
-				super.onInitialize();
-				add(new BookmarkablePageLink<ProfilePage>("characterLink", ProfilePage.class, new PageParameters().add(PANEL, CHARACTER)));
-				add(new AttributeAppender("class", (ApiKeyListPanel.class.equals(panel.getClass()) ? "active" : "")));
-			}
-		});
-		add(new WebMarkupContainer("account") {
-			@Override
-			protected void onInitialize() {
-				super.onInitialize();
-				add(new BookmarkablePageLink<ProfilePage>("accountLink", ProfilePage.class, new PageParameters().add(PANEL, ACCOUNT)));
-				add(new AttributeAppender("class", (ApiKeyListPanel.class.equals(panel.getClass()) ? "active" : "")));
-			}
-		});
-		add(new WebMarkupContainer("apiKey") {
-			@Override
-			protected void onInitialize() {
-				super.onInitialize();
-				add(new BookmarkablePageLink<ProfilePage>("apiKeyLink", ProfilePage.class, new PageParameters().add(PANEL, APIKEY)));
-				add(new AttributeAppender("class", (ApiKeyListPanel.class.equals(panel.getClass()) ? "active" : "")));
-			}
-		});
-
-
 	}
 
 	@Override
@@ -88,10 +59,22 @@ public class ProfilePage extends ProtectedPage implements IMenuContributor {
 	@Override
 	public List<MenuElement> getMenuContribution() {
 		List<MenuElement> out = new ArrayList<MenuElement>();
-		out.add(new MenuElement("account"){
+		out.add(new MenuElement("account") {
+			@Override
+			public Link getLink() {
+				return new BookmarkablePageLink<ProfilePage>(getMenuElementMarkupID(), ProfilePage.class, new PageParameters().add(PANEL, ACCOUNT));
+			}
+		});
+		out.add(new MenuElement("character") {
 			@Override
 			public Link getLink() {
 				return new BookmarkablePageLink<ProfilePage>(getMenuElementMarkupID(), ProfilePage.class, new PageParameters().add(PANEL, CHARACTER));
+			}
+		});
+		out.add(new MenuElement("apiKey") {
+			@Override
+			public Link getLink() {
+				return new BookmarkablePageLink<ProfilePage>(getMenuElementMarkupID(), ProfilePage.class, new PageParameters().add(PANEL, APIKEY));
 			}
 		});
 		return out;

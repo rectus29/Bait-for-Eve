@@ -3,9 +3,8 @@ package com.rectuscorp.evetool.web;
 import com.rectuscorp.evetool.event.DispatchOnEventMethod;
 import com.rectuscorp.evetool.realms.EveToolRealms;
 import com.rectuscorp.evetool.session.EveToolSession;
-import com.rectuscorp.evetool.spring.AppContext;
+import com.rectuscorp.evetool.web.page.admin.AdminPage;
 import com.rectuscorp.evetool.web.page.home.HomePage;
-import com.rectuscorp.evetool.web.page.admin.*;
 import com.rectuscorp.evetool.web.page.market.MarketPage;
 import com.rectuscorp.evetool.web.page.prodplan.ProdPlanPage;
 import com.rectuscorp.evetool.web.page.profile.ProfilePage;
@@ -16,9 +15,7 @@ import com.rectuscorp.evetool.web.security.signin.SigninPage;
 import com.rectuscorp.evetool.web.security.signout.SignoutPage;
 import com.rectuscorp.evetool.web.security.unauthorizedpage.UnauthorizedPage;
 import org.apache.shiro.SecurityUtils;
-import org.apache.wicket.Application;
 import org.apache.wicket.Page;
-import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.request.Request;
@@ -27,12 +24,9 @@ import org.apache.wicket.settings.ApplicationSettings;
 import org.apache.wicket.settings.RequestCycleSettings;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.apache.wicket.util.lang.Bytes;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.wicketstuff.shiro.annotation.AnnotationsShiroAuthorizationStrategy;
 import org.wicketstuff.shiro.authz.ShiroUnauthorizedComponentListener;
-
-import javax.servlet.ServletContext;
 
 /*-----------------------------------------------------*/
 /* User: Rectus for          Date: 21/12/12 11:22 	   */
@@ -60,18 +54,26 @@ public class EveToolApplication extends WebApplication {
 		// Configure Shiro
 		AnnotationsShiroAuthorizationStrategy authz = new AnnotationsShiroAuthorizationStrategy();
 		getSecuritySettings().setAuthorizationStrategy(authz);
-		getSecuritySettings().setUnauthorizedComponentInstantiationListener(new ShiroUnauthorizedComponentListener(SigninPage.class, UnauthorizedPage.class, authz));
+		getSecuritySettings().setUnauthorizedComponentInstantiationListener(
+				new ShiroUnauthorizedComponentListener(
+						SigninPage.class,
+						UnauthorizedPage.class,
+						authz)
+		);
 
 		config = Config.get();
 		config.set(getServletContext().getRealPath("/"));
-		mountPage("logout", SignoutPage.class);
+
 		mountPage("admin", AdminPage.class);
-		mountPage("ProfilePage", ProfilePage.class);
-		mountPage("unauthorized", UnauthorizedPage.class);
+		mountPage("profile/#{panel}", ProfilePage.class);
 		mountPage("prodplan", ProdPlanPage.class);
+		mountPage("market", MarketPage.class);
+
+		mountPage("unauthorized", UnauthorizedPage.class);
 		mountPage("restorepassword/${uid}", RestorePasswordPage.class);
 		mountPage("forgotPasssword", ForgotPasssword.class);
-		mountPage("market", MarketPage.class);
+		mountPage("logout", SignoutPage.class);
+		mountPage("login", SigninPage.class);
 
 		ApplicationSettings settings = getApplicationSettings();
 		settings.setAccessDeniedPage(UnauthorizedPage.class);
@@ -94,10 +96,6 @@ public class EveToolApplication extends WebApplication {
 
 	public void updateRights() {
 		((EveToolRealms) WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext()).getBean(realmsName)).clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
-	}
-
-	public boolean isDevMode() {
-		return getConfigurationType().equals(RuntimeConfigurationType.DEVELOPMENT);
 	}
 
 	@Override

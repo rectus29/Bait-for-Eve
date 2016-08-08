@@ -14,6 +14,8 @@ package com.rectuscorp.evetool.web.panel.menucontributionpanel;
 
 import org.apache.wicket.markup.html.link.Link;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,6 +24,7 @@ import java.util.UUID;
 public abstract class MenuElement {
 	private String text;
 	private String markupID;
+	private List<MenuElement> elementChildList = new ArrayList<>();
 
 	/**
 	 * Instantiates a new Menu element.

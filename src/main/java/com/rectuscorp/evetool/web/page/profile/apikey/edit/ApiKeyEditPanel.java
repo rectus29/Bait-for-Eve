@@ -89,6 +89,9 @@ public abstract class ApiKeyEditPanel extends Panel {
 					protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 						super.onSubmit(target, form);
 						xmlApiKey.setUser(serviceUser.getCurrentUser());
+						//if creation import info
+						if(xmlApiKey.getId() == null)
+							xmlApiKey = EveXmlApi.get().getKeyInformation(xmlApiKey);
 						xmlApiKey = (XmlApiKey) serviceGeneric.save(xmlApiKey);
 						onFormSubmit(target, xmlApiKey);
 					}
