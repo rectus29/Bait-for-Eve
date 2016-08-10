@@ -1,7 +1,16 @@
 body {
-    /*background: url("../img/124080.jpeg") no-repeat black fixed;*/
-    color: white;
+    background: /*url("../img/124080.jpeg")*/ no-repeat black fixed;
+    color: #efefef;
     font-size: 11px;
+}
+
+a, a:visited,a:hover{
+    color:#ADADAD;
+    transition:ease-in-out, background-color 0.3s;
+}
+
+a:hover{
+    background-color: #964516;
 }
 
 #connectWrapper {
@@ -38,7 +47,7 @@ body {
     background-color: rgba(249, 249, 249, 0.11);
 }
 
-input {
+input, select {
     color: black;
 }
 
@@ -79,27 +88,15 @@ tr.default{
     color:#964516;
     font-size: 20px;
     text-align: center;
-    transition:ease-in-out, background-color 0.5s;
     padding: 4px 0 0 0;
     height: 35px;
 }
 
-#navFooter div.footerButton a{
-    color:#ADADAD;
-}
-
-#navFooter div.footerButton:hover a{
-    color:white;
-}
-
 #navFooter div.footerButton:hover{
-    color:white;
     background-color: #964516;
 }
 
-.avatarPanel select{
-    color: black;
-}
+
 
 .nav_el{
     padding: 12px 0 12px 0;
