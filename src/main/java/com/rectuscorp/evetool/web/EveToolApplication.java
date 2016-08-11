@@ -5,6 +5,7 @@ import com.rectuscorp.evetool.realms.EveToolRealms;
 import com.rectuscorp.evetool.session.EveToolSession;
 import com.rectuscorp.evetool.web.page.admin.AdminPage;
 import com.rectuscorp.evetool.web.page.home.HomePage;
+import com.rectuscorp.evetool.web.page.mailbox.MailBoxPage;
 import com.rectuscorp.evetool.web.page.market.MarketPage;
 import com.rectuscorp.evetool.web.page.prodplan.ProdPlanPage;
 import com.rectuscorp.evetool.web.page.profile.ProfilePage;
@@ -64,10 +65,11 @@ public class EveToolApplication extends WebApplication {
 		config = Config.get();
 		config.set(getServletContext().getRealPath("/"));
 
-		mountPage("admin", AdminPage.class);
+		mountPage("admin/#{panel}", AdminPage.class);
 		mountPage("profile/#{panel}", ProfilePage.class);
 		mountPage("prodplan", ProdPlanPage.class);
-		mountPage("market", MarketPage.class);
+		mountPage("fedmarket/#{panel}", MarketPage.class);
+		mountPage("mail/#{panel}", MailBoxPage.class);
 
 		mountPage("unauthorized", UnauthorizedPage.class);
 		mountPage("restorepassword/${uid}", RestorePasswordPage.class);

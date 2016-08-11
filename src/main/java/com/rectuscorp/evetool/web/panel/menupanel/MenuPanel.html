@@ -13,40 +13,26 @@
 
         <nav class="nav_el">
             <ul class="nav nav-stacked">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">FedMarket</a></li>
+                <li><a href="#">Item Explorer</a></li>
                 <li><a href="#" wicket:id="crest">crest test</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">FedMarket</a></li>
-                        <li><a href="#">Item Explorer</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Mail Box</a></li>
-                        <li><a href="#">Notifications</a></li>
-                        <li><a href="#">Wallet</a></li>
-                    </ul>
-                </li>
             </ul>
-
         </nav>
         <nav class="nav_el">
             <ul class="nav nav-stacked">
-                <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href="#">Mail Box</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Wallet</a></li>
             </ul>
         </nav>
-        <div id="navFooter" class="row">
-            <div class="col-md-4 footerButton">
-                <a href="#" wicket:id="profile"><i class="fa fa-cog"></i></a>
-            </div>
-            <div class="col-md-4 footerButton">
-                <a href="#" wicket:id="admin"><i class="fa fa-users"></i></a>
-            </div>
-            <div class="col-md-4 footerButton">
-                <a href="#" wicket:id="logout"><i class="fa fa-power-off"></i></a>
-            </div>
+        <div id="navFooter">
+            <ul class="nav nav-pills nav-justified">
+                <li class="footerButton"><a href="#" wicket:id="profile"><i class="fa fa-cog"></i></a></li>
+                <li class="footerButton">
+                    <a href="#" wicket:id="admin"><i class="fa fa-users"></i></a></li>
+                <li class="footerButton">
+                    <a href="#" wicket:id="logout"><i class="fa fa-power-off"></i></a></li>
+            </ul>
         </div>
     </div>
 </wicket:panel>
