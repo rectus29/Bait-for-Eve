@@ -27,7 +27,7 @@ public class Corporation extends GenericEntity implements DecorableElement{
 	@Column
 	private Boolean isNPC = false;
 	@OneToMany(mappedBy = "corporation")
-	private List<CrestCharacter> crestCharacterList = new ArrayList<CrestCharacter>();
+	private List<Character> characterList = new ArrayList<Character>();
 	@ManyToOne
 	private Alliance alliance;
 	@Column
@@ -53,12 +53,13 @@ public class Corporation extends GenericEntity implements DecorableElement{
 		this.isNPC = isNPC;
 	}
 
-	public List<CrestCharacter> getCrestCharacterList() {
-		return crestCharacterList;
+	public List<Character> getCharacterList() {
+		return characterList;
 	}
 
-	public void setCrestCharacterList(List<CrestCharacter> crestCharacterList) {
-		this.crestCharacterList = crestCharacterList;
+	public Corporation setCharacterList(List<Character> characterList) {
+		this.characterList = characterList;
+		return this;
 	}
 
 	public String getDescription() {

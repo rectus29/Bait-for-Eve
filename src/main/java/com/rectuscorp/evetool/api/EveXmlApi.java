@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.api;
 
 import com.rectuscorp.evetool.entities.DecorableElement;
+import com.rectuscorp.evetool.entities.MailingList;
 import com.rectuscorp.evetool.entities.core.Character;
 import com.rectuscorp.evetool.entities.core.Event;
 import com.rectuscorp.evetool.entities.core.XmlApiKey;
@@ -28,7 +29,6 @@ import org.w3c.dom.Node;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.StringReader;
-import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -368,6 +368,37 @@ public class EveXmlApi {
 				}
 				if (document.selectSingleNode("//result/onlinePlayers") != null) {
 					out.put("onlinePlayers", document.selectSingleNode("//result/onlinePlayers").getText());
+				}
+			}
+		} catch (Exception e) {
+			log.error("Error while retreive server Status",e);
+		}
+		return out;
+	}
+
+	/**
+	 * retreive mailingList of a character
+	 * @param character
+	 * @return
+	 */
+	public List<MailingList> getMailListFor(Character character){
+		List<MailingList> out = new ArrayList<>();
+		try {
+			URIBuilder url = new URIBuilder(API_URL + "/char/mailinglists.xml.aspx");
+			url.addParameter("characterID", character.getId().toString());
+			GetMethod get = new GetMethod(url.toString());
+			client.executeMethod(get);
+			String xmlResponse = get.getResponseBodyAsString();
+			SAXReader saxReader = new SAXReader(DOMDocumentFactory.getInstance());
+			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
+			if (document.selectSingleNode("//result") != null) {
+				for (Node tempNode : (List<Node>) document.selectNodes("//result/rowset/row")) {
+					NamedNodeMap nodeMap = tempNode.getAttributes();
+					MailingList mailingList = new MailingList();
+					mailingList.setId(Long.parseLong(nodeMap.getNamedItem("listID").getNodeValue()));
+					mailingList.setName(nodeMap.getNamedItem("displayName").getNodeValue());
+					mailingList.getCharacterList().add(character);
+					out.add(mailingList);
 				}
 			}
 		} catch (Exception e) {

@@ -1,9 +1,11 @@
 package com.rectuscorp.evetool.entities.core;
 
 import com.rectuscorp.evetool.entities.DecorableElement;
+import com.rectuscorp.evetool.entities.MailingList;
 import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.entities.crest.SolarSystem;
 import com.rectuscorp.evetool.entities.crest.Type;
+import com.rectuscorp.evetool.entities.mail.EveMail;
 import com.rectuscorp.evetool.enums.EveRace;
 import com.rectuscorp.evetool.enums.Gender;
 import com.rectuscorp.evetool.enums.State;
@@ -54,6 +56,10 @@ public class Character extends GenericEntity implements DecorableElement {
 	private Corporation corporation;
 	@ManyToMany(mappedBy = "characterList", cascade = CascadeType.PERSIST)
 	private List<Event> eventList = new ArrayList<Event>();
+	@ManyToMany(mappedBy = "characterList", cascade = CascadeType.PERSIST)
+	private List<MailingList> mailingLists = new ArrayList<>();
+	@ManyToMany
+	private List<EveMail> eveMailList = new ArrayList<>();
 	@Column
 	private State state = State.ENABLE;
 
