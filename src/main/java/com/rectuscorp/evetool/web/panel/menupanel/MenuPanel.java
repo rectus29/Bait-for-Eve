@@ -16,9 +16,11 @@ package com.rectuscorp.evetool.web.panel.menupanel;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.admin.AdminPage;
 import com.rectuscorp.evetool.web.page.crest.CrestPage;
+import com.rectuscorp.evetool.web.page.market.MarketPage;
 import com.rectuscorp.evetool.web.page.profile.ProfilePage;
 import com.rectuscorp.evetool.web.panel.characterpanel.CharacterPanel;
 import com.rectuscorp.evetool.web.panel.eveclockpanel.EveClockPanel;
+import org.apache.shiro.SecurityUtils;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -41,12 +43,21 @@ public class MenuPanel extends Panel {
 
 
 		add(new BookmarkablePageLink("crest", CrestPage.class));
+		add(new BookmarkablePageLink("market", MarketPage.class){
+			@Override
+			public boolean isEnabled() {
+				return SecurityUtils.getSubject().isPermitted("market:access");
+			}
+		});
+
 		add(new BookmarkablePageLink("admin", AdminPage.class) {
 			@Override
 			public boolean isVisible() {
 				return serviceUser.getCurrentUser().isAdmin();
 			}
 		});
+		add(new BookmarkablePageLink<LogoutPage>("logout", LogoutPage.class));
+		add(new BookmarkablePageLink<ProfilePage>("profile", ProfilePage.class));
 
 		//        mailNumber = new LoadableDetachableModel<Integer>() {
 		//            @Override
@@ -94,8 +105,6 @@ public class MenuPanel extends Panel {
 
 
 
-		add(new BookmarkablePageLink<LogoutPage>("logout", LogoutPage.class));
-		add(new BookmarkablePageLink<ProfilePage>("profile", ProfilePage.class));
 
 	}
 }
