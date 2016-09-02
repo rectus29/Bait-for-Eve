@@ -1,5 +1,7 @@
 package com.rectuscorp.evetool.entities.core;
 
+import com.rectuscorp.evetool.entities.crest.Type;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,21 +15,22 @@ import java.util.Date;
 @Table(name = "store_cart_product")
 public class CartProduct extends GenericEntity {
 
-//    @ManyToOne
-//    private Product product;
+    @ManyToOne
+    private Type type;
     @ManyToOne
     private Cart cart;
-
     @Column
     private Long quantity = 1l;
+	@Column
+	private Long price = 1l;
 
+	public CartProduct(Type type,  Long quantity, Long price) {
+		this.type = type;
+		this.quantity = quantity;
+		this.price = price;
+	}
 
-    public CartProduct() {
-    }
-
-
-
-    public Cart getCart() {
+	public Cart getCart() {
         return cart;
     }
 
@@ -43,6 +46,21 @@ public class CartProduct extends GenericEntity {
         this.quantity = quantity;
     }
 
+	public Type getType() {
+		return type;
+	}
 
+	public CartProduct setType(Type type) {
+		this.type = type;
+		return this;
+	}
 
+	public Long getPrice() {
+		return price;
+	}
+
+	public CartProduct setPrice(Long price) {
+		this.price = price;
+		return this;
+	}
 }

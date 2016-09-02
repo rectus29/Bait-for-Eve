@@ -1,6 +1,14 @@
 package com.rectuscorp.evetool.web.page.market;
 
+import com.rectuscorp.evetool.web.page.IMenuContributor;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
+import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -13,7 +21,7 @@ import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 /*                Date: 22/07/2016 10:46                */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-public class MarketPage extends ProtectedPage {
+public class MarketPage extends ProtectedPage implements IMenuContributor {
 
 	public MarketPage() {
 	}
@@ -23,5 +31,17 @@ public class MarketPage extends ProtectedPage {
 		super.onInitialize();
 
 
+	}
+
+	@Override
+	public List<MenuElement> getMenuContribution() {
+		List<MenuElement> out = new ArrayList<>();
+		out.add(new MenuElement() {
+			@Override
+			public Link getLink() {
+				return AjaxLink();
+			}
+		})
+		return out;
 	}
 }

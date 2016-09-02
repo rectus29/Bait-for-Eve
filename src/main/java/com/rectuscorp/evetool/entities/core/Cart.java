@@ -25,11 +25,11 @@ public class Cart extends GenericEntity {
     private User user;
     @Column
     private State state = State.ENABLE;
+	@Column
+	private Long cartPrice = 1l;
 
     public Cart() {
     }
-
-
 
     public User getUser() {
         return user;
@@ -38,8 +38,6 @@ public class Cart extends GenericEntity {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 
     public List<CartProduct> getCartProducts() {
         return cartProducts;
