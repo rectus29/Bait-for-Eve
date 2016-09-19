@@ -45,10 +45,8 @@ public class CharacterListPanel extends Panel {
 	@SpringBean(name = "serviceUser")
 	private IserviceUser serviceUser;
 	private WebMarkupContainer wmc;
-	private LoadableDetachableModel<List<Character>> ldm;
 	private PageableListView<Character> plv;
 	private EveModal modal;
-	private PagingNavigator navigator;
 
 	public CharacterListPanel(String id) {
 		super(id);
@@ -58,7 +56,7 @@ public class CharacterListPanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 
-		ldm = new LoadableDetachableModel<List<Character>>() {
+		LoadableDetachableModel<List<Character>> ldm = new LoadableDetachableModel<List<Character>>() {
 			@Override
 			protected List<Character> load() {
 				List<Character> out = new ArrayList<Character>();
@@ -107,7 +105,7 @@ public class CharacterListPanel extends Panel {
 
 			}
 		}).setOutputMarkupId(true));
-		add((navigator = new PagingNavigator("navigator", plv) {
+		add((new PagingNavigator("navigator", plv) {
 			@Override
 			public boolean isVisible() {
 				return ldm.getObject().size() > 20;
