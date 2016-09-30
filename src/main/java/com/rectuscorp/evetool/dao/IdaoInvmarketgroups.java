@@ -12,7 +12,7 @@ package com.rectuscorp.evetool.dao;
 /*-----------------------------------------------------*/
 
 
-import com.rectuscorp.evetool.entities.MarketGroup;
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
 
 public interface IdaoInvmarketgroups extends GenericDao<MarketGroup, Long> {
 }

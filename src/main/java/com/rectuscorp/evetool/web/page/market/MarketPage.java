@@ -36,12 +36,12 @@ public class MarketPage extends ProtectedPage implements IMenuContributor {
 	@Override
 	public List<MenuElement> getMenuContribution() {
 		List<MenuElement> out = new ArrayList<>();
-		out.add(new MenuElement() {
+		/*out.add(new MenuElement() {
 			@Override
 			public Link getLink() {
 				return AjaxLink();
 			}
-		})
+		})*/
 		return out;
 	}
 }

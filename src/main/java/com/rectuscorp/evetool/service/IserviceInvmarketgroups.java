@@ -11,7 +11,7 @@ package com.rectuscorp.evetool.service;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-import com.rectuscorp.evetool.entities.MarketGroup;
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
 
 public interface IserviceInvmarketgroups extends GenericManager<MarketGroup, Long> {
 

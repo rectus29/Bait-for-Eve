@@ -11,7 +11,7 @@ package com.rectuscorp.evetool.web.page.prodplan;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 
-import com.rectuscorp.evetool.entities.MarketGroup;
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
 import com.rectuscorp.evetool.service.IserviceInvmarketgroups;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;

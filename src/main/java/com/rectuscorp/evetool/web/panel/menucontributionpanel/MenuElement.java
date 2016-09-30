@@ -14,6 +14,7 @@ package com.rectuscorp.evetool.web.panel.menucontributionpanel;
 
 import org.apache.wicket.markup.html.link.Link;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -21,7 +22,7 @@ import java.util.UUID;
 /**
  * The type Menu element.
  */
-public abstract class MenuElement {
+public abstract class MenuElement implements Serializable {
 	private String text;
 	private String markupID;
 	private List<MenuElement> elementChildList = new ArrayList<>();
