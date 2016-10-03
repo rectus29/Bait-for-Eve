@@ -7,6 +7,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.model.LoadableDetachableModel;
 
+import java.util.ArrayList;
 import java.util.List;
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -35,7 +36,11 @@ public class MenuContributionPanel extends Panel {
 				super.onInitialize();
 				RepeatingView rv = new RepeatingView("rvLink");
 				if (getPage() instanceof IMenuContributor) {
-					for (MenuElement el : ((IMenuContributor) getPage()).getMenuContribution()) {
+					List<MenuElement> menuElements =
+							(((IMenuContributor) getPage()).getMenuContribution() != null)
+									?((IMenuContributor) getPage()).getMenuContribution()
+									:new ArrayList<MenuElement>();
+					for (MenuElement el : menuElements) {
 						rv.add(new MenuElementPanel(rv.newChildId(), el));
 					}
 				}

@@ -318,7 +318,10 @@ public class EveCRESTApi {
 		return EveXmlApi.get().getCorporation(null, corporationId);
 	}
 
-
+	/**
+	 * retreive all market group from crest API
+	 * @return List of group
+	 */
 	public List<Group> getAllMarketGroup(){
 		List<Group> out = new ArrayList<Group>();
 		try {

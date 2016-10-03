@@ -1,5 +1,5 @@
 {
-  "totalCount_str": "2103",
+  "totalCount_str": "2108",
   "items": [
     {
       "name": "Plans de construction",
@@ -21396,6 +21396,71 @@
       "description": "Mod\u00e8les de Dreadnought de faction"
     },
     {
+      "name": "Rookie Ships",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1954/",
+        "id": 1954,
+        "id_str": "1954"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/2306/",
+      "id_str": "2306",
+      "id": 2306,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/2306/"},
+      "description": ""
+    },
+    {
+      "name": "Standard Rookie Ships",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/2306/",
+        "id": 2306,
+        "id_str": "2306"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/2307/",
+      "id_str": "2307",
+      "id": 2307,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/2307/"},
+      "description": ""
+    },
+    {
+      "name": "Amarr",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/2307/",
+        "id": 2307,
+        "id_str": "2307"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/2308/",
+      "id_str": "2308",
+      "id": 2308,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/2308/"},
+      "description": ""
+    },
+    {
+      "name": "Tactical Destroyers",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/2036/",
+        "id": 2036,
+        "id_str": "2036"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/2309/",
+      "id_str": "2309",
+      "id": 2309,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/2309/"},
+      "description": ""
+    },
+    {
+      "name": "Amarr",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/2309/",
+        "id": 2309,
+        "id_str": "2309"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/2310/",
+      "id_str": "2310",
+      "id": 2310,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/2310/"},
+      "description": ""
+    },
+    {
       "name": "Infantry Gear",
       "href": "https://crest-tq.eveonline.com/market/groups/350001/",
       "id_str": "350001",
@@ -27243,5 +27308,5 @@
   ],
   "pageCount": 1,
   "pageCount_str": "1",
-  "totalCount": 2103
+  "totalCount": 2108
 }
