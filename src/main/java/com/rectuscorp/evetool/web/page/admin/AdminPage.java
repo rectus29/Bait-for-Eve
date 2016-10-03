@@ -16,6 +16,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.ResourceModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.wicketstuff.shiro.ShiroConstraint;
 import org.wicketstuff.shiro.annotation.ShiroSecurityConstraint;
@@ -33,7 +34,6 @@ public class AdminPage extends ProtectedPage implements IMenuContributor{
     public static String PLATFORM = "platform";
     public static String FACTOR = "factor";
     public static String PANEL = "panel";
-    private Panel panel;
 
     public AdminPage() {
     }
@@ -43,14 +43,14 @@ public class AdminPage extends ProtectedPage implements IMenuContributor{
         super.onInitialize();
 
         if(!getPageParameters().get(PANEL).isEmpty() && USER.equals(getPageParameters().get(PANEL).toString())){
-            add(panel = new UserAdminPanel("panel"));
+            add(new UserAdminPanel("panel"));
         }else
-            add(panel = new ServerAdminPanel("panel"));
+            add(new ServerAdminPanel("panel"));
     }
 
     @Override
     public String getTitleContribution() {
-        return "Administration";
+		return new ResourceModel("administration").getObject();
     }
 
 	@Override

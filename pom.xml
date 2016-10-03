@@ -37,7 +37,7 @@
 
     <properties>
         <spring.version>4.1.0.RELEASE</spring.version>
-        <wicket.version>7.0.0</wicket.version>
+        <wicket.version>7.4.0</wicket.version>
         <shiro.version>1.2.4</shiro.version>
         <log4J.version>2.5</log4J.version>
         <hibernate.version>3.6.10.Final</hibernate.version>
