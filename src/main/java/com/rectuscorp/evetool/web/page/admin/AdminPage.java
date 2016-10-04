@@ -7,6 +7,7 @@ package com.rectuscorp.evetool.web.page.admin;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.web.page.IMenuContributor;
+import com.rectuscorp.evetool.web.page.admin.api.APIAdminPanel;
 import com.rectuscorp.evetool.web.page.admin.server.ServerAdminPanel;
 import com.rectuscorp.evetool.web.page.admin.users.UserAdminPanel;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
@@ -25,44 +26,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ShiroSecurityConstraint(
-        constraint = ShiroConstraint.HasPermission, value = "admin:access"
+		constraint = ShiroConstraint.HasPermission, value = "admin:access"
 )
-public class AdminPage extends ProtectedPage implements IMenuContributor{
+public class AdminPage extends ProtectedPage implements IMenuContributor {
 
-    public static String SERVER = "server";
-    public static String USER = "user";
-    public static String PLATFORM = "platform";
-    public static String FACTOR = "factor";
-    public static String PANEL = "panel";
+	public static String SERVER = "server";
+	public static String USER = "user";
+	public static String API = "api";
+	public static String PANEL = "panel";
 
-    public AdminPage() {
-    }
+	public AdminPage() {
+	}
 
-    @Override
-    protected void onInitialize() {
-        super.onInitialize();
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
+		if (!getPageParameters().get(PANEL).isEmpty()) {
+			if (USER.equals(getPageParameters().get(PANEL).toString())) {
+				add(new UserAdminPanel("panel"));
+			} else if (API.equals(getPageParameters().get(PANEL).toString())) {
+				add(new APIAdminPanel("panel"));
+			} else {
+				add(new ServerAdminPanel("panel"));
+			}
+		}
+	}
 
-        if(!getPageParameters().get(PANEL).isEmpty() && USER.equals(getPageParameters().get(PANEL).toString())){
-            add(new UserAdminPanel("panel"));
-        }else
-            add(new ServerAdminPanel("panel"));
-    }
-
-    @Override
-    public String getTitleContribution() {
+	@Override
+	public String getTitleContribution() {
 		return new ResourceModel("administration").getObject();
-    }
+	}
 
 	@Override
 	public List<MenuElement> getMenuContribution() {
 		List<MenuElement> out = new ArrayList<>();
-		out.add(new MenuElement("User"){
+		out.add(new MenuElement("User") {
 			@Override
 			public Link getLink() {
 				return new BookmarkablePageLink<AdminPage>(getMenuElementMarkupID(), AdminPage.class, new PageParameters().add(PANEL, USER));
 			}
 		});
-		out.add(new MenuElement("Server"){
+		out.add(new MenuElement("Server") {
 			@Override
 			public Link getLink() {
 				return new BookmarkablePageLink<AdminPage>(getMenuElementMarkupID(), AdminPage.class, new PageParameters().add(PANEL, SERVER));
