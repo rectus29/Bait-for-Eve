@@ -28,6 +28,7 @@ import org.w3c.dom.Node;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -317,6 +318,7 @@ public class EveXmlApi {
 	 * @param character the character
 	 */
 	public void getImage(DecorableElement character) {
+		FileOutputStream outstream = null;
 		try {
 			log.debug("get image from server for " + character.getId());
 			String path = null;
@@ -336,7 +338,7 @@ public class EveXmlApi {
 			File outAvatarFile = new File(outputFolder + File.separator + character.getId() + "_256." + filetype);
 			client.executeMethod(get);
 			if (get.getStatusCode() != 404) {
-				FileOutputStream outstream = new FileOutputStream(outAvatarFile);
+				outstream = new FileOutputStream(outAvatarFile);
 				FileUtils.writeByteArrayToFile(outAvatarFile, get.getResponseBody());
 				outstream.close();
 			} else {
@@ -344,6 +346,13 @@ public class EveXmlApi {
 			}
 		} catch (Exception ex) {
 			log.error("Error while retreive image from server", ex);
+		} finally {
+			if(outstream != null)
+				try {
+					outstream.close();
+				} catch (IOException e) {
+					log.error("error while stream closing", e);
+				}
 		}
 	}
 

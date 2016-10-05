@@ -1,5 +1,7 @@
 package com.rectuscorp.evetool.web.page.admin.api.panels.crestAPIPanel;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxLink;
 import org.apache.wicket.markup.html.panel.Panel;
 
 /*-----------------------------------------------------*/
@@ -22,5 +24,12 @@ public class CrestAPIPanel extends Panel {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
+
+		add(new IndicatingAjaxLink("crestMarketGroup") {
+			@Override
+			public void onClick(AjaxRequestTarget ajaxRequestTarget) {
+
+			}
+		});
 	}
 }
