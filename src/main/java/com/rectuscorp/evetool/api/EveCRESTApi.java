@@ -243,7 +243,7 @@ public class EveCRESTApi {
 		Type type = null;
 		try {
 			log.debug("Crest Import : " + typeId);
-			GetMethod getDetail = new GetMethod(API_URL + "types/" + typeId + "/");
+			GetMethod getDetail = new GetMethod(API_URL + "inventory/types/" + typeId + "/");
 			client.executeMethod(getDetail);
 			JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
 			log.debug(elJsonObj.getString("name"));
@@ -362,7 +362,7 @@ public class EveCRESTApi {
 			group.setName(elJsonObj.getString("name"));
 			group.setDescription(elJsonObj.getString("description"));
 			if(elJsonObj.has("parentGroup"))
-				group.setParentGroup(getMarketGroup(elJsonObj.getJSONObject("parentGroup").getString("href")));
+				group.setParentGroup(getMarketGroup(elJsonObj.getJSONObject("parentGroup").getString("id")));
 				group.setPublished(elJsonObj.getBoolean("published"));
 			return group;
 		} catch (Exception e) {
