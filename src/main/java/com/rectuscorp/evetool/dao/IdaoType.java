@@ -10,4 +10,5 @@ import com.rectuscorp.evetool.entities.crest.Type;
 /*-----------------------------------------------------*/
 
 public interface IdaoType extends GenericDao<Type, Long> {
+
 }

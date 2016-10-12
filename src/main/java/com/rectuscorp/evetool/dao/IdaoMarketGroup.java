@@ -1,5 +1,8 @@
-package com.rectuscorp.evetool.entities.crest;/*-----------------------------------------------------*/
+package com.rectuscorp.evetool.dao;
 
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
+
+/*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
 /*     |  __ \         | |             |__ \ / _ \     */
 /*     | |__) |___  ___| |_ _   _ ___     ) | (_) |    */
@@ -7,9 +10,10 @@ package com.rectuscorp.evetool.entities.crest;/*--------------------------------
 /*     | | \ \  __/ (__| |_| |_| \__ \  / /_   / /     */
 /*     |_|  \_\___|\___|\__|\__,_|___/ |____| /_/      */
 /*                                                     */
-/*                Date: 13/05/2016 15:23                */
+/*                Date: 12/10/2016 10:46               */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-public enum GroupType {
-	MARKET, INVENT
+
+public interface IdaoMarketGroup extends GenericDao<MarketGroup, Long> {
+
 }

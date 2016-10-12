@@ -19,16 +19,4 @@ public class DaoType extends GenericDaoHibernate<Type, Long> implements IdaoType
 		super(Type.class);
 	}
 
-	@Override
-	public Type get(Long id) {
-		Type out = super.get(id);
-		if (out == null) {
-			out = EveCRESTApi.get().getType(id.toString());
-			if (out != null) {
-				out = save(out);
-			}
-		}
-		return out;
-	}
-
 }

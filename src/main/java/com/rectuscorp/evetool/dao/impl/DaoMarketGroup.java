@@ -1,18 +1,25 @@
-package com.rectuscorp.evetool.dao;
+package com.rectuscorp.evetool.dao.impl;
+
+import com.rectuscorp.evetool.dao.IdaoMarketGroup;
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
+import org.springframework.stereotype.Repository;
+
 /*-----------------------------------------------------*/
-/*       _____           _               ___   ___     */
+/*      _____           _               ___   ___      */
 /*     |  __ \         | |             |__ \ / _ \     */
 /*     | |__) |___  ___| |_ _   _ ___     ) | (_) |    */
 /*     |  _  // _ \/ __| __| | | / __|   / / \__, |    */
 /*     | | \ \  __/ (__| |_| |_| \__ \  / /_   / /     */
 /*     |_|  \_\___|\___|\__|\__,_|___/ |____| /_/      */
 /*                                                     */
-/*                Date: 21/04/13 17:15                */
+/*                Date: 12/10/2016 10:46               */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
+@Repository("daoMarketGroup")
+public class DaoMarketGroup extends GenericDaoHibernate<MarketGroup, Long> implements IdaoMarketGroup {
 
+	public DaoMarketGroup() {
+		super(MarketGroup.class);
+	}
 
-import com.rectuscorp.evetool.entities.crest.MarketGroup;
-
-public interface IdaoInvmarketgroups extends GenericDao<MarketGroup, Long> {
 }

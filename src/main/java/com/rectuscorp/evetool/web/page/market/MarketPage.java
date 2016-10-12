@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.web.page.market;
 
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
 import com.rectuscorp.evetool.web.page.IMenuContributor;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
@@ -29,6 +30,8 @@ public class MarketPage extends ProtectedPage implements IMenuContributor {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
+		List<MarketGroup> rootMarketGroup = serviceMarketGroup.getAllRootMarketGroup();
+
 
 
 	}

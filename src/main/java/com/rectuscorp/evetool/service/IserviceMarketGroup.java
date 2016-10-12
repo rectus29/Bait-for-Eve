@@ -1,19 +1,18 @@
 package com.rectuscorp.evetool.service;
+
+import com.rectuscorp.evetool.entities.crest.MarketGroup;
+
 /*-----------------------------------------------------*/
-/*       _____           _               ___   ___     */
+/*      _____           _               ___   ___      */
 /*     |  __ \         | |             |__ \ / _ \     */
 /*     | |__) |___  ___| |_ _   _ ___     ) | (_) |    */
 /*     |  _  // _ \/ __| __| | | / __|   / / \__, |    */
 /*     | | \ \  __/ (__| |_| |_| \__ \  / /_   / /     */
 /*     |_|  \_\___|\___|\__|\__,_|___/ |____| /_/      */
 /*                                                     */
-/*                Date: 21/04/13 17:08                 */
+/*                Date: 12/10/2016 10:46               */
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
-
-import com.rectuscorp.evetool.entities.crest.MarketGroup;
-
-public interface IserviceInvmarketgroups extends GenericManager<MarketGroup, Long> {
-
+public interface IserviceMarketGroup extends GenericManager<MarketGroup, Long> {
 
 }

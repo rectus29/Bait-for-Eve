@@ -1,5 +1,6 @@
 package com.rectuscorp.evetool.service.impl;
 
+import com.rectuscorp.evetool.api.EveCRESTApi;
 import com.rectuscorp.evetool.dao.impl.DaoType;
 import com.rectuscorp.evetool.entities.crest.Type;
 import com.rectuscorp.evetool.service.IserviceType;
@@ -16,13 +17,24 @@ import org.springframework.stereotype.Service;
 @Service("serviceType")
 public class ServiceType extends GenericManagerImpl<Type, Long> implements IserviceType {
 
-    private DaoType daoType;
+	private DaoType daoType;
 
-    @Autowired
-    public ServiceType(DaoType daoType) {
-        super(daoType);
-        this.daoType = daoType;
-    }
+	@Autowired
+	public ServiceType(DaoType daoType) {
+		super(daoType);
+		this.daoType = daoType;
+	}
 
+	@Override
+	public Type get(Long id) {
+		Type out = super.get(id);
+		if (out == null) {
+			out = EveCRESTApi.get().getType(id.toString());
+			if (out != null) {
+				out = save(out);
+			}
+		}
+		return out;
+	}
 
 }

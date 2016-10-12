@@ -1,109 +1,73 @@
-[
-  {
-    "category": {"href": "https://crest-tq.eveonline.com/inventory/categories/2/"},
-    "name": "Soleil",
-    "id_str": "6",
-    "published": false,
-    "id": 6,
-    "types": [
+{
+  "capacity": 0.0,
+  "description": "Le plagioclase riche, dont le rendement est sup\u00e9rieur de 10 % \u00e0 celui du minerai classique, est un minerai tr\u00e8s r\u00e9mun\u00e9rateur pour les mineurs.\n\nLe plagioclase n'est certainement pas le minerai brut le plus pr\u00e9cieux, mais il contient une grande quantit\u00e9 de py\u00e9rite. C'est pour cette raison que sa demande ne faiblit jamais. Il contient \u00e9galement du tritanium et du mexallon.\n\nCe minerai est une version condens\u00e9e, beaucoup plus dense que le minerai brut d'origine.",
+  "portionSize_str": "1",
+  "iconID": 3320,
+  "portionSize": 1,
+  "iconID_str": "3320",
+  "volume": 0.15,
+  "dogma": {
+    "attributes": [
       {
-        "id_str": "34331",
-        "href": "https://crest-tq.eveonline.com/inventory/types/34331/",
-        "id": 34331,
-        "name": "Soleil A0IV (sous-g\u00e9ante bleue turbulente)"
+        "attribute": {
+          "id_str": "4",
+          "href": "https://crest-tq.eveonline.com/dogma/attributes/4/",
+          "id": 4,
+          "name": "mass"
+        },
+        "value": 1e+35
       },
       {
-        "id_str": "6",
-        "href": "https://crest-tq.eveonline.com/inventory/types/6/",
-        "id": 6,
-        "name": "Soleil G5 (jaune)"
+        "attribute": {
+          "id_str": "38",
+          "href": "https://crest-tq.eveonline.com/dogma/attributes/38/",
+          "id": 38,
+          "name": "capacity"
+        },
+        "value": 0.0
       },
       {
-        "id_str": "7",
-        "href": "https://crest-tq.eveonline.com/inventory/types/7/",
-        "id": 7,
-        "name": "Soleil K7 (orange)"
+        "attribute": {
+          "id_str": "161",
+          "href": "https://crest-tq.eveonline.com/dogma/attributes/161/",
+          "id": 161,
+          "name": "volume"
+        },
+        "value": 0.15
       },
       {
-        "id_str": "8",
-        "href": "https://crest-tq.eveonline.com/inventory/types/8/",
-        "id": 8,
-        "name": "Soleil K5 (g\u00e9ante rouge)"
+        "attribute": {
+          "id_str": "162",
+          "href": "https://crest-tq.eveonline.com/dogma/attributes/162/",
+          "id": 162,
+          "name": "radius"
+        },
+        "value": 0.0
       },
       {
-        "id_str": "9",
-        "href": "https://crest-tq.eveonline.com/inventory/types/9/",
-        "id": 9,
-        "name": "Soleil B0 (bleue)"
+        "attribute": {
+          "id_str": "182",
+          "href": "https://crest-tq.eveonline.com/dogma/attributes/182/",
+          "id": 182,
+          "name": "requiredSkill1"
+        },
+        "value": 3386.0
       },
       {
-        "id_str": "10",
-        "href": "https://crest-tq.eveonline.com/inventory/types/10/",
-        "id": 10,
-        "name": "Soleil F0 (blanche)"
-      },
-      {
-        "id_str": "3796",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3796/",
-        "id": 3796,
-        "name": "Soleil O1 (brillante bleue)"
-      },
-      {
-        "id_str": "3797",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3797/",
-        "id": 3797,
-        "name": "Soleil G5 (rose)"
-      },
-      {
-        "id_str": "3798",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3798/",
-        "id": 3798,
-        "name": "Soleil K5 (brillante orange)"
-      },
-      {
-        "id_str": "3799",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3799/",
-        "id": 3799,
-        "name": "Soleil G3 (petite rose)"
-      },
-      {
-        "id_str": "3800",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3800/",
-        "id": 3800,
-        "name": "Soleil M0 (rayonnante orange)"
-      },
-      {
-        "id_str": "3801",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3801/",
-        "id": 3801,
-        "name": "Soleil A0 (petite bleue)"
-      },
-      {
-        "id_str": "3802",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3802/",
-        "id": 3802,
-        "name": "Soleil K3 (petite jaune)"
-      },
-      {
-        "id_str": "3803",
-        "href": "https://crest-tq.eveonline.com/inventory/types/3803/",
-        "id": 3803,
-        "name": "Soleil B5 (naine blanche)"
+        "attribute": {
+          "id_str": "790",
+          "href": "https://crest-tq.eveonline.com/dogma/attributes/790/",
+          "id": 790,
+          "name": "reprocessingSkillType"
+        },
+        "value": 12191.0
       }
-    ],
-    "description": ""
+    ]
   },
-  {
-    "name": "Plagioclase",
-    "parentGroup": {
-      "href": "https://crest-tq.eveonline.com/market/groups/54/",
-      "id": 54,
-      "id_str": "54"
-    },
-    "href": "https://crest-tq.eveonline.com/market/groups/516/",
-    "id_str": "516",
-    "id": 516,
-    "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/516/"},
-    "description": "Sous-cat\u00e9gories du minerai plagioclase."
-  }
-]
+  "radius": 1.0,
+  "id_str": "28423",
+  "published": true,
+  "mass": 1e+35,
+  "id": 28423,
+  "name": "Plagioclase riche compress\u00e9"
+}

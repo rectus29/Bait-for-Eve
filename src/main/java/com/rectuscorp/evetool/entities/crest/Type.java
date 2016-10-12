@@ -33,6 +33,10 @@ public class Type extends GenericEntity {
 	private long radius = 0;
 	@OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
 	private List<Dogma> attributesList = new ArrayList<Dogma>();
+	@ManyToOne
+	private InventoryGroup inventoryParentGroup;
+	@ManyToOne
+	private MarketGroup marketParentGroup;
 
 	/**
 	 * Gets name.
