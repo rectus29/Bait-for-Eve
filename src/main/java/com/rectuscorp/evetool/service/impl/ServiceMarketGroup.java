@@ -10,6 +10,10 @@ import com.rectuscorp.evetool.service.IserviceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
@@ -42,6 +46,21 @@ public class ServiceMarketGroup extends GenericManagerImpl<MarketGroup, Long> im
 				out = save(out);
 			}
 		}
+		return out;
+	}
+
+	public List<MarketGroup> getAllRootMarketGroup() {
+		List<MarketGroup> out = new ArrayList<>();
+		for(MarketGroup temp : getAll()){
+			if(temp.getParentGroup() == null)
+				out.add(temp);
+		}
+		Collections.sort(out, new Comparator<MarketGroup>() {
+			@Override
+			public int compare(MarketGroup o1, MarketGroup o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		});
 		return out;
 	}
 

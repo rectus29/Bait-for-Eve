@@ -2,6 +2,8 @@ package com.rectuscorp.evetool.service;
 
 import com.rectuscorp.evetool.entities.crest.MarketGroup;
 
+import java.util.List;
+
 /*-----------------------------------------------------*/
 /*      _____           _               ___   ___      */
 /*     |  __ \         | |             |__ \ / _ \     */
@@ -15,4 +17,5 @@ import com.rectuscorp.evetool.entities.crest.MarketGroup;
 /*-----------------------------------------------------*/
 public interface IserviceMarketGroup extends GenericManager<MarketGroup, Long> {
 
+	public List<MarketGroup> getAllRootMarketGroup();
 }

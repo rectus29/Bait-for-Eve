@@ -7,7 +7,10 @@ import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.impl.ServiceGeneric;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxLink;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import java.util.List;
@@ -36,7 +39,31 @@ public class CrestAPIPanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 
-		add(new IndicatingAjaxLink("crestMarketGroup") {
+
+
+		add((new Form("form") {
+			private String groupId;
+
+			@Override
+			protected void onInitialize() {
+				super.onInitialize();
+				add(new TextField<String>("groupId", new PropertyModel<String>(this, "groupId")));
+				add(new IndicatingAjaxLink("submit") {
+					@Override
+					public void onClick(AjaxRequestTarget target) {
+						if (groupId != null) {
+							MarketGroup marketGroup = EveCRESTApi.get().getMarketGroup(groupId);
+						} else {
+							List<MarketGroup> marketGroupList = EveCRESTApi.get().getAllMarketGroup();
+						}
+					}
+				});
+			}
+		}).setOutputMarkupId(true));
+
+
+
+		/*add(new IndicatingAjaxLink("crestMarketGroup") {
 			@Override
 			public void onClick(AjaxRequestTarget ajaxRequestTarget) {
 				List<MarketGroup> marketGroupList = EveCRESTApi.get().getAllMarketGroup();
@@ -44,6 +71,6 @@ public class CrestAPIPanel extends Panel {
 					serviceGeneric.save(temp);
 				}
 			}
-		});
+		});*/
 	}
 }

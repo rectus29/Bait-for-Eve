@@ -49,6 +49,8 @@ public class AdminPage extends ProtectedPage implements IMenuContributor {
 			} else {
 				add(new ServerAdminPanel("panel"));
 			}
+		}else{
+			add(new ServerAdminPanel("panel"));
 		}
 	}
 
@@ -70,6 +72,12 @@ public class AdminPage extends ProtectedPage implements IMenuContributor {
 			@Override
 			public Link getLink() {
 				return new BookmarkablePageLink<AdminPage>(getMenuElementMarkupID(), AdminPage.class, new PageParameters().add(PANEL, SERVER));
+			}
+		});
+		out.add(new MenuElement("Api") {
+			@Override
+			public Link getLink() {
+				return new BookmarkablePageLink<AdminPage>(getMenuElementMarkupID(), AdminPage.class, new PageParameters().add(PANEL, API));
 			}
 		});
 		return out;

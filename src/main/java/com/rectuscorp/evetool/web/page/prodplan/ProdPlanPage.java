@@ -12,7 +12,6 @@ package com.rectuscorp.evetool.web.page.prodplan;
 /*-----------------------------------------------------*/
 
 import com.rectuscorp.evetool.entities.crest.MarketGroup;
-import com.rectuscorp.evetool.service.IserviceInvmarketgroups;
 import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -35,11 +34,6 @@ public class ProdPlanPage extends ProtectedPage {
 	@SpringBean
 	IserviceUser serviceUser;
 
-
-
-	@SpringBean
-	IserviceInvmarketgroups serviceInvmarketgroups;
-
 	private MarketGroup marketGroup, marketGroupLv1, marketGroupLv2;
 	private Form form;
 	private FormComponent lvChild, lvFinal, lvMarketGroup;
@@ -61,10 +55,11 @@ public class ProdPlanPage extends ProtectedPage {
 
 		add((form = new Form("form")).setOutputMarkupId(true));
 
-		form.add(new DropDownChoice<MarketGroup>(
+		/*form.add(new DropDownChoice<MarketGroup>(
 				"lv",
 				new PropertyModel<MarketGroup>(this, "marketGroup"),
-				new ArrayList<MarketGroup>(serviceInvmarketgroups.getAllByProperty("parentGroupID", serviceInvmarketgroups.getByProperty("marketGroupId", 2l, true))),
+				new ArrayList<MarketGroup>(serviceInvmarketgroups.getAllByProperty("parentGroupID",
+						serviceInvmarketgroups.getByProperty("marketGroupId", 2l, true))),
 				new ChoiceRenderer<MarketGroup>("marketGroupName")
 		).add(new AjaxFormComponentUpdatingBehavior("onChange") {
 			@Override
@@ -108,6 +103,6 @@ public class ProdPlanPage extends ProtectedPage {
 				   }
 			   }
 		).setOutputMarkupId(true));
-
+*/
 	}
 }

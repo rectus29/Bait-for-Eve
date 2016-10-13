@@ -323,6 +323,7 @@ public class EveCRESTApi {
 	 * @return List of group
 	 */
 	public List<MarketGroup> getAllMarketGroup(){
+		log.debug("Crest get All marketGroup");
 		List<MarketGroup> out = new ArrayList<>();
 		try {
 			URIBuilder url = new URIBuilder(API_URL + "/market/groups/");
@@ -333,7 +334,8 @@ public class EveCRESTApi {
 			for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
 				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
 				if (temp.has("id")) {
-					MarketGroup group = getMarketGroup(temp.getString("id"));
+					add group child add here
+					MarketGroup group = getMarketGroup(temp.getString("id_str"));
 					if (group != null) {
 						out.add(group);
 					}
@@ -341,18 +343,18 @@ public class EveCRESTApi {
 			}
 		} catch (Exception e) {
 			log.error("Error while get group from CREST", e);
-			return new ArrayList<MarketGroup>();
+			out = new ArrayList<MarketGroup>();
 		}
 		return out;
 	}
 
 
 	/**
-	 *
+	 *	retreive a market group from the crest api
 	 */
 	public MarketGroup getMarketGroup(String id){
 		try {
-			log.debug("Crest Import : " + id);
+			log.debug("Crest MarketGroup Import : " + id);
 			GetMethod getDetail = new GetMethod(API_URL + "market/groups/" + id + "/");
 			client.executeMethod(getDetail);
 			JSONObject elJsonObj = new JSONObject(getDetail.getResponseBodyAsString());
@@ -361,8 +363,10 @@ public class EveCRESTApi {
 			group.setId(elJsonObj.getLong("id"));
 			group.setName(elJsonObj.getString("name"));
 			group.setDescription(elJsonObj.getString("description"));
-			if(elJsonObj.has("parentGroup"))
-				group.setParentGroup(getMarketGroup(elJsonObj.getJSONObject("parentGroup").getString("id")));
+			if(elJsonObj.has("parentGroup")){
+				group.setParentGroup(getMarketGroup(elJsonObj.getJSONObject("parentGroup").getString("id_str")));
+			}
+			if(elJsonObj.has("published"))
 				group.setPublished(elJsonObj.getBoolean("published"));
 			return group;
 		} catch (Exception e) {

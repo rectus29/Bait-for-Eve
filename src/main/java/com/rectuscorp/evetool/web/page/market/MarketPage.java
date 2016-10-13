@@ -1,12 +1,17 @@
 package com.rectuscorp.evetool.web.page.market;
 
 import com.rectuscorp.evetool.entities.crest.MarketGroup;
+import com.rectuscorp.evetool.service.IserviceMarketGroup;
+import com.rectuscorp.evetool.service.IserviceUser;
 import com.rectuscorp.evetool.web.page.IMenuContributor;
 import com.rectuscorp.evetool.web.page.base.ProtectedPage;
 import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +28,11 @@ import java.util.List;
 /*                 All right reserved                  */
 /*-----------------------------------------------------*/
 public class MarketPage extends ProtectedPage implements IMenuContributor {
+	
+	@SpringBean(name = "serviceMarketGroup")
+	private IserviceMarketGroup serviceMarketGroup;
+
+	private static final Logger log = LogManager.getLogger(MarketPage.class);
 
 	public MarketPage() {
 	}
@@ -31,6 +41,7 @@ public class MarketPage extends ProtectedPage implements IMenuContributor {
 	protected void onInitialize() {
 		super.onInitialize();
 		List<MarketGroup> rootMarketGroup = serviceMarketGroup.getAllRootMarketGroup();
+		
 
 
 
