@@ -1,73 +1,684 @@
 {
-  "capacity": 0.0,
-  "description": "Le plagioclase riche, dont le rendement est sup\u00e9rieur de 10 % \u00e0 celui du minerai classique, est un minerai tr\u00e8s r\u00e9mun\u00e9rateur pour les mineurs.\n\nLe plagioclase n'est certainement pas le minerai brut le plus pr\u00e9cieux, mais il contient une grande quantit\u00e9 de py\u00e9rite. C'est pour cette raison que sa demande ne faiblit jamais. Il contient \u00e9galement du tritanium et du mexallon.\n\nCe minerai est une version condens\u00e9e, beaucoup plus dense que le minerai brut d'origine.",
-  "portionSize_str": "1",
-  "iconID": 3320,
-  "portionSize": 1,
-  "iconID_str": "3320",
-  "volume": 0.15,
-  "dogma": {
-    "attributes": [
-      {
-        "attribute": {
-          "id_str": "4",
-          "href": "https://crest-tq.eveonline.com/dogma/attributes/4/",
-          "id": 4,
-          "name": "mass"
-        },
-        "value": 1e+35
+  "totalCount_str": "52",
+  "items": [
+    {
+      "name": "Minerai",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1031/",
+        "id": 1031,
+        "id_str": "1031"
       },
-      {
-        "attribute": {
-          "id_str": "38",
-          "href": "https://crest-tq.eveonline.com/dogma/attributes/38/",
-          "id": 38,
-          "name": "capacity"
-        },
-        "value": 0.0
+      "href": "https://crest-tq.eveonline.com/market/groups/54/",
+      "id_str": "54",
+      "id": 54,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/54/"},
+      "description": "Des morceaux de mati\u00e8re premi\u00e8re collect\u00e9s sur les ast\u00e9ro\u00efdes."
+    },
+    {
+      "name": "Mati\u00e8res lunaires avanc\u00e9es",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1034/",
+        "id": 1034,
+        "id_str": "1034"
       },
-      {
-        "attribute": {
-          "id_str": "161",
-          "href": "https://crest-tq.eveonline.com/dogma/attributes/161/",
-          "id": 161,
-          "name": "volume"
-        },
-        "value": 0.15
+      "href": "https://crest-tq.eveonline.com/market/groups/499/",
+      "id_str": "499",
+      "id": 499,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/499/"},
+      "description": "Mat\u00e9riaux utilis\u00e9s pour la production de vaisseaux et d'\u00e9quipement de niveau technologique\u00a0II."
+    },
+    {
+      "name": "Mati\u00e8res lunaires trait\u00e9es",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1034/",
+        "id": 1034,
+        "id_str": "1034"
       },
-      {
-        "attribute": {
-          "id_str": "162",
-          "href": "https://crest-tq.eveonline.com/dogma/attributes/162/",
-          "id": 162,
-          "name": "radius"
-        },
-        "value": 0.0
+      "href": "https://crest-tq.eveonline.com/market/groups/500/",
+      "id_str": "500",
+      "id": 500,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/500/"},
+      "description": "Compos\u00e9s utilis\u00e9s pour des r\u00e9actions complexes."
+    },
+    {
+      "name": "Mati\u00e8res lunaires brutes",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1034/",
+        "id": 1034,
+        "id_str": "1034"
       },
-      {
-        "attribute": {
-          "id_str": "182",
-          "href": "https://crest-tq.eveonline.com/dogma/attributes/182/",
-          "id": 182,
-          "name": "requiredSkill1"
-        },
-        "value": 3386.0
+      "href": "https://crest-tq.eveonline.com/market/groups/501/",
+      "id_str": "501",
+      "id": 501,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/501/"},
+      "description": "\u00c9l\u00e9ments purs et mati\u00e8res premi\u00e8res naturels."
+    },
+    {
+      "name": "Arkonor",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
       },
-      {
-        "attribute": {
-          "id_str": "790",
-          "href": "https://crest-tq.eveonline.com/dogma/attributes/790/",
-          "id": 790,
-          "name": "reprocessingSkillType"
-        },
-        "value": 12191.0
-      }
-    ]
-  },
-  "radius": 1.0,
-  "id_str": "28423",
-  "published": true,
-  "mass": 1e+35,
-  "id": 28423,
-  "name": "Plagioclase riche compress\u00e9"
+      "href": "https://crest-tq.eveonline.com/market/groups/512/",
+      "id_str": "512",
+      "id": 512,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/512/"},
+      "description": "Sous-cat\u00e9gories du minerai arkonor."
+    },
+    {
+      "name": "Bistot",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/514/",
+      "id_str": "514",
+      "id": 514,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/514/"},
+      "description": "Sous-cat\u00e9gories du minerai bistot."
+    },
+    {
+      "name": "Pyroxeres",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/515/",
+      "id_str": "515",
+      "id": 515,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/515/"},
+      "description": "Sous-cat\u00e9gories du minerai pyroxeres."
+    },
+    {
+      "name": "Plagioclase",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/516/",
+      "id_str": "516",
+      "id": 516,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/516/"},
+      "description": "Sous-cat\u00e9gories du minerai plagioclase."
+    },
+    {
+      "name": "Spodumain",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/517/",
+      "id_str": "517",
+      "id": 517,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/517/"},
+      "description": "Sous-cat\u00e9gories du minerai spodumain."
+    },
+    {
+      "name": "Veldspar",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/518/",
+      "id_str": "518",
+      "id": 518,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/518/"},
+      "description": "Sous-cat\u00e9gories du minerai veldspar.\n\t\t\t\t"
+    },
+    {
+      "name": "Scordite",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/519/",
+      "id_str": "519",
+      "id": 519,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/519/"},
+      "description": "Sous-cat\u00e9gories du minerai scordite.\n\t\t\t\t"
+    },
+    {
+      "name": "Crokite",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/521/",
+      "id_str": "521",
+      "id": 521,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/521/"},
+      "description": "Sous-cat\u00e9gories du minerai crokite."
+    },
+    {
+      "name": "Ochre fonc\u00e9",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/522/",
+      "id_str": "522",
+      "id": 522,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/522/"},
+      "description": "Sous-cat\u00e9gories du minerai ochre fonc\u00e9."
+    },
+    {
+      "name": "Kernite",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/523/",
+      "id_str": "523",
+      "id": 523,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/523/"},
+      "description": "Sous-cat\u00e9gories du minerai kernite."
+    },
+    {
+      "name": "Gneiss",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/525/",
+      "id_str": "525",
+      "id": 525,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/525/"},
+      "description": "Sous-cat\u00e9gories du minerai gneiss."
+    },
+    {
+      "name": "Omber",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/526/",
+      "id_str": "526",
+      "id": 526,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/526/"},
+      "description": "Sous-cat\u00e9gories du minerai omber."
+    },
+    {
+      "name": "Hedbergite",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/527/",
+      "id_str": "527",
+      "id": 527,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/527/"},
+      "description": "Sous-cat\u00e9gories du minerai hedbergite."
+    },
+    {
+      "name": "Hemorphite",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/528/",
+      "id_str": "528",
+      "id": 528,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/528/"},
+      "description": "Sous-cat\u00e9gories du minerai hemorphite."
+    },
+    {
+      "name": "Jaspet",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/529/",
+      "id_str": "529",
+      "id": 529,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/529/"},
+      "description": "Sous-cat\u00e9gories du minerai jaspet."
+    },
+    {
+      "name": "Mercoxit",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/54/",
+        "id": 54,
+        "id_str": "54"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/530/",
+      "id_str": "530",
+      "id": 530,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/530/"},
+      "description": "Un minerai tr\u00e8s rare et tr\u00e8s pr\u00e9cieux qui renferme un seul et unique min\u00e9ral."
+    },
+    {
+      "name": "Mat\u00e9riaux",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/475/",
+        "id": 475,
+        "id_str": "475"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/533/",
+      "id_str": "533",
+      "id": 533,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/533/"},
+      "description": "Diff\u00e9rents mat\u00e9riaux utilis\u00e9s dans la fabrication"
+    },
+    {
+      "name": "Nuages de gaz de boosters",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1032/",
+        "id": 1032,
+        "id_str": "1032"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/983/",
+      "id_str": "983",
+      "id": 983,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/983/"},
+      "description": "Immenses nuages flottant dans l'espace, compos\u00e9s de diff\u00e9rents gaz."
+    },
+    {
+      "name": "Mati\u00e8res premi\u00e8res",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1031/",
+      "id_str": "1031",
+      "id": 1031,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1031/"},
+      "description": "Blocs de construction de New Eden."
+    },
+    {
+      "name": "Mat\u00e9riaux de nuages de gaz",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1032/",
+      "id_str": "1032",
+      "id": 1032,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1032/"},
+      "description": "Immenses nuages flottant dans l'espace dont les diff\u00e9rents gaz peuvent \u00eatre r\u00e9cup\u00e9r\u00e9s et utilis\u00e9s pour la production de boosters biochimiques."
+    },
+    {
+      "name": "Produits glaciaires",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1033/",
+      "id_str": "1033",
+      "id": 1033,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1033/"},
+      "description": "Isotopes de glace collect\u00e9s sur les ast\u00e9ro\u00efdes de glace."
+    },
+    {
+      "name": "Mat\u00e9riaux de r\u00e9action",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1034/",
+      "id_str": "1034",
+      "id": 1034,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1034/"},
+      "description": "Divers types de mati\u00e8res premi\u00e8res collect\u00e9es sur les lunes de New Eden."
+    },
+    {
+      "name": "Mat\u00e9riaux plan\u00e9taires",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1332/",
+      "id_str": "1332",
+      "id": 1332,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1332/"},
+      "description": "Mat\u00e9riaux provenant des plan\u00e8tes"
+    },
+    {
+      "name": "Mat\u00e9riaux plan\u00e9taires bruts",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1332/",
+        "id": 1332,
+        "id_str": "1332"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1333/",
+      "id_str": "1333",
+      "id": 1333,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1333/"},
+      "description": "Premi\u00e8re strate des mat\u00e9riaux plan\u00e9taires."
+    },
+    {
+      "name": "Mat\u00e9riaux plan\u00e9taires trait\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1332/",
+        "id": 1332,
+        "id_str": "1332"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1334/",
+      "id_str": "1334",
+      "id": 1334,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1334/"},
+      "description": "Deuxi\u00e8me strate de mat\u00e9riaux plan\u00e9taires."
+    },
+    {
+      "name": "Mat\u00e9riaux plan\u00e9taires raffin\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1332/",
+        "id": 1332,
+        "id_str": "1332"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1335/",
+      "id_str": "1335",
+      "id": 1335,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1335/"},
+      "description": "Troisi\u00e8me strate de mat\u00e9riaux plan\u00e9taires."
+    },
+    {
+      "name": "Mat\u00e9riaux plan\u00e9taires sp\u00e9cialis\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1332/",
+        "id": 1332,
+        "id_str": "1332"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1336/",
+      "id_str": "1336",
+      "id": 1336,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1336/"},
+      "description": "Quatri\u00e8me strate de mat\u00e9riaux plan\u00e9taires."
+    },
+    {
+      "name": "Mat\u00e9riaux plan\u00e9taires avanc\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1332/",
+        "id": 1332,
+        "id_str": "1332"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1337/",
+      "id_str": "1337",
+      "id": 1337,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1337/"},
+      "description": "Cinqui\u00e8me et derni\u00e8re strate de mat\u00e9riaux plan\u00e9taires."
+    },
+    {
+      "name": "Minerai de glace",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1031/",
+        "id": 1031,
+        "id_str": "1031"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1855/",
+      "id_str": "1855",
+      "id": 1855,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1855/"},
+      "description": "Mat\u00e9riaux r\u00e9cup\u00e9r\u00e9s sur les ast\u00e9ro\u00efdes de glace."
+    },
+    {
+      "name": "Alliages et compos\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1031/",
+        "id": 1031,
+        "id_str": "1031"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1856/",
+      "id_str": "1856",
+      "id": 1856,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1856/"},
+      "description": "Divers compos\u00e9s provenant des minerais d'ast\u00e9ro\u00efdes."
+    },
+    {
+      "name": "Min\u00e9raux",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1857/",
+      "id_str": "1857",
+      "id": 1857,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1857/"},
+      "description": "Min\u00e9raux obtenus \u00e0 partir du raffinage des minerais d'ast\u00e9ro\u00efdes."
+    },
+    {
+      "name": "Mat\u00e9riaux de booster",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1034/",
+        "id": 1034,
+        "id_str": "1034"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1858/",
+      "id_str": "1858",
+      "id": 1858,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1858/"},
+      "description": "Divers types de boosters biochimiques souvent utilis\u00e9s par les capsuliers."
+    },
+    {
+      "name": "Fuller\u00e8nes",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1032/",
+        "id": 1032,
+        "id_str": "1032"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1859/",
+      "id_str": "1859",
+      "id": 1859,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1859/"},
+      "description": "Cette forme rare de gaz peut seulement \u00eatre collect\u00e9e dans l'int\u00e9rieur de trou de ver."
+    },
+    {
+      "name": "Mat\u00e9riaux de polym\u00e8re",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1034/",
+        "id": 1034,
+        "id_str": "1034"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1860/",
+      "id_str": "1860",
+      "id": 1860,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1860/"},
+      "description": "Mat\u00e9riau issu de la combinaison de fuller\u00e8nes."
+    },
+    {
+      "name": "Mat\u00e9riaux de r\u00e9cup\u00e9ration",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1861/",
+      "id_str": "1861",
+      "id": 1861,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1861/"},
+      "description": ""
+    },
+    {
+      "name": "Mat\u00e9riaux r\u00e9cup\u00e9r\u00e9s anciens",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1861/",
+        "id": 1861,
+        "id_str": "1861"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1862/",
+      "id_str": "1862",
+      "id": 1862,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1862/"},
+      "description": "Malgr\u00e9 leur grand \u00e2ge, ces mat\u00e9riaux renferment des secrets technologiques insoup\u00e7onnables."
+    },
+    {
+      "name": "Mat\u00e9riaux r\u00e9cup\u00e9r\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1861/",
+        "id": 1861,
+        "id_str": "1861"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1863/",
+      "id_str": "1863",
+      "id": 1863,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1863/"},
+      "description": "Mat\u00e9riaux r\u00e9cup\u00e9r\u00e9s sur les \u00e9paves de vaisseaux."
+    },
+    {
+      "name": "Mat\u00e9riaux de faction",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+      "id_str": "1897",
+      "id": 1897,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1897/"},
+      "description": ""
+    },
+    {
+      "name": "Cartel angel",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1898/",
+      "id_str": "1898",
+      "id": 1898,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1898/"},
+      "description": "Mat\u00e9riaux utilis\u00e9s dans la fabrication d'\u00e9quipements sp\u00e9cifiques aux factions."
+    },
+    {
+      "name": "Blood Raiders",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1899/",
+      "id_str": "1899",
+      "id": 1899,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1899/"},
+      "description": "Mat\u00e9riaux utilis\u00e9s dans la fabrication d'\u00e9quipements sp\u00e9cifiques aux factions."
+    },
+    {
+      "name": "Guristas",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1900/",
+      "id_str": "1900",
+      "id": 1900,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1900/"},
+      "description": "Mat\u00e9riaux utilis\u00e9s dans la fabrication d'\u00e9quipements sp\u00e9cifiques aux factions."
+    },
+    {
+      "name": "Serpentis",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1901/",
+      "id_str": "1901",
+      "id": 1901,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1901/"},
+      "description": "Mat\u00e9riaux utilis\u00e9s dans la fabrication d'\u00e9quipements sp\u00e9cifiques aux factions."
+    },
+    {
+      "name": "Sleeper",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1902/",
+      "id_str": "1902",
+      "id": 1902,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1902/"},
+      "description": "Reliques de la civilisation sleeper."
+    },
+    {
+      "name": "Talocan",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1903/",
+      "id_str": "1903",
+      "id": 1903,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1903/"},
+      "description": "Reliques de la civilisation talocan."
+    },
+    {
+      "name": "Yan Jung",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1904/",
+      "id_str": "1904",
+      "id": 1904,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1904/"},
+      "description": "Reliques de la civilisation yan jung."
+    },
+    {
+      "name": "Takmahl",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1905/",
+      "id_str": "1905",
+      "id": 1905,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1905/"},
+      "description": "Reliques de la civilisation takmahl."
+    },
+    {
+      "name": "Drones ren\u00e9gats",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/1897/",
+        "id": 1897,
+        "id_str": "1897"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/1906/",
+      "id_str": "1906",
+      "id": 1906,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/1906/"},
+      "description": "Pi\u00e8ces r\u00e9cup\u00e9r\u00e9es des drones ren\u00e9gats d\u00e9truits pouvant \u00eatre int\u00e9gr\u00e9es \u00e0 la technologie de drone actuelle pour renforcer les performances."
+    },
+    {
+      "name": "Composants nomm\u00e9s",
+      "parentGroup": {
+        "href": "https://crest-tq.eveonline.com/market/groups/533/",
+        "id": 533,
+        "id_str": "533"
+      },
+      "href": "https://crest-tq.eveonline.com/market/groups/2155/",
+      "id_str": "2155",
+      "id": 2155,
+      "types": {"href": "https://crest-tq.eveonline.com/market/types/?group=https://crest-tq.eveonline.com/market/groups/2155/"},
+      "description": ""
+    }
+  ],
+  "pageCount": 1,
+  "pageCount_str": "1",
+  "totalCount": 52
 }

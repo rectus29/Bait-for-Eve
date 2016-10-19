@@ -234,13 +234,11 @@ public class EveXmlApi {
 			event.setTitle(nodeMap.getNamedItem("eventTitle").getNodeValue());
 			event.setId(Long.parseLong(nodeMap.getNamedItem("eventID").getNodeValue()));
 			Long ownerCode = Long.parseLong(nodeMap.getNamedItem("ownerID").getNodeValue());
-//			serviceType.get
-//			event.setOwner();
-//			event.getCharacterList().add(character)
-//			out .add((Event)serviceGeneric.save(event));
+			//			serviceType.get
+			//			event.setOwner();
+			//			event.getCharacterList().add(character)
+			//			out .add((Event)serviceGeneric.save(event));
 		}
-
-
 
 		return out;
 	}
@@ -347,22 +345,22 @@ public class EveXmlApi {
 		} catch (Exception ex) {
 			log.error("Error while retreive image from server", ex);
 		} finally {
-			if(outstream != null)
+			if (outstream != null) {
 				try {
 					outstream.close();
 				} catch (IOException e) {
 					log.error("error while stream closing", e);
 				}
+			}
 		}
 	}
-
 
 	/**
 	 * Get server state.
 	 *
 	 * @return the map
 	 */
-	public Map<String, Object> getServerState(){
+	public Map<String, Object> getServerState() {
 		HashMap<String, Object> out = new HashMap<>();
 		try {
 			URIBuilder url = new URIBuilder(API_URL + "/server/ServerStatus.xml.aspx");
@@ -379,18 +377,20 @@ public class EveXmlApi {
 					out.put("onlinePlayers", document.selectSingleNode("//result/onlinePlayers").getText());
 				}
 			}
+
 		} catch (Exception e) {
-			log.error("Error while retreive server Status",e);
+			log.error("Error while retreive server Status", e);
 		}
 		return out;
 	}
 
 	/**
 	 * retreive mailingList of a character
+	 *
 	 * @param character
 	 * @return
 	 */
-	public List<MailingList> getMailListFor(Character character){
+	public List<MailingList> getMailListFor(Character character) {
 		List<MailingList> out = new ArrayList<>();
 		try {
 			URIBuilder url = new URIBuilder(API_URL + "/char/mailinglists.xml.aspx");
@@ -411,9 +411,8 @@ public class EveXmlApi {
 				}
 			}
 		} catch (Exception e) {
-			log.error("Error while retreive server Status",e);
+			log.error("Error while retreive server Status", e);
 		}
 		return out;
 	}
-
 }

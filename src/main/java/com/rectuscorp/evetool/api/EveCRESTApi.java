@@ -334,7 +334,7 @@ public class EveCRESTApi {
 			for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
 				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
 				if (temp.has("id")) {
-					add group child add here
+					//add group child add here
 					MarketGroup group = getMarketGroup(temp.getString("id_str"));
 					if (group != null) {
 						out.add(group);

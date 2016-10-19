@@ -6,6 +6,7 @@ import com.rectuscorp.evetool.service.IserviceAttribute;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.service.impl.ServiceGeneric;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.extensions.ajax.markup.html.IndicatingAjaxLink;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -43,14 +44,13 @@ public class CrestAPIPanel extends Panel {
 
 		add((new Form("form") {
 			private String groupId;
-
 			@Override
 			protected void onInitialize() {
 				super.onInitialize();
 				add(new TextField<String>("groupId", new PropertyModel<String>(this, "groupId")));
-				add(new IndicatingAjaxLink("submit") {
+				add(new AjaxSubmitLink("submit") {
 					@Override
-					public void onClick(AjaxRequestTarget target) {
+					protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
 						if (groupId != null) {
 							MarketGroup marketGroup = EveCRESTApi.get().getMarketGroup(groupId);
 						} else {
