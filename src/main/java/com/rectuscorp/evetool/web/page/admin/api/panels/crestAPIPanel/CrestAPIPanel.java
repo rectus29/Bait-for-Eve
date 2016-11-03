@@ -44,6 +44,7 @@ public class CrestAPIPanel extends Panel {
 
 		add((new Form("form") {
 			private String groupId;
+
 			@Override
 			protected void onInitialize() {
 				super.onInitialize();
@@ -54,7 +55,10 @@ public class CrestAPIPanel extends Panel {
 						if (groupId != null) {
 							MarketGroup marketGroup = EveCRESTApi.get().getMarketGroup(groupId);
 						} else {
-							List<MarketGroup> marketGroupList = EveCRESTApi.get().getAllMarketGroup();
+							List<MarketGroup> marketGroupList = EveCRESTApi.get().getAllRootMarketGroup();
+							for (MarketGroup temp : marketGroupList) {
+								serviceGeneric.save(temp);
+							}
 						}
 					}
 				});

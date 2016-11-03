@@ -326,7 +326,7 @@ public class EveCRESTApi {
 		log.debug("Crest get All marketGroup");
 		List<MarketGroup> out = new ArrayList<>();
 		try {
-			URIBuilder url = new URIBuilder(API_URL + "/market/groups/");
+			URIBuilder url = new URIBuilder(API_URL + "market/groups/");
 			GetMethod get = new GetMethod(url.toString());
 			client.executeMethod(get);
 			String jsonResponse = get.getResponseBodyAsString();
@@ -334,6 +334,32 @@ public class EveCRESTApi {
 			for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
 				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
 				if (temp.has("id")) {
+					//add group child add here
+					MarketGroup group = getMarketGroup(temp.getString("id_str"));
+					if (group != null) {
+						out.add(group);
+					}
+				}
+			}
+		} catch (Exception e) {
+			log.error("Error while get group from CREST", e);
+			out = new ArrayList<MarketGroup>();
+		}
+		return out;
+	}
+
+	public List<MarketGroup> getAllRootMarketGroup(){
+		log.debug("Crest get All root marketGroup");
+		List<MarketGroup> out = new ArrayList<>();
+		try {
+			URIBuilder url = new URIBuilder(API_URL + "market/groups/");
+			GetMethod get = new GetMethod(url.toString());
+			client.executeMethod(get);
+			String jsonResponse = get.getResponseBodyAsString();
+			JSONObject jsonObj = new JSONObject(jsonResponse);
+			for (int i = 0; i < jsonObj.getJSONArray("items").length(); i++) {
+				JSONObject temp = (JSONObject) jsonObj.getJSONArray("items").get(i);
+				if (temp.has("id") && !temp.has("parentGroup")) {
 					//add group child add here
 					MarketGroup group = getMarketGroup(temp.getString("id_str"));
 					if (group != null) {
