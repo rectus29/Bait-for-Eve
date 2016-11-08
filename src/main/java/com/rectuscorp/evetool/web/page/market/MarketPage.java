@@ -41,7 +41,7 @@ public class MarketPage extends ProtectedPage implements IMenuContributor {
 	protected void onInitialize() {
 		super.onInitialize();
 		List<MarketGroup> rootMarketGroup = serviceMarketGroup.getAllRootMarketGroup();
-		
+
 
 
 
