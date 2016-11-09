@@ -31,7 +31,8 @@ public class Config implements Serializable{
     private String fullDateFormat = dateFormat + " HH:mm:ss";
 	private SimpleDateFormat dateFormater;
 	private PeriodFormatter durationFormater;
-    private DecimalFormat formatter = new DecimalFormat("###,###,###,###.###");
+    private DecimalFormat formatter;
+    private DecimalFormat currencyFormatter;
     private String defaultColor[] = {"#FFAA00", "#877F13", "#C4A64C", "#BF3E21", "#A61F2B", "#5C1644", "#BF6374", "#872858", "#541154", "#BDB738", "#E5C85B", "#0C83B4"};
 
     public Config() {
@@ -58,6 +59,7 @@ public class Config implements Serializable{
 				.toFormatter();
 		formatter = new DecimalFormat("###,###,###,###.##");
 		formatter.setMinimumFractionDigits(2);
+		currencyFormatter = new DecimalFormat("###,###,###,###.00");
 		resourceFolder = new Folder(rootFolder, File.separator + RESOURCE_PATH);
 		resourceFolder.mkdirs();
 		avatarFolder = new Folder( resourceFolder  + File.separator + "avatar");
@@ -168,6 +170,10 @@ public class Config implements Serializable{
 
     public String format(double number) {
         return formatter.format(number);
+    }
+
+    public String formatCurrency(double number) {
+        return currencyFormatter.format(number);
     }
 
 }

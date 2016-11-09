@@ -9,8 +9,11 @@ import com.rectuscorp.evetool.web.panel.menucontributionpanel.MenuElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.list.ListItem;
+import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import java.util.ArrayList;
@@ -42,6 +45,12 @@ public class MarketPage extends ProtectedPage implements IMenuContributor {
 		super.onInitialize();
 		List<MarketGroup> rootMarketGroup = serviceMarketGroup.getAllRootMarketGroup();
 
+		add(new ListView<MarketGroup>("rootMarketGroup", rootMarketGroup) {
+			@Override
+			protected void populateItem(ListItem<MarketGroup> item) {
+				item.add(new Label("marketName", item.getModelObject().getName()));
+			}
+		});
 
 
 
