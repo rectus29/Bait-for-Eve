@@ -10,6 +10,7 @@ import com.rectuscorp.evetool.enums.State;
 import com.rectuscorp.evetool.service.IserviceCorporation;
 import com.rectuscorp.evetool.service.IserviceGeneric;
 import com.rectuscorp.evetool.spring.AppContext;
+import com.rectuscorp.evetool.tasks.schedulde.ServerStateTask;
 import com.rectuscorp.evetool.tools.FileUtils;
 import com.rectuscorp.evetool.web.Config;
 import org.apache.commons.httpclient.HttpClient;
@@ -371,10 +372,10 @@ public class EveXmlApi {
 			DOMDocument document = (DOMDocument) saxReader.read(new StringReader(xmlResponse));
 			if (document.selectSingleNode("//result") != null) {
 				if (document.selectSingleNode("//result/serverOpen") != null) {
-					out.put("serverOpen", document.selectSingleNode("//result/serverOpen").getText());
+					out.put(ServerStateTask.SERVEROPEN, document.selectSingleNode("//result/serverOpen").getText());
 				}
 				if (document.selectSingleNode("//result/onlinePlayers") != null) {
-					out.put("onlinePlayers", document.selectSingleNode("//result/onlinePlayers").getText());
+					out.put(ServerStateTask.ONLINEPLAYERS, document.selectSingleNode("//result/onlinePlayers").getText());
 				}
 			}
 

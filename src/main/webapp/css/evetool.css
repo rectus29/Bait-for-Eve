@@ -29,9 +29,11 @@ a:hover{
 
 #leftMenu {
     background: #2D2D2D;
-    height: 800px;
     border-right: solid 2px #964516;
-    position: relative;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
 }
 
 .table-striped tbody tr:nth-child(2n+1) td, .table-striped tbody tr:nth-child(2n+1) th {

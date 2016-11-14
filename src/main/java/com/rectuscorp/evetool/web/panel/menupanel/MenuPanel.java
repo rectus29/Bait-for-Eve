@@ -45,7 +45,7 @@ public class MenuPanel extends Panel {
 		add(new BookmarkablePageLink("crest", CrestPage.class));
 		add(new BookmarkablePageLink("market", MarketPage.class){
 			@Override
-			public boolean isEnabled() {
+			public boolean isVisible() {
 				return SecurityUtils.getSubject().isPermitted("market:access");
 			}
 		});

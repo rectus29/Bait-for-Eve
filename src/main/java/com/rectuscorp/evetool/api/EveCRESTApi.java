@@ -60,7 +60,8 @@ public class EveCRESTApi {
 	 */
 	public static EveCRESTApi get() {
 		if (ourInstance == null) {
-			return new EveCRESTApi();
+			ourInstance = new EveCRESTApi();
+			return ourInstance;
 		}
 		return ourInstance;
 	}
