@@ -1,14 +1,17 @@
 package com.rectuscorp.evetool.api;
 
+import com.google.gson.JsonArray;
 import com.rectuscorp.evetool.entities.crest.*;
 import com.rectuscorp.evetool.service.IserviceAttribute;
 import com.rectuscorp.evetool.service.IserviceConstellation;
 import com.rectuscorp.evetool.service.IserviceRegion;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.wicket.ajax.json.JSONArray;
 import org.apache.wicket.ajax.json.JSONObject;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.dom4j.DocumentException;
@@ -16,9 +19,13 @@ import org.dom4j.dom.DOMDocument;
 import org.dom4j.dom.DOMDocumentFactory;
 import org.dom4j.io.SAXReader;
 
+import javax.xml.ws.http.HTTPException;
+import java.awt.print.Pageable;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -370,7 +377,23 @@ public class EveCRESTApi {
 			}
 		} catch (Exception e) {
 			log.error("Error while get group from CREST", e);
-			out = new ArrayList<MarketGroup>();
+			out = new ArrayList<>();
+		}
+		return out;
+	}
+
+	public List<Type> getMarketGroupContent(MarketGroup marketGroup){
+		List<Type> out = new ArrayList<>();
+		URIBuilder url = null;
+		try {
+			url = new URIBuilder(API_URL + "market/types/");
+			url.addParameter("group", API_URL + "market/groups/" + marketGroup.getId() + "/");
+			JSONArray jsonArray = getPagedItemsArray(url.build());
+			jsonArray.length();
+
+
+		} catch (Exception e) {
+	 		log.error("Error while retreive market group content", e);
 		}
 		return out;
 	}
@@ -402,5 +425,31 @@ public class EveCRESTApi {
 		}
 
 	}
+
+	private JSONArray getPagedItemsArray(URI url) throws Exception{
+		JSONArray out = new JSONArray();
+		GetMethod getMethod = new GetMethod(url.toString());
+		client.executeMethod(getMethod);
+		JSONObject elJsonObj = new JSONObject(getMethod.getResponseBodyAsString());
+		if(elJsonObj.has("items")){
+			out.put(elJsonObj.getJSONArray("items"));
+		}
+		if(elJsonObj.has("pageCount")){
+			URIBuilder uriBuilder = new URIBuilder(url);
+			int pageCount = elJsonObj.getInt("pageCount");
+			for(int i = 2; i<pageCount;i++){
+				uriBuilder.setParameter("page", Integer.toString(i));
+				getMethod.setParams(new HttpMethodParams().setParameter("page", i));
+				client.executeMethod(getMethod);
+				elJsonObj = new JSONObject(getMethod.getResponseBodyAsString());
+				JSONArray pageItemsArray = elJsonObj.getJSONArray("items");
+				if(pageItemsArray != null){
+					out.put(pageItemsArray);
+				}
+			}
+		}
+		return out;
+	}
+
 }
 
