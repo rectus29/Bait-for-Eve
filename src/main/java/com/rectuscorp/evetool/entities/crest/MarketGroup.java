@@ -1,6 +1,7 @@
 package com.rectuscorp.evetool.entities.crest;
 
 import com.rectuscorp.evetool.entities.core.GenericEntity;
+import com.rectuscorp.evetool.enums.State;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class MarketGroup extends GenericEntity {
 	private Boolean published = true;
 	@OneToMany
 	private List<Type> typeList = new ArrayList<>();
+	@Column
+	private State state = State.ENABLE;
 
 	public String getName() {
 		return name;
@@ -80,5 +83,14 @@ public class MarketGroup extends GenericEntity {
 
 	public List<Type> getTypeList() {
 		return typeList;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public MarketGroup setState(State state) {
+		this.state = state;
+		return this;
 	}
 }

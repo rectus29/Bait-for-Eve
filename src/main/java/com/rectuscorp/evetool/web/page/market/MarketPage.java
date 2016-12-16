@@ -60,7 +60,7 @@ public class MarketPage extends ProtectedPage implements IMenuContributor {
 		out.add(new MenuElement(new ResourceModel("cart").getObject()) {
 			@Override
 			public Link getLink() {
-				return new BookmarkablePageLink(getMenuElementMarkupID(), MarketPage.class, new PageParameters().add(PANEL, "API"));
+				return new BookmarkablePageLink(getMenuElementMarkupID(), MarketPage.class, new PageParameters().add(PANEL, "CART"));
 			}
 		});
 		return out;

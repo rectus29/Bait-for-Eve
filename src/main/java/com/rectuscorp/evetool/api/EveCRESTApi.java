@@ -439,7 +439,7 @@ public class EveCRESTApi {
 			int pageCount = elJsonObj.getInt("pageCount");
 			for(int i = 2; i<pageCount;i++){
 				uriBuilder.setParameter("page", Integer.toString(i));
-				getMethod.setParams(new HttpMethodParams().setParameter("page", i));
+				//getMethod.setParams(new HttpMethodParams().setParameter("page", i));
 				client.executeMethod(getMethod);
 				elJsonObj = new JSONObject(getMethod.getResponseBodyAsString());
 				JSONArray pageItemsArray = elJsonObj.getJSONArray("items");

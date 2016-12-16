@@ -6,6 +6,7 @@ package com.rectuscorp.evetool.entities.core; /**
  */
 
 
+import com.rectuscorp.evetool.enums.State;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class GenericEntity implements DomainObject, Serializable {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated = new Date();
+
 
 	public void setId(Long id) {
 		this.id = id;
