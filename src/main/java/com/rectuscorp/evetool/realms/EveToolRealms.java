@@ -14,7 +14,9 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.SimpleByteSource;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
 /*-----------------------------------------------------*/
@@ -26,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * The type Eve tool realms.
  */
+@Component
 public class EveToolRealms extends AuthorizingRealm {
 
 	private static final Logger log = LogManager.getLogger(EveToolRealms.class);

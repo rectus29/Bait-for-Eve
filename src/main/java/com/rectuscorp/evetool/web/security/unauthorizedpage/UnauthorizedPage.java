@@ -16,8 +16,7 @@ public class UnauthorizedPage extends BasePage {
 
     private static final Logger log = LogManager.getLogger(UnauthorizedPage.class);
 
-    public UnauthorizedPage(){
-    }
+    public UnauthorizedPage(){}
 
     public UnauthorizedPage(IModel model) {
         super(model);
@@ -30,8 +29,6 @@ public class UnauthorizedPage extends BasePage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-
-        add((new FooterPanel("footerPanel")).setOutputMarkupId(true));
-
+        add(new FooterPanel("footerPanel").setOutputMarkupId(true));
     }
 }

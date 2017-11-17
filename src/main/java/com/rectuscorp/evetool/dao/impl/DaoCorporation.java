@@ -3,6 +3,7 @@ package com.rectuscorp.evetool.dao.impl;
 import com.rectuscorp.evetool.dao.IdaoCorporation;
 import com.rectuscorp.evetool.entities.crest.Corporation;
 import com.rectuscorp.evetool.api.EveCRESTApi;
+import org.apache.wicket.Application;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -18,6 +19,7 @@ public class DaoCorporation extends GenericDaoHibernate<Corporation, Long> imple
 
 	@Override
 	public Corporation get(Long id) {
+		//Application.get().
 		Corporation out = super.get(id);
 		if (out == null) {
 			out = EveCRESTApi.get().getCorporation(id.toString());

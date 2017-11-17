@@ -6,6 +6,7 @@ import com.rectuscorp.evetool.service.IserviceUser;
 import org.apache.logging.log4j.Logger; import org.apache.logging.log4j.LogManager;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.hibernate.annotations.NamedQueries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -24,10 +24,11 @@ public class DaoUser extends GenericDaoHibernate<User, Long> implements IdaoUser
         super(User.class);
     }
 
-    public User getUserByUsername(String username) {
+    @Override
+	public User getUserByUsername(String username) {
 
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(User.class);
-        detachedCriteria.add(Restrictions.eq("username", username));
+        detachedCriteria.add(Restrictions.eq("userName", username));
         detachedCriteria.add(Restrictions.eq("state", State.ENABLE));
         List result = getHibernateTemplate().findByCriteria(detachedCriteria);
         if (result.size() == 0)
