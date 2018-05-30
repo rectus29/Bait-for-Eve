@@ -46,7 +46,7 @@ public class ProtectedPage extends BasePage {
 		add(new ServerStatePanel("serverState"));
 		add(new EveClockPanel("clock"));
         add((new MenuContributionPanel("topPanel")).setOutputMarkupId(true));
-        add((new FooterPanel("footerPanel")).setOutputMarkupId(true));
+//        add((new FooterPanel("footerPanel")).setOutputMarkupId(true));
     }
 
 }
